@@ -1,0 +1,25 @@
+//- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+//- <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+nav.navbar-top.navbar.navbar-expand-lg.navbar-light.py-2.bg-white.fixed-top.border-bottom
+  .container
+    a.navbar-brand(href='/')
+      img.navbar-brand-img(src='/img/logo.png' alt='...')
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse' aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarCollapse.collapse.navbar-collapse
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse' aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation')
+        i.fe.fe-x
+      ul.navbar-nav.ms-auto
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(href='/')
+            | Trang ch&#x1EE7;
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(href='about-us.html')
+            | Gi&#x1EDB;i thi&#x1EC7;u
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(href='contact.html')
+            | Li&ecirc;n h&#x1EC7;
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(href='survey.html')
+            | &Dstrok;&aacute;nh gi&aacute;
+      a.navbar-btn.btn.btn-sm.btn-danger.ms-auto(href='user/login.html') &Dstrok;&abreve;ng nh&#x1EAD;p
