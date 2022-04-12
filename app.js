@@ -35,11 +35,11 @@ app.use(
         'https:',
         'http:',
         'blob:',
-        'https://js.stripe.com',
+        'https://js.stripe.com'
       ],
-      styleSrc: ["'self'", "'unsafe-inline'", 'https:', 'http:'],
-    },
-  }),
+      styleSrc: ["'self'", "'unsafe-inline'", 'https:', 'http:']
+    }
+  })
 );
 
 // Development logging
@@ -51,7 +51,7 @@ if (process.env.NODE_ENV === 'development') {
 const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
-  message: 'Too many requests from this IP, please try again in an hour!',
+  message: 'Too many requests from this IP, please try again in an hour!'
 });
 app.use('/api', limiter);
 
@@ -74,9 +74,9 @@ app.use(
       'ratingsAverage',
       'maxGroupSize',
       'difficulty',
-      'price',
-    ],
-  }),
+      'price'
+    ]
+  })
 );
 // Serving static files
 app.use(express.static(`${__dirname}/public`));

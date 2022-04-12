@@ -3,81 +3,76 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
-const userSchema = new mongoose.Schema({
-  firstname: {
-    type: String,
-    required: [true, 'Please add a firstname']
-  },
-  lastname: {
-    type: String,
-    required: [true, 'Please add a lastname']
-    // default: 'huy hung'
-  },
-  address: {
-    type: String,
-    // required: [true, 'Please add an address'],
-    default: 'ha noi'
-  },
-  guides: [
-    {
-      type: Object,
-      ref: 'Wedding'
-    }
-  ],
-  date: {
-    type: Date,
-    // required: [true, 'Please add a date'],
-    default: Date.now()
-  },
-  email: {
-    type: String,
-    required: [true, 'Please provide your email'],
-    unique: true,
-    lowercase: true,
-    validate: [validator.isEmail, 'Please provide a valid email']
-  },
-  avatar: {
-    type: String,
-    default: 'default.jpg'
-  },
-  role: {
-    type: String,
-    enum: ['user', 'guide', 'lead-guide', 'admin'],
-    default: 'user'
-  },
-  password: {
-    type: String,
-    required: [true, 'Please provide a password'],
-    minlength: 8,
-    select: false
-  },
-  passwordConfirm: {
-    type: String,
-    required: [true, 'Please confirm your password'],
-    validate: {
-      // This only works on CREATE and SAVE!!!
-      validator(el) {
-        return el === this.password;
-      },
-      message: 'Passwords are not the same!'
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, 'Please add a name']
+    },
+    address: {
+      type: String,
+      required: [true, 'Please add an address']
+    },
+    date: {
+      type: Date,
+      // required: [true, 'Please add a date'],
+      default: Date.now()
+    },
+    email: {
+      type: String,
+      required: [true, 'Please provide your email'],
+      unique: true,
+      lowercase: true,
+      validate: [validator.isEmail, 'Please provide a valid email']
+    },
+    photo: {
+      type: String,
+      default: 'default.jpg'
+    },
+    role: {
+      type: String,
+      enum: ['user', 'guide', 'lead-guide', 'admin'],
+      default: 'user'
+    },
+    password: {
+      type: String,
+      required: [true, 'Please provide a password'],
+      minlength: 8,
+      select: false
+    },
+    passwordConfirm: {
+      type: String,
+      required: [true, 'Please confirm your password'],
+      validate: {
+        // This only works on CREATE and SAVE!!!
+        validator(el) {
+          return el === this.password;
+        },
+        message: 'Passwords are not the same!'
+      }
+    },
+    passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date,
+    active: {
+      type: Boolean,
+      default: true,
+      select: false
     }
   },
-  passwordChangedAt: Date,
-  passwordResetToken: String,
-  passwordResetExpires: Date,
-  active: {
-    type: Boolean,
-    default: true,
-    select: false
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
   }
-});
+);
 
-// Virtual populate
-userSchema.virtual('wedding', {
+// Virtual populate field data
+userSchema.virtual('data', {
   ref: 'Wedding',
-  foreignField: 'user',
-  localField: '_id'
-});
+  localField: '_id',
+  foreignField: 'user'
+}
+);
 
 userSchema.pre('save', async function(next) {
   // Only run this function if password was actually modified
@@ -88,12 +83,12 @@ userSchema.pre('save', async function(next) {
 
   // Delete passwordConfirm field
   this.passwordConfirm = undefined;
+
   next();
 });
 
 userSchema.pre('save', function(next) {
   if (!this.isModified('password') || this.isNew) return next();
-
   this.passwordChangedAt = Date.now() - 1000;
   next();
 });

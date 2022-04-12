@@ -1,12 +1,24 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const validator = require('validator');
 
+// const User = require('./userModel');
+// const Contact = require('./contactModel');
 const weddingSchema = new mongoose.Schema({
   user: {
-    type: Object,
-    ref: 'User'
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: [true, 'A wedding must have a user']
   },
+  name: {
+    type: String,
+    required: [true, 'A tour must have a name'],
+    unique: true,
+    trim: true,
+    maxlength: [40, 'A tour name must have less or equal then 40 characters'],
+    minlength: [10, 'A tour name must have more or equal then 10 characters']
+    // validate: [validator.isAlpha, 'Tour name must only contain characters']
+  },
+  slug: String,
   BrideGroom: {
     type: Object,
     default: {
@@ -128,8 +140,24 @@ const weddingSchema = new mongoose.Schema({
         images: ['dsadasd.jpg']
       }
     ]
-  }
+  },
+}
+);
+
+// weddingSchema.index({ slug: 1 });
+//select -id find
+// weddingSchema.pre(/^find/, function(next) {
+//   this.populate({
+//     path: 'user',
+//     select: 'name email address avatar'
+//   })
+//   next();
+// });
+
+// middle ware get slugify
+weddingSchema.pre('save', function(next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
 });
-  
-const wedding = mongoose.model('weddings', weddingSchema);
+const wedding = mongoose.model('Wedding', weddingSchema);
 module.exports = wedding;
