@@ -1,0 +1,32 @@
+extends form
+block forms
+    .container.active
+        .forms    
+            .form.form--signup
+                span.title Registration
+                form(action='#')
+                    .input-field
+                        input#name1(type='text', placeholder='Enter your name', required='')
+                        i.uil.uil-user
+                    .input-field
+                        input#email1(type='text', placeholder='Enter your email', required='')
+                        i.uil.uil-envelope.icon
+                    .input-field
+                        input#password1(type='password', placeholder='Create a password', required='')
+                        i.uil.uil-lock.icon
+                    .input-field
+                        input#password2(type='password', placeholder='Confirm a password', required='')
+                        i.uil.uil-lock.icon
+                        i.uil.uil-eye-slash.showHidePw
+                    .checkbox-text
+                        .checkbox-content
+                            input#sigCheck(type='checkbox')
+                            label.text(for='sigCheck') Remember me
+                        a.text(href='#') Forgot password?
+                    .input-field.button
+                        button.btn.btn--green Signup
+                .login-signup
+                    .text
+                    | Not a new member?
+                    br
+                    a.text.signup-link(href='signin') Signin now

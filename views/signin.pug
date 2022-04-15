@@ -1,0 +1,22 @@
+extends form
+block forms
+    .container
+        .forms
+            .form.login
+                .title(style='text-align: center;')
+                    span.title Login
+                form.form--login
+                    .input-field
+                        input#email(type='text', placeholder='Enter your email', required='')
+                        i.uil.uil-envelope.icon
+                    .input-field
+                        input#password.password(type='password', placeholder='Enter your password', required='')
+                        i.uil.uil-lock.icon
+                        i.uil.uil-eye-slash.showHidePw
+                    .input-field.button
+                        button.btn.btn--green Login
+                .login-signup
+                    span.text
+                        | Not a member?
+                        br
+                        a.text.signup-link(href='signup') Signup now
