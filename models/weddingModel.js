@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-
 // const User = require('./userModel');
 // const Contact = require('./contactModel');
 const weddingSchema = new mongoose.Schema({

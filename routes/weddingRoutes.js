@@ -11,6 +11,8 @@ router
 router
   .route('/:id')
   .get(authController.protect, weddingController.getWedding )
-  .patch(authController.protect, weddingController.updateWedding)
+  .patch(authController.protect,
+    authController.restrictTo('user', 'admin'),
+    weddingController.updateWedding)
   .delete(authController.protect, weddingController.deleteWedding);
 module.exports = router;
