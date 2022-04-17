@@ -7,7 +7,7 @@ router.use(authController.protect);
 
 router
   .route('/')
-  .get(authController.protect, reviewsController.getAllReviews)
+  .get(reviewsController.getAllReviews)
   .post(
     authController.restrictTo('user'),
     reviewsController.setWeddingUserIds,

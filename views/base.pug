@@ -1,11 +1,10 @@
-doctype html
 head
     block head
         //- script(src='https://unpkg.com/axios/dist/axios.min.js')
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    title N&#x1EC1;n t&#x1EA3;ng t&#x1EA1;o website &dstrok;&aacute;m c&#x1B0;&#x1EDB;i mi&#x1EC5;n ph&iacute;!
+    title #{title}
     link(rel='icon' type='image/png' href='/favicon/favicon.png')
     link(rel='preconnect' href='https://fonts.googleapis.com/')
     link(rel='preconnect' href='https://fonts.gstatic.com/' crossorigin='')
@@ -42,6 +41,7 @@ body.flex-colum.h-100(style='padding-top:65px!important')
 
     //-main
     block content
+
     //-footer
     include _footer
     //- script(src='/js/mapbox.js')

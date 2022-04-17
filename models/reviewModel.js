@@ -29,7 +29,7 @@ const reviewSchema = new mongoose.Schema(
   }
 );
 
-// reviewSchema.index({ wedding: 1, user: 1 }, { unique: true });
+reviewSchema.index({ wedding: 1, user: 1 }, { unique: true });
 
 reviewSchema.pre(/^find/, function(next) {
   this.populate({

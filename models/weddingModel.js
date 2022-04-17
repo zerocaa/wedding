@@ -26,6 +26,19 @@ const weddingSchema = new mongoose.Schema(
       ]
       // validate: [validator.isAlpha, 'Tour name must only contain characters']
     },
+    startLocation: [
+      {
+        // GeoJSON
+        type: {
+          type: 'String',
+          default: 'Point',
+          enum: 'Point'
+        },
+        coordinates: [Number],
+        address: String,
+        description: String
+      }
+    ],
     slug: String,
     BrideGroom: {
       type: Object,
@@ -158,6 +171,8 @@ const weddingSchema = new mongoose.Schema(
 );
 
 weddingSchema.index({ slug: 1 });
+weddingSchema.index({ startLocation: '2dsphere' }); 
+
 // select -id find
 // weddingSchema.pre(/^find/, function(next) {
 //   this.populate({

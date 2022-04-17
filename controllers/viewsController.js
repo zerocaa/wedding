@@ -84,5 +84,19 @@ exports.getWedding = catchAsync(async (req, res, next) => {
 });
 
 exports.getHompage = catchAsync(async (req, res, next) => {
-  res.status(200).render('homepage');	
+  res.status(200).render('homepage', {
+    title: 'Nền tảng tạo website đám cưới miễn phí!'
+  });	
+});
+
+exports.getTerms = catchAsync(async (req, res, next) => {
+  res.status(200).render('terms', {
+    title: 'Điều khoản sử dụng - #'
+  });	
+});
+
+exports.getAbout = catchAsync(async (req, res, next) => {
+  res.status(200).render('about-us', {
+    title: 'Giới thiệu'
+  });
 });

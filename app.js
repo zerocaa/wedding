@@ -88,7 +88,7 @@ app.use((req, res, next) => {
   // console.log(req.cookies);
   next();
 });
-// 3) ROUTES
+// 3) ROUTES  
 //  create routes for main pages
 app.use('/', viewRouter);
 app.use('/api/v1/users', userRouter);
