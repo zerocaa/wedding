@@ -4,6 +4,7 @@ const authController = require('../controllers/authController');
 
 const router = express.Router();
 
+router.get('/wedding/templates', viewsController.getTemplates);
 router.get('/about-us', viewsController.getAbout);
 router.get('/terms', viewsController.getTerms);
 router.get('/signup', viewsController.getSignup);

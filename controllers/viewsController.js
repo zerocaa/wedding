@@ -100,3 +100,9 @@ exports.getAbout = catchAsync(async (req, res, next) => {
     title: 'Giới thiệu'
   });
 });
+
+exports.getTemplates = catchAsync(async (req, res, next) => {
+  res.status(200).render('wedding/templates', {
+    title: 'Templates'
+  });
+});

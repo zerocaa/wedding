@@ -28,7 +28,9 @@ router
 router
   .route('/:id')
   .get(weddingController.getWedding)
-  .patch(authController.protect, weddingController.updateWedding)
+  .patch(authController.protect,
+    authController.restrictTo('user','admin'),
+    weddingController.updateWedding)
   .delete(
     authController.protect,
     authController.restrictTo('admin','lead-guide'),

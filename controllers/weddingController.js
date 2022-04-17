@@ -46,6 +46,23 @@ console.log(distance, lat, lng, unit);
 
 exports.getAllWedding = factory.getAll(Wedding);
 exports.getWedding = factory.getOne(Wedding, { path: 'reviews' });
-exports.updateWedding = factory.updateOne(Wedding);
+exports.updateWedding = catchAsync(async (req, res, next) => {
+  let wedding = await Wedding.findById(req.params.id);
+  if (!wedding) return next(new AppError('No wedding found with that ID', 404));
+  if (wedding.user.toString() !== req.user.id && req.user.role !== 'admin')
+    return next(
+      new AppError('You do not have permission to perform this action', 403)
+    );
+  wedding = await Wedding.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  });
+  res.status(200).json({
+    status: 'success',
+    data: {
+      wedding
+    }
+  });
+});
 exports.deleteWedding = factory.deleteOne(Wedding);
 
