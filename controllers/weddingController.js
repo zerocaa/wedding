@@ -6,7 +6,7 @@ const AppError = require("../utils/appError");
 //func create,get,edit,delete wedding
 
 exports.createWedding = catchAsync(async (req, res, next) => {
-     req.body.user = req.user.id;
+    req.body.user = req.user.id;
     const newWedding = await Wedding.create(req.body);
     res.status(201).json({
         status: 'success',

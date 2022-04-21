@@ -1,12 +1,3 @@
-window.dataLayer = window.dataLayer || [];
-function gtag() {
-  dataLayer.push(arguments);
-}
-gtag('js', new Date());
-
-gtag('config', 'G-P4QBSSV7TG');
-
-
 jQuery(function($) {
    var checkSubmited = false;
    $('form').on('submit', function(e) {

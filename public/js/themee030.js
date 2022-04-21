@@ -17,7 +17,7 @@ function setFormErrors(formElement, errors) {
 
 function unsetFormErrors(formElement) {
 	formElement.find('.has-error').removeClass('has-error');
-	formElement.find('.help-block').html('');
+	formElement.find('.help-block').pug('');
 	formElement.find('.form-message').hide();
 }
 

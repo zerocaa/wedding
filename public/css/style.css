@@ -1076,3 +1076,7 @@ img {
 	.zn-announcement-bar .zn-annoucement-close:hover {
 		opacity: 0.8;
 	}
+	.grecaptcha-badge {
+        visibility: hidden;
+        opacity: 0;
+    }

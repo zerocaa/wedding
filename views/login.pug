@@ -1,58 +1,14 @@
 extends base
 block content
-    section.section-border.border-danger.login-page
-        .container.d-flex.flex-column
-            .row.align-items-center.justify-content-center.gx-0.min-vh-100
-            .col-8.col-md-6.col-lg-7.offset-md-1.order-md-2.mt-auto.mt-md-0.pt-8.pb-4.py-md-11
-                img.img-fluid(src='/static/img/banner-common.png' alt='Behappy')
-            .col-12.col-md-5.col-lg-4.order-md-1.mb-auto.mb-md-0.pb-8.py-md-11
-                h1.mb-0.fw-bold.text-center &Dstrok;&abreve;ng nh&#x1EAD;p
-                p.mb-6.text-center.text-muted
-                | C&ugrave;ng Behappy k&#x1EBF;t n&#x1ED1;i v&agrave; chia s&#x1EBB; nh&#x1EEF;ng &dstrok;i&#x1EC1;u h&#x1EA1;nh ph&uacute;c &dstrok;&#x1EBF;n m&#x1ECD;i
-                | ng&#x1B0;&#x1EDD;i trong cu&#x1ED9;c s&#x1ED1;ng c&#x1EE7;a b&#x1EA1;n.
-                form#login-form.mb-5(action='' method='post')
-                input(type='hidden' name='_csrf-Behappy' value='TuH_6j964utOD16RH6EiasJ80BwmgU6q5gF9EIQl8iEroL69CjmskXttGt0uzWMwpDvkVUzNGMCeOQ1AsEKbZg==')
-                .form-group.field-userloginform-username.required
-                    .form-group
-                    input#userloginform-username.form-control(type='text' name='UserLoginForm[username]' placeholder='Username hoặc email' autofocus='' aria-required='true')
-                    p.help-block.help-block-error
-                .form-group.field-userloginform-password.required
-                    .form-group.mb-5
-                    input#userloginform-password.form-control(type='password' name='UserLoginForm[password]' value='' placeholder='Mật khẩu' autofocus='' aria-required='true')
-                    p.help-block.help-block-error
-                .form-group.field-userloginform-rememberme
-                    .checkbox
-                    label(for='userloginform-rememberme')
-                        input(type='hidden' name='UserLoginForm[rememberMe]' value='0')
-                        input#userloginform-rememberme(type='checkbox' name='UserLoginForm[rememberMe]' value='1' checked='')
-                        |                     L&#x1B0;u tr&#x1EA1;ng th&aacute;i &dstrok;&abreve;ng nh&#x1EAD;p
-                    p.help-block.help-block-error
-                .mb-4
-                    a(href='forgot-password.html') B&#x1EA1;n qu&ecirc;n m&#x1EAD;t kh&#x1EA9;u?
-                button.btn.btn-danger.w-100(type='submit' name='login-button')
-                    | &Dstrok;&abreve;ng nh&#x1EAD;p
-                .sns-list-icon.d-flex.align-items-center.justify-content-center.mb-6
-                a.btn.btn-outline-success.w-100(href='register.html') T&#x1EA1;o t&agrave;i kho&#x1EA3;n m&#x1EDB;i
-                .mt-4.text-left
-    script.
-        jQuery(function ($) {
-        var checkSubmited = false;
-        $("form").on("submit", function (e) {
-        if (checkSubmited == false) {
-        $(this)
-        .find('button[type="submit"]')
-        .prepend(
-        `
-        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-        `
-        )
-        .attr("disabled", true);
-        checkSubmited = true;
-        }
-        });
-        jQuery("#login-form").yiiActiveForm([], []);
-        });
-
-
-
-        
+    main.main
+    .login-form
+        h2.heading-secondary.ma-bt-lg Log into your account
+        form.form.form--login
+            .form__group
+                label.form__label(for='email') Email address
+                input#email.form__input(type='email', placeholder='you@example.com', required)
+            .form__group.ma-bt-md
+                label.form__label(for='password') Password
+                input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+            .form__group
+                button.btn.btn--green Login

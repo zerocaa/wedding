@@ -40,7 +40,7 @@ exports.getSigIn = (req, res) => {
 // getSignup
 exports.getSignup = (req, res) => {
   res.status(200).render('signup', {
-    title: 'signup'
+    title: 'Đăng ký tài khoản - #'
   });
 };
 
@@ -50,13 +50,22 @@ exports.getAccount = (req, res) => {
   });
 };
 
+exports.getAccountSecurity = catchAsync(async (req, res, next) => {
+  res.status(200).render('user-password', {
+    title: 'Account security'
+  });
+});
+
 
 exports.updateUserData = catchAsync(async (req, res, next) => {
   const updatedUser = await User.findByIdAndUpdate(
     req.user.id,
     {
       name: req.body.name,
-      email: req.body.email
+      email: req.body.email,
+      addres: req.body.address,
+      phone: req.body.phone,
+      nation: req.body.nation
     },
     {
       new: true,
@@ -102,7 +111,13 @@ exports.getAbout = catchAsync(async (req, res, next) => {
 });
 
 exports.getTemplates = catchAsync(async (req, res, next) => {
-  res.status(200).render('wedding/templates', {
+  res.status(200).render('templates', {
     title: 'Templates'
+  });
+});
+
+exports.getDetailTempaltes = catchAsync(async (req, res, next) => {
+  res.status(200).render('detailtemplate', {
+    title: 'Detail Templates'
   });
 });
