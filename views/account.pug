@@ -51,24 +51,50 @@ block content
                 | Th&ocirc;ng tin h&#x1ED3; s&#x1A1;
             .card-body
               form.form.form-user-data
-                .form__group
-                  label.form__label(for='name') Name
-                  input#name.form__input(type='text', value=`${user.name}`, required, name='name')
-                .form__group.ma-bt-md
-                  label.form__label(for='email') Email address
-                  input#email.form__input(type='email', value=`${user.email}`, required, name='email')
-                .form__group
-                  label.form__label(for='address') address
-                  input#address.form__input(type='text', value=`${user.address}`, required, name='address')
-                .form__group 
-                  label.form__label(for='phone') phone
-                  input#phone.form__input(type='number', value=`${user.phone}`, required, name='phone')
-                .form__group 
-                  label.form__label(for='nation') nation
-                  input#nation.form__input(type='text', value=`${user.nation}`, required, name='nation')
-                .form__group.form__photo-upload
-                  img.form__user-photo(src=`/img/users/${user.photo}`, alt='User photo')
-                  input.form__upload(type='file' accept='image/*', id ='photo' , name='photo')
-                  label(for='photo') Choose new photo
-                .form__group.right
-                  button.btn.btn--small.btn--green.btn--save-settings Save settings
+                input(type='hidden' name='_csrf-biihappy' value='f1zcOac31FNMM51l7iF7r0JtjHAep2MfwF1UoLv62A0xae1u9n-jPmF47C6FTDXgDSfoI1XAM1SqbxbElqyHfg==')
+                .row
+                  .col-12
+                    .row.align-items-center
+                      .col-auto.form__photo-upload
+                        .avatar.avatar-xxl
+                          img#show_image_avatar.avatar-img.rounded-circle.border.border-gray-800-50.p-1.form__user-photo(src=`/img/users/${user.photo}`, alt='User photo')
+                      .col.ms-n5
+                        p.mb-0
+                          | &#x1EA2;nh &dstrok;&#x1EA1;i di&#x1EC7;n
+                        small.text-gray-700
+                          | Ch&#x1EC9; cho ph&eacute;p &dstrok;&#x1ECB;nh d&#x1EA1;ng PNG ho&#x1EB7;c JPG. v&agrave; k&iacute;ch th&#x1B0;&#x1EDB;c ph&#x1EA3;i l&#x1EDB;n h&#x1A1;n 500x500px.
+                      .col-12.col-md-auto
+                        button.btn.btn-xs.w-100.btn-secondary.mt-5.mt-md-0.position-relative
+                          input.form__upload(type='file' accept='image/*', id ='photo' , name='photo')
+                    hr.mb-5
+                  .col-12   
+                    .form__group.field-userupdateprofileform-username.required
+                      .form-floating.mb-2.form-group
+                        input#name.form__input.form-control(type='text', value=`${user.name}`, required, name='name')
+                        label.form__label.control-label(for='name') Name
+                        p.help-block.help-block-error
+                  .col-12
+                     .form-group.form-user-datal.required
+                      .form-floating.mb-2.form-group.ma-bt-md
+                        input#email.form__input.form-control(type='email', value=`${user.email}`, required, name='email')
+                        label.form__label.control-label(for='email') Email address
+                  .col-12
+                    .form-group.form-user-datal.required
+                      .form-floating.mb-2.form-group.ma-bt-md  
+                        input#address.form__input.form-control(type='text', value=`${user.address}`, required, name='address')
+                        label.form__label.control-label(for='address') address
+                  .col-12
+                    .form-group.form-user-datal.required
+                      .form-floating.mb-2.form-group.ma-bt-md   
+                        input#phone.form__input.form-control(type='number', value=`${user.phone}`, required, name='phone')
+                        label.form__label(for='phone') phone
+                .col-12
+                    .form-group.form-user-datal.required
+                      .form-floating.mb-2.form-group.ma-bt-md  
+                        input#nation.form__input.form-control(type='text', value=`${user.nation}`, required, name='nation')
+                        label.form__label(for='nation') nation
+                .col-12.text-center.mt-5
+                  button.btn.btn.btn-danger.btn--save-settings Save settings
+
+
+             

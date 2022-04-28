@@ -5,11 +5,27 @@ const authController = require('../controllers/authController');
 
 const router = express.Router();
 
+  
+router
+  .route('/user/stored')
+  .get(authController.protect, viewsController.getUserStore)
+  .post(authController.protect, weddingController.createWedding);
+
+// router.get('/user/create',authController.protect, viewsController.getCreateWedding);
+
+router.get(
+  '/wedding/edit/bridesmaids-groomsmen',
+  viewsController.getBridesmaidsGroomsmen
+);
+
+router.get(
+  '/wedding/edit/groom-bride',
+  viewsController.getBrideGroom
+);
 
 router
-  .route('/wedding/templates/:id')
-  .post(weddingController.createWedding)
-  .get(authController.protect, viewsController.getDetailTempaltes);
+  .route('/wedding/templates/test')
+  .get(authController.protect,viewsController.getDetailTempaltes);
 
 router.get('/wedding/templates', viewsController.getTemplates);
 router.get('/about-us', viewsController.getAbout);

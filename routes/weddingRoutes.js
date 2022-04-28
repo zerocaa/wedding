@@ -1,15 +1,13 @@
 const express = require('express');
 const weddingController = require('../controllers/weddingController');
 const authController = require('../controllers/authController');
-const reviewRouter = require('./reviewRoutes');
+
 
 const router = express.Router();
 
 
 //GET /wedding/:weddingId/reviews
 //POST /wedding/:weddingId/reviews
-router.use('/:weddingId/reviews', reviewRouter);
-
 // /weddings-within?distance=233&center=-40,45&unit=mi
 // /weddings-within/233/center/10.245080, 106.373981/unit/mi
 router

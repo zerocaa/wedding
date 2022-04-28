@@ -1,0 +1,251 @@
+extend editwedsite 
+
+block content 
+    ul.nav.nav-pills.nav-fill.nav-list-website-menu
+        li.nav-item
+            a.nav-link.bg-gray-200(aria-current='page' href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/groom-bride') C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
+        li.nav-item
+            a.nav-link.active(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/groomsmans-bridesmaids') Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
+        li.nav-item
+            a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/events') S&#x1EF1; ki&#x1EC7;n
+        li.nav-item
+            a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/stories') Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
+        li.nav-item
+            a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/galleries') Album &#x1EA2;nh
+        li.nav-item
+            a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/general') Th&ocirc;ng Tin Chung
+        li.nav-item
+            a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/wishes') L&#x1EDD;i ch&uacute;c
+        li.nav-item
+            a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/guests') Kh&aacute;ch m&#x1EDD;i
+        li.nav-item
+            a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/templates') Giao di&#x1EC7;n
+    .row.mt-6
+        .col-12
+            .p.rounded
+                .form-check.form-switch
+                    input#is_show_widget.form-check-input(data-widget-id='groomsmans_bridesmaids' data-text-show='Đang hiển thị' data-text-hide='Đang không hiển thị' type='checkbox' name='is_show_widget' value='1' checked='')
+                    label.form-check-label.is_show_widget_label(for='is_show_widget')
+                    strong &Dstrok;ang hi&#x1EC3;n th&#x1ECB;
+                    |  / B&#x1EA1;n c&oacute; th&#x1EC3; thi&#x1EBF;t l&#x1EAD;p &quot;Hi&#x1EC3;n th&#x1ECB;&quot; ho&#x1EB7;c &quot;Kh&ocirc;ng hi&#x1EC3;n th&#x1ECB;&quot; kh&#x1ED1;i n&agrave;y &#x1EDF; website &dstrok;&aacute;m c&#x1B0;&#x1EDB;i.
+    form#groomsmans-bridesmaids-form(action='/vi/account/websites/edit/6262aa0c41d36063a01a549a/groomsmans-bridesmaids' method='post')
+        input(type='hidden' name='_csrf-biihappy' value='r2NWqBWqZMAATHk9hTDHJq11rMlM9YCc8enyuI2JvR3VEGLiUfMNqlgvEk3hU6timxufjz7C1eiFipvB4c2ELw==')
+        .row.mt-6
+            .col-sm-6
+                .groomsmansContainer.formInforContainer
+                    .card.card-border.border-dark.shadow-lg.card-border-radius-none.mb-7
+                        .card-body
+                            .d-block.text-center
+                                a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
+                                    .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                                        button.btn.btn-primary.btn-xs.position-relative(type='button')
+                                            | Thay &dstrok;&#x1ED5;i
+                                        input#upload_image_groomsman_index_1.upload_image_groomsman.file-field-absolute(type='file' data-index='index_1' name='upload_image_groomsman_index_1')
+                                    img#show_image_groomsman_index_1.w-100.img-avatar.img-thumbnail.rounded-0(src='https://cdn.biihappy.com/ziiweb/default/website/094a66237bde0a58027c68ffbc5b564e.jpeg')
+                                .field-groomsmans_avatar_base64_index_1
+                                    input#groomsmans_avatar_base64_index_1.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar_base64][]')
+                                    .help-block
+                                .field-groomsmans_avatar_index_1
+                                    input#groomsmans_avatar_index_1.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar][]' value='default/website/094a66237bde0a58027c68ffbc5b564e.jpeg')
+                                    .help-block
+                        h4.fw-bold.text-center.mb-5.text-uppercase
+                            | Th&ocirc;ng tin ph&ugrave; r&#x1EC3; #
+                            span.indexNumber 1
+                        .field-groomsmans_name_index_1.required
+                        .form-floating.mb-2.form-group
+                            input#groomsmans_name_index_1.form-control(type='text' name='WebsiteInformationGroomInfoForm[name][]' value='Nguyễn Quang Minh' placeholder='Tên')
+                            label.control-label(for='groomsmans_name_index_1') T&ecirc;n
+                            .help-block
+                        .field-groomsmans_birthday_index_1.required
+                            .form-floating.mb-2
+                                input#groomsmans_birthday_index_1.form-control(type='text' name='WebsiteInformationGroomInfoForm[birthday][]' value='13/04/1997' placeholder='Ngày sinh')
+                                label.control-label(for='groomsmans_birthday_index_1') Ng&agrave;y sinh
+                                .help-block
+                        .field-groomsmans_intro_index_1.required
+                            .form-floating.mb-2
+                                textarea#groomsmans_intro_index_1.form-control(name='WebsiteInformationGroomInfoForm[intro][]' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')
+                                    | Ch&agrave;ng trai S&agrave;i G&ograve;n &dstrok;&#x1ED9;c th&acirc;n vui t&iacute;nh. Mang trong m&igrave;nh tu&#x1ED5;i tr&#x1EBB; nhi&#x1EC7;t huy&#x1EBF;t v&agrave; &dstrok;am m&ecirc; &ldquo;x&ecirc; d&#x1ECB;ch&rdquo;. Tuy nhi&ecirc;n, 25 tu&#x1ED5;i v&#x1EAB;n ch&#x1B0;a &ldquo;m&#x1ED9;t m&#x1EA3;nh t&igrave;nh v&#x1EAF;t vai&rdquo;.
+                                label.form-label(for='groomsmans_intro_index_1') Gi&#x1EDB;i thi&#x1EC7;u
+                                .help-block
+                        .field-groomsmans_facebook_index_1
+                            .form-floating.mb-2
+                                input#groomsmans_facebook_index_1.form-control(type='text' name='WebsiteInformationGroomInfoForm[facebook][]' value='' placeholder='Facebook')
+                                label.control-label(for='groomsmans_facebook_index_1') Facebook
+                                .help-block
+                        .field-groomsmans_twitter_index_1
+                            .form-floating.mb-2
+                                input#groomsmans_twitter_index_1.form-control(type='text' name='WebsiteInformationGroomInfoForm[twitter][]' value='' placeholder='Twitter')
+                                label.control-label(for='groomsmans_twitter_index_1') Twitter
+                                .help-block
+                        .field-groomsmans_instagram_index_1
+                            .form-floating.mb-2
+                                input#groomsmans_instagram_index_1.form-control(type='text' name='WebsiteInformationGroomInfoForm[instagram][]' value='' placeholder='Instagram')
+                                label.control-label(for='groomsmans_instagram_index_1') Instagram
+                                .help-block
+                        .d-block.text-center
+                            button.btn.btn-danger-soft.btn-sm.btn-remove-form(type='button') Xo&aacute;
+                    .card.card-border.border-dark.shadow-lg.card-border-radius-none.mb-7
+                        .card-body
+                            .d-block.text-center
+                                a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
+                                    .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                                        button.btn.btn-primary.btn-xs.position-relative(type='button')
+                                            | Thay &dstrok;&#x1ED5;i
+                                        input#upload_image_groomsman_index_2.upload_image_groomsman.file-field-absolute(type='file' data-index='index_2' name='upload_image_groomsman_index_2')
+                                    img#show_image_groomsman_index_2.w-100.img-avatar.img-thumbnail.rounded-0(src='https://cdn.biihappy.com/ziiweb/default/website/4fa239218590ce0e7b44013a504e3d99.jpeg')
+                                .field-groomsmans_avatar_base64_index_2
+                                    input#groomsmans_avatar_base64_index_2.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar_base64][]')
+                                    .help-block
+                                .field-groomsmans_avatar_index_2
+                                    input#groomsmans_avatar_index_2.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar][]' value='default/website/4fa239218590ce0e7b44013a504e3d99.jpeg')
+                                    .help-block
+                            h4.fw-bold.text-center.mb-5.text-uppercase
+                                | Th&ocirc;ng tin ph&ugrave; r&#x1EC3; #
+                                span.indexNumber 2
+                            .field-groomsmans_name_index_2.required
+                                .form-floating.mb-2.form-group
+                                    input#groomsmans_name_index_2.form-control(type='text' name='WebsiteInformationGroomInfoForm[name][]' value='Trần Đức Minh' placeholder='Tên')
+                                    label.control-label(for='groomsmans_name_index_2') T&ecirc;n
+                                    .help-block
+                            .field-groomsmans_birthday_index_2.required
+                                .form-floating.mb-2
+                                    input#groomsmans_birthday_index_2.form-control(type='text' name='WebsiteInformationGroomInfoForm[birthday][]' value='12/02/1998' placeholder='Ngày sinh')
+                                    label.control-label(for='groomsmans_birthday_index_2') Ng&agrave;y sinh
+                                    .help-block
+                            .field-groomsmans_intro_index_2.required
+                                .form-floating.mb-2
+                                    textarea#groomsmans_intro_index_2.form-control(name='WebsiteInformationGroomInfoForm[intro][]' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')
+                                        | Ch&agrave;ng trai sinh n&abreve;m 1996 t&#x1EA1;i B&igrave;nh D&#x1B0;&#x1A1;ng, t&#x1EEB;ng l&agrave; sinh vi&ecirc;n &Dstrok;&#x1EA1;i h&#x1ECD;c Kinh t&#x1EBF; TP. H&#x1ED3; Ch&iacute; Minh. Hi&#x1EC7;n t&#x1EA1;i, &dstrok;ang l&agrave;m nh&acirc;n vi&ecirc;n t&iacute;n d&#x1EE5;ng ng&acirc;n h&agrave;ng.
+                                    label.form-label(for='groomsmans_intro_index_2') Gi&#x1EDB;i thi&#x1EC7;u
+                                    .help-block
+                            .field-groomsmans_facebook_index_2
+                                .form-floating.mb-2
+                                    input#groomsmans_facebook_index_2.form-control(type='text' name='WebsiteInformationGroomInfoForm[facebook][]' value='' placeholder='Facebook')
+                                    label.control-label(for='groomsmans_facebook_index_2') Facebook
+                                    .help-block
+                            .field-groomsmans_twitter_index_2
+                                .form-floating.mb-2
+                                    input#groomsmans_twitter_index_2.form-control(type='text' name='WebsiteInformationGroomInfoForm[twitter][]' value='' placeholder='Twitter')
+                                    label.control-label(for='groomsmans_twitter_index_2') Twitter
+                                    .help-block
+                            .field-groomsmans_instagram_index_2
+                                .form-floating.mb-2
+                                    input#groomsmans_instagram_index_2.form-control(type='text' name='WebsiteInformationGroomInfoForm[instagram][]' value='' placeholder='Instagram')
+                                    label.control-label(for='groomsmans_instagram_index_2') Instagram
+                                    .help-block
+                            .d-block.text-center
+                                button.btn.btn-danger-soft.btn-sm.btn-remove-form(type='button') Xo&aacute;
+                    button.btn.btn-dark-soft.btn-sm.w-100.button-add-more-groomsman.mb-7(type='button')
+                        svg.bi.bi-plus(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                            path(d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z')
+                        | &#x9;&#x9;&#x9;Th&ecirc;m ph&ugrave; r&#x1EC3;
+
+            .col-sm-6
+                .bridesmaidsContainer.formInforContainer
+                    .card.card-border.border-danger.shadow-lg.card-border-radius-none.mb-7
+                        .card-body
+                            .d-block.text-center
+                                a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
+                                    .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                                        button.btn.btn-primary.btn-xs.position-relative(type='button')
+                                            | Thay &dstrok;&#x1ED5;i
+                                        input#upload_image_bridesmaid_index_1.upload_image_bridesmaid.file-field-absolute(type='file' data-index='index_1' name='upload_image_bridesmaid_index_1')
+                                    img#show_image_bridesmaid_index_1.w-100.img-avatar.img-thumbnail.rounded-0(src='https://cdn.biihappy.com/ziiweb/default/website/e9c920836faabfa83e5d20318279bde0.jpeg')
+                                .field-bridesmaids_avatar_base64_index_1
+                                    input#bridesmaids_avatar_base64_index_1.form-control(type='hidden' name='WebsiteInformationBrideInfoForm[avatar_base64][]')
+                                    .help-block
+                                .field-bridesmaids_avatar_index_1
+                                    input#bridesmaids_avatar_index_1.form-control(type='hidden' name='WebsiteInformationBrideInfoForm[avatar][]' value='default/website/e9c920836faabfa83e5d20318279bde0.jpeg')
+                                    .help-block
+                            h4.fw-bold.text-center.mb-5.text-uppercase
+                                | Th&ocirc;ng tin ph&ugrave; d&acirc;u #
+                                span.indexNumber 1
+                        .field-bridesmaids_name_index_1.required
+                            .form-floating.mb-2.form-group
+                                input#bridesmaids_name_index_1.form-control(type='text' name='WebsiteInformationBrideInfoForm[name][]' value='Trần Hồng Diễm' placeholder='Tên')
+                                label.control-label(for='bridesmaids_name_index_1') T&ecirc;n
+                                .help-block
+                        .field-bridesmaids_birthday_index_1.required
+                            .form-floating.mb-2
+                                input#bridesmaids_birthday_index_1.form-control(type='text' name='WebsiteInformationBrideInfoForm[birthday][]' value='13/04/1997' placeholder='Ngày sinh')
+                                label.control-label(for='bridesmaids_birthday_index_1') Ng&agrave;y sinh
+                                .help-block
+                        .field-bridesmaids_intro_index_1.required
+                            .form-floating.mb-2
+                                textarea#bridesmaids_intro_index_1.form-control(name='WebsiteInformationBrideInfoForm[intro][]' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')
+                                    | C&ocirc; sinh vi&ecirc;n n&abreve;m cu&#x1ED1;i tr&#x1B0;&#x1EDD;ng &Dstrok;&#x1EA1;i h&#x1ECD;c Ngo&#x1EA1;i Th&#x1B0;&#x1A1;ng. Th&iacute;ch &dstrok;i du l&#x1ECB;ch, kh&aacute;m ph&aacute; nh&#x1EEF;ng v&ugrave;ng &dstrok;&#x1EA5;t m&#x1EDB;i, xem phim, nghe nh&#x1EA1;c v&agrave; t&#x1EE5; t&#x1EAD;p &abreve;n u&#x1ED1;ng c&ugrave;ng b&#x1EA1;n b&egrave;.
+                                label.form-label(for='bridesmaids_intro_index_1') Gi&#x1EDB;i thi&#x1EC7;u
+                                .help-block
+                        .field-bridesmaids_facebook_index_1
+                            .form-floating.mb-2
+                                input#bridesmaids_facebook_index_1.form-control(type='text' name='WebsiteInformationBrideInfoForm[facebook][]' value='' placeholder='Facebook')
+                                label.control-label(for='bridesmaids_facebook_index_1') Facebook
+                                .help-block
+                        .field-bridesmaids_twitter_index_1
+                            .form-floating.mb-2
+                                input#bridesmaids_twitter_index_1.form-control(type='text' name='WebsiteInformationBrideInfoForm[twitter][]' value='' placeholder='Twitter')
+                                label.control-label(for='bridesmaids_twitter_index_1') Twitter
+                                .help-block
+                        .field-bridesmaids_instagram_index_1
+                            .form-floating.mb-2
+                                input#bridesmaids_instagram_index_1.form-control(type='text' name='WebsiteInformationBrideInfoForm[instagram][]' value='' placeholder='Instagram')
+                                label.control-label(for='bridesmaids_instagram_index_1') Instagram
+                                .help-block
+                        .d-block.text-center
+                            button.btn.btn-danger-soft.btn-sm.btn-remove-form(type='button') Xo&aacute;
+                    .card.card-border.border-danger.shadow-lg.card-border-radius-none.mb-7
+                        .card-body
+                            .d-block.text-center
+                                a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
+                                    .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                                        button.btn.btn-primary.btn-xs.position-relative(type='button')
+                                            | Thay &dstrok;&#x1ED5;i
+                                        input#upload_image_bridesmaid_index_2.upload_image_bridesmaid.file-field-absolute(type='file' data-index='index_2' name='upload_image_bridesmaid_index_2')
+                                    img#show_image_bridesmaid_index_2.w-100.img-avatar.img-thumbnail.rounded-0(src='https://cdn.biihappy.com/ziiweb/default/website/8f106c8429d9e849f2f7fdb3883df96e.jpeg')
+                                .field-bridesmaids_avatar_base64_index_2
+                                    input#bridesmaids_avatar_base64_index_2.form-control(type='hidden' name='WebsiteInformationBrideInfoForm[avatar_base64][]')
+                                    .help-block
+                                .field-bridesmaids_avatar_index_2
+                                    input#bridesmaids_avatar_index_2.form-control(type='hidden' name='WebsiteInformationBrideInfoForm[avatar][]' value='default/website/8f106c8429d9e849f2f7fdb3883df96e.jpeg')
+                                    .help-block
+                            h4.fw-bold.text-center.mb-5.text-uppercase
+                                | Th&ocirc;ng tin ph&ugrave; d&acirc;u #
+                                span.indexNumber 2
+                        .field-bridesmaids_name_index_2.required
+                            .form-floating.mb-2.form-group
+                                input#bridesmaids_name_index_2.form-control(type='text' name='WebsiteInformationBrideInfoForm[name][]' value='Nguyễn Bích Thảo' placeholder='Tên')
+                                label.control-label(for='bridesmaids_name_index_2') T&ecirc;n
+                                .help-block
+                        .field-bridesmaids_birthday_index_2.required
+                            .form-floating.mb-2
+                                input#bridesmaids_birthday_index_2.form-control(type='text' name='WebsiteInformationBrideInfoForm[birthday][]' value='12/02/1998' placeholder='Ngày sinh')
+                                label.control-label(for='bridesmaids_birthday_index_2') Ng&agrave;y sinh
+                                .help-block
+                        .field-bridesmaids_intro_index_2.required
+                            .form-floating.mb-2
+                                textarea#bridesmaids_intro_index_2.form-control(name='WebsiteInformationBrideInfoForm[intro][]' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')
+                                    | B&iacute;ch Th&#x1EA3;o l&agrave; m&#x1ED9;t c&ocirc; g&aacute;i trai h&#x1B0;&#x1EDB;ng n&#x1ED9;i, &iacute;t n&oacute;i v&agrave; th&iacute;ch &dstrok;&#x1ECD;c s&aacute;ch. C&ocirc; c&utilde;ng l&agrave; tu&yacute;p ng&#x1B0;&#x1EDD;i s&#x1ED1;ng t&igrave;nh c&#x1EA3;m, th&acirc;n thi&#x1EC7;n v&agrave; c&oacute; t&acirc;m h&#x1ED3;n &abreve;n u&#x1ED1;ng r&#x1EA5;t cao.
+                                label.form-label(for='bridesmaids_intro_index_2') Gi&#x1EDB;i thi&#x1EC7;u
+                                .help-block
+                        .field-bridesmaids_facebook_index_2
+                            .form-floating.mb-2
+                                input#bridesmaids_facebook_index_2.form-control(type='text' name='WebsiteInformationBrideInfoForm[facebook][]' value='' placeholder='Facebook')
+                                label.control-label(for='bridesmaids_facebook_index_2') Facebook
+                                .help-block
+                        .field-bridesmaids_twitter_index_2
+                            .form-floating.mb-2
+                                input#bridesmaids_twitter_index_2.form-control(type='text' name='WebsiteInformationBrideInfoForm[twitter][]' value='' placeholder='Twitter')
+                                label.control-label(for='bridesmaids_twitter_index_2') Twitter
+                                .help-block
+                        .field-bridesmaids_instagram_index_2
+                            .form-floating.mb-2
+                                input#bridesmaids_instagram_index_2.form-control(type='text' name='WebsiteInformationBrideInfoForm[instagram][]' value='' placeholder='Instagram')
+                                label.control-label(for='bridesmaids_instagram_index_2') Instagram
+                                .help-block
+                        .d-block.text-center
+                            button.btn.btn-danger-soft.btn-sm.btn-remove-form(type='button') Xo&aacute;
+                    button.btn.btn-danger-soft.btn-sm.w-100.button-add-more-bridesmaid.mb-7(type='button')
+                        svg.bi.bi-plus(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                            path(d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z')
+                        | &#x9;&#x9;&#x9;Th&ecirc;m ph&ugrave; d&acirc;u
+ 

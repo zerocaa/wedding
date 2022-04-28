@@ -6,8 +6,13 @@ const AppError = require("../utils/appError");
 //func create,get,edit,delete wedding
 
 exports.createWedding = catchAsync(async (req, res, next) => {
-    req.body.user = req.user.id;
-    const newWedding = await Wedding.create(req.body);
+  req.body.user = req.user.id;
+
+  if (!req.body.user) {
+    return next(new AppError('No user found with that ID', 404));
+  }
+  const newWedding = await Wedding.create(req.body);
+  console.log(newWedding);
     res.status(201).json({
         status: 'success',
         data: {
@@ -45,7 +50,7 @@ console.log(distance, lat, lng, unit);
 });
 
 exports.getAllWedding = factory.getAll(Wedding);
-exports.getWedding = factory.getOne(Wedding, { path: 'reviews' });
+exports.getWedding = factory.getOne(Wedding, { path: 'user' });
 exports.updateWedding = catchAsync(async (req, res, next) => {
   let wedding = await Wedding.findById(req.params.id);
   if (!wedding) return next(new AppError('No wedding found with that ID', 404));

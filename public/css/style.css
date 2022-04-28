@@ -1080,3 +1080,7 @@ img {
         visibility: hidden;
         opacity: 0;
     }
+	
+	@media (max-width: 991px){
+		.account-websites-edit-page .box-header{text-align:center;}
+	}

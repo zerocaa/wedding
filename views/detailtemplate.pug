@@ -34,8 +34,7 @@ block content
                     .col-12.col-md-10.col-lg-7
                         .card.shadow-light-lg.overflow-hidden.text-center.text-lg-start
                             .card-body.py-7.py-md-9
-                                form#w0(action=`/api/v1/weddings` method='post' enctype='multipart/form-data')
-                                    input(type='hidden' name='_csrf-biihappy' value='izYBG5-1Fr3S94w_MS0uXCo1rqqMdSDNbwS4yjRPLEjBbFZO2cVU1oedu1pYT3kRTXv72PwcQaw8bIn4Th5CDA==')
+                                form(method="POST" action='/user/stored')
                                     .row
                                         .col-md-12
                                             .form-group.field-name.required
@@ -44,8 +43,8 @@ block content
                                                     label.control-label(for='name') Tên Người Tạo
                                                     .help-block
                                     .d-block.text-center.mt-7
-                                        button.btn.btn-danger(type='submit') Kh&#x1EDF;i t&#x1EA1;o website
-                                        a.btn.btn-secondary(href='/vi/wedding/templates') Ch&#x1ECD;n giao di&#x1EC7;n kh&aacute;c
+                                        button.btn.btn-danger Kh&#x1EDF;i t&#x1EA1;o website
+                                        a.btn.btn-secondary(href='i/wedding/templates') Ch&#x1ECD;n giao di&#x1EC7;n kh&aacute;c
                 else 
                     .col-12.col-md-10.col-lg-7.mb-6
                         .border.border-2.border-danger.shadow.bg-danger-soft.p-3.text-center

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const Review = require('./reviewModel');
 
 // const User = require('./userModel');
 // const Contact = require('./contactModel');
@@ -182,11 +181,6 @@ weddingSchema.index({ startLocation: '2dsphere' });
 // });
 
 // Virtual Populate
-weddingSchema.virtual('reviews', {
-  ref: 'Review',
-  foreignField: 'wedding',
-  localField: '_id'
-});
 
 // middle ware get slugify
 weddingSchema.pre('save', function(next) {

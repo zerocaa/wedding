@@ -5,6 +5,7 @@ import { displayMap } from './mapbox';
 import { login, logout, signup } from './login';
 import { updateSettings } from './updateSetting';
 import { bookTour } from './stripe';
+import { createwedding } from './createwedding';
 //dom element
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
@@ -12,11 +13,21 @@ const signupForm = document.querySelector('.form--signup');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
+const createweddingForm = document.querySelector('.form-create-wedding');
 const bookBtn = document.getElementById('book-tour');
 //delegation
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);
   displayMap(locations);
+}
+
+if (createweddingForm) {
+  createweddingForm.addEventListener('submit',async e => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    await createwedding(name);
+    console.log(name)
+  });
 }
 
 if (loginForm) {
@@ -37,6 +48,7 @@ if (userDataForm) {
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
+    form.append('address',document.getElementById('address').value);
     await updateSettings(form, 'data');
     document.querySelector('.btn--save-settings').textContent = 'Save settings'
     location.reload(true)

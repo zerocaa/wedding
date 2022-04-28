@@ -59,20 +59,19 @@ exports.getAccountSecurity = catchAsync(async (req, res, next) => {
 
 exports.updateUserData = catchAsync(async (req, res, next) => {
   const updatedUser = await User.findByIdAndUpdate(
-    req.user.id,
-    {
+    req.user.id, {
       name: req.body.name,
       email: req.body.email,
-      addres: req.body.address,
+      address: req.body.address,
       phone: req.body.phone,
       nation: req.body.nation
-    },
+  },
     {
       new: true,
       runValidators: true
     }
   );
-
+  console.log(updatedUser);
   res.status(200).render('account', {
     title: 'Your account',
     user: updatedUser
@@ -119,5 +118,43 @@ exports.getTemplates = catchAsync(async (req, res, next) => {
 exports.getDetailTempaltes = catchAsync(async (req, res, next) => {
   res.status(200).render('detailtemplate', {
     title: 'Detail Templates'
+  });
+});
+
+exports.getUserStore = catchAsync(async (req, res, next) => {
+  const weddings = await Wedding.find();
+  res.status(200).render('userstored', {
+    title: 'User Store',
+    weddings
+  });
+}
+);
+
+exports.createWedding = catchAsync(async (req, res, next) => {
+    req.body.user = req.body.id
+  const newwedding = await Wedding.create({
+    name: req.body.name
+  });
+  console.log(newwedding)
+  res.status(200).redirect('/user/stored', {
+    newwedding
+  });
+});
+
+exports.getCreateWedding = catchAsync(async (req, res, next) => {
+  res.status(200).render('createwedding', {
+    title: 'Create Wedding'
+  });
+});
+
+exports.getBrideGroom = catchAsync(async (req, res, next) => {
+  res.status(200).render('bride-groom', {
+    title: 'Bride & Groom'
+  });
+});
+
+exports.getBridesmaidsGroomsmen = catchAsync(async (req, res, next) => {
+  res.status(200).render('bridesmaids-groomsmen', {
+    title: 'Bridesmaids & Groomsmen'
   });
 });
