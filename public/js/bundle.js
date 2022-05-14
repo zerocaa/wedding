@@ -9041,24 +9041,26 @@ var updateSettings = /*#__PURE__*/function () {
             res = _context.sent;
 
             if (res.data.status === 'success') {
-              (0, _alert.showAlert)('success', "".concat(type.toLowerCase(), " update success")); // location.reload(true) 
+              (0, _alert.showAlert)('success', "".concat(type.toLowerCase(), " update success"));
+              location.reload(true);
             }
 
-            _context.next = 12;
+            (0, _alert.showAlert)('DATA UPDATE SUCCESS', "".concat(type.toLowerCase(), " update success"));
+            _context.next = 13;
             break;
 
-          case 8:
-            _context.prev = 8;
+          case 9:
+            _context.prev = 9;
             _context.t0 = _context["catch"](0);
             console.log(_context.t0.response);
             (0, _alert.showAlert)('error', 'login failed, please try again');
 
-          case 12:
+          case 13:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 8]]);
+    }, _callee, null, [[0, 9]]);
   }));
 
   return function updateSettings(_x, _x2) {
@@ -9479,7 +9481,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 //dom element
-var mapBox = document.getElementById('map');
 var loginForm = document.querySelector('.form--login');
 var signupForm = document.querySelector('.form--signup');
 var logOutBtn = document.querySelector('.nav__el--logout');
@@ -9487,41 +9488,6 @@ var userDataForm = document.querySelector('.form-user-data');
 var userPasswordForm = document.querySelector('.form-user-password');
 var createweddingForm = document.querySelector('.form-create-wedding');
 var bookBtn = document.getElementById('book-tour'); //delegation
-
-if (mapBox) {
-  var locations = JSON.parse(mapBox.dataset.locations);
-  (0, _mapbox.displayMap)(locations);
-}
-
-if (createweddingForm) {
-  createweddingForm.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-      var name;
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              e.preventDefault();
-              name = document.getElementById('name').value;
-              _context.next = 4;
-              return (0, _createwedding.createwedding)(name);
-
-            case 4:
-              console.log(name);
-
-            case 5:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }());
-}
 
 if (loginForm) {
   loginForm.addEventListener('submit', function (e) {
@@ -9536,11 +9502,11 @@ if (logOutBtn) logOutBtn.addEventListener('click', _login.logout, false);
 
 if (userDataForm) {
   userDataForm.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(e) {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
       var form;
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault();
               document.querySelector('.btn--save-settings').textContent = 'Updating...';
@@ -9549,34 +9515,43 @@ if (userDataForm) {
               form.append('email', document.getElementById('email').value);
               form.append('photo', document.getElementById('photo').files[0]);
               form.append('address', document.getElementById('address').value);
-              _context2.next = 9;
+              form.append('phone', document.getElementById('phone').value);
+              form.append('nation', document.getElementById('nation').value);
+              _context.next = 11;
               return (0, _updateSetting.updateSettings)(form, 'data');
 
-            case 9:
+            case 11:
+              // const photo = document.getElementById('photo').files[0];
+              // const name = document.getElementById('name').value;
+              // const email = document.getElementById('email').value;
+              // const address = document.getElementById('address').value;
+              // const phone = document.getElementById('phone').value;
+              // const nation = document.getElementById('nation').value;
+              // await updateSettings(photo,name, email, address, phone, nation);
               document.querySelector('.btn--save-settings').textContent = 'Save settings';
               location.reload(true);
 
-            case 11:
+            case 13:
             case "end":
-              return _context2.stop();
+              return _context.stop();
           }
         }
-      }, _callee2);
+      }, _callee);
     }));
 
-    return function (_x2) {
-      return _ref2.apply(this, arguments);
+    return function (_x) {
+      return _ref.apply(this, arguments);
     };
   }());
 }
 
 if (userPasswordForm) {
   userPasswordForm.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(e) {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(e) {
       var passwordCurrent, password, passwordConfirm;
-      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context3.prev = _context3.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
               e.preventDefault();
               document.querySelector('.btn--save-password').textContent = 'Updating...';
@@ -9585,15 +9560,15 @@ if (userPasswordForm) {
               passwordConfirm = document.getElementById('password-confirm').value;
 
               if (!(passwordCurrent === password)) {
-                _context3.next = 8;
+                _context2.next = 8;
                 break;
               }
 
               (0, _alert.showAlert)('error', 'Password is not same');
-              return _context3.abrupt("return");
+              return _context2.abrupt("return");
 
             case 8:
-              _context3.next = 10;
+              _context2.next = 10;
               return (0, _updateSetting.updateSettings)({
                 passwordCurrent: passwordCurrent,
                 password: password,
@@ -9606,6 +9581,41 @@ if (userPasswordForm) {
 
             case 12:
             case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
+} //bookBtn response dataset
+//signup
+
+
+if (signupForm) {
+  signupForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(e) {
+      var name1, email1, password1, password2;
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              e.preventDefault();
+              name1 = document.getElementById('name1').value;
+              email1 = document.getElementById('email1').value;
+              password1 = document.getElementById('password1').value;
+              password2 = document.getElementById('password2').value;
+              _context3.next = 7;
+              return (0, _login.signup)(name1, email1, password1, password2);
+
+            case 7:
+              console.log(name1, email1, password1, password2);
+
+            case 8:
+            case "end":
               return _context3.stop();
           }
         }
@@ -9614,49 +9624,6 @@ if (userPasswordForm) {
 
     return function (_x3) {
       return _ref3.apply(this, arguments);
-    };
-  }());
-} //bookBtn response dataset
-
-
-if (bookBtn) {
-  bookBtn.addEventListener('click', function (e) {
-    e.target.textContent = 'Processing...';
-    var tourId = e.target.dataset.tourId;
-    (0, _stripe.bookTour)(tourId);
-  });
-} //signup
-
-
-if (signupForm) {
-  signupForm.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
-      var name1, email1, password1, password2;
-      return regeneratorRuntime.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              e.preventDefault();
-              name1 = document.getElementById('name1').value;
-              email1 = document.getElementById('email1').value;
-              password1 = document.getElementById('password1').value;
-              password2 = document.getElementById('password2').value;
-              _context4.next = 7;
-              return (0, _login.signup)(name1, email1, password1, password2);
-
-            case 7:
-              console.log(name1, email1, password1, password2);
-
-            case 8:
-            case "end":
-              return _context4.stop();
-          }
-        }
-      }, _callee4);
-    }));
-
-    return function (_x4) {
-      return _ref4.apply(this, arguments);
     };
   }());
 }
@@ -9688,7 +9655,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50290" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56210" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

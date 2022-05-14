@@ -28,24 +28,24 @@ nav.navbar-top.navbar.navbar-expand-lg.navbar-light.py-2.bg-white.fixed-top.bord
         li.nav-item.dropdown
           a.nav-link.dropdown-toggle(href='https://blog.biihappy.com' target='_blank')
             | Blog
-      if user 
+      if user
         ul.navbar-nav.ms-auto
           li.nav-item.dropdown
             a#navbarUser.nav-link.dropdown-toggle(data-bs-toggle='dropdown' href='#' aria-haspopup='true' aria-expanded='false')
               .avatar.avatar-lg
-                img.avatar-img.rounded-circle(src=`/img/users/${user.photo}` alt='...')  
+                img.avatar-img.rounded-circle(src=`/img/users/${user.photo}`)
               strong.mx-2(style='text-transform: uppercase;vertical-align: middle')=user.name            
               svg(width='12px' height='6px' viewbox='0 0 12 6' xmlns='http://www.w3.org/2000/svg')
                 polygon(fill='#1F303C' points='5 5.7 0 0.7 0.7 0 5 4.4 9.3 0 10 0.7 ')
             .dropdown-menu.px-0.py-3(aria-labelledby='navbarUser')
               .list-group.list-group-flush
-                a.list-group-item.p-3(href='/vi/account/account-settings')
+                a.list-group-item.p-3(href='/user/me')
                   .icon.icon-sm.text-primary.avatar.avatar-xl
-                    img.avatar-img.rounded-circle(src=`/img/user/${user.photo}`)
+                    img.avatar-img.rounded-circle(src=`/img/users/${user.photo}`)
                   .ms-4
                     h6.fw-bold.text-uppercase.text-primary.mb-0= user.name
                     p.fs-sm.text-gray-700.mb-0=user.email
-                a.list-group-item.p-3(href='/vi/account/account-settings')
+                a.list-group-item.p-3(href='/user/me')
                   svg.bi.bi-person-circle(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
                     path(d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z')
                     path(fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z')
@@ -61,4 +61,4 @@ nav.navbar-top.navbar.navbar-expand-lg.navbar-light.py-2.bg-white.fixed-top.bord
                   span.ms-2 &Dstrok;&abreve;ng xu&#x1EA5;t
       else
         a.navbar-btn.btn.btn-sm.btn-danger.ms-auto(href='/vi/user/login') &Dstrok;&abreve;ng nh&#x1EAD;p
-      
+

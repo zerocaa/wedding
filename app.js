@@ -1,5 +1,5 @@
 const express = require('express');
-// const bodyParser  =  Required ('body-parser')
+// var bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
 const morgan = require('morgan');
@@ -14,6 +14,10 @@ const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const weddingRouter = require('./routes/weddingRoutes');
+const bridesmaidRouter = require('./routes/bridesmaidsRoutes');
+const eventRouter = require('./routes/eventRoutes');
+const storyRouter = require('./routes/storyRoutes');
+
 
 const app = express();
 app.set('view engine', 'pug');
@@ -57,7 +61,7 @@ app.use('/api', limiter);
 
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
@@ -92,6 +96,9 @@ app.use((req, res, next) => {
 app.use('/', viewRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/weddings', weddingRouter);
+app.use('/api/v1/bridesmaids', bridesmaidRouter);
+app.use('/api/v1/events', eventRouter);
+app.use('/api/v1/storyloves', storyRouter);
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });

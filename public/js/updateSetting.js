@@ -14,8 +14,9 @@ export const updateSettings = async (data , type) => {
     });
     if (res.data.status === 'success') {
       showAlert('success', `${type.toLowerCase()} update success`);
-      // location.reload(true) 
-    }
+      location.reload(true) 
+    } 
+   showAlert('DATA UPDATE SUCCESS', `${type.toLowerCase()} update success`);
   } catch (err) {
     console.log(err.response);
     showAlert('error', 'login failed, please try again');

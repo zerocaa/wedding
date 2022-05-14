@@ -34,14 +34,25 @@ block content
                     .col-12.col-md-10.col-lg-7
                         .card.shadow-light-lg.overflow-hidden.text-center.text-lg-start
                             .card-body.py-7.py-md-9
-                                form(method="POST" action='/user/stored')
+                                form(method="POST" action='/wedding/complete')
                                     .row
-                                        .col-md-12
-                                            .form-group.field-name.required
+                                        .col-md-6
+                                            .form-group.field-malename.required
                                                 .form-floating.mb-2.form-group
-                                                    input#name.form-control(type='text' name='name' value=`${user.name}` aria-required='true')
-                                                    label.control-label(for='name') Tên Người Tạo
+                                                    input#malename.form-control(type='text' name='malename' placeholder='Tên chú rể' aria-required='true')
+                                                    label.control-label(for='malename') Tên Chú Rể
                                                     .help-block
+                                        .col-md-6
+                                            .form-group.field-fename.required
+                                                .form-floating.mb-2.form-group
+                                                    input#fename.form-control(type='text' name='fename' placeholder='Tên cô dâu'  aria-required='true')
+                                                    label.control-label(for='name') Tên Cô Dâu
+                                                    .help-block
+                                    .form-group.field-wedding_date.required
+                                        .form-floating.mb-2.form-group.date-custom
+                                            input#date.form-control(type='date' name='date' placeholder='Ngày cưới...' data-date='yyyy-mm-dd' data-date-format='YYYY-MM-DD' min='1942-05-08' max='2025-05-08' aria-required='true')
+                                            label.control-label(for='startsiteform-wedding_date') Ng&agrave;y c&#x1B0;&#x1EDB;i c&#x1EE7;a b&#x1EA1;n
+                                            .help-block
                                     .d-block.text-center.mt-7
                                         button.btn.btn-danger Kh&#x1EDF;i t&#x1EA1;o website
                                         a.btn.btn-secondary(href='i/wedding/templates') Ch&#x1ECD;n giao di&#x1EC7;n kh&aacute;c

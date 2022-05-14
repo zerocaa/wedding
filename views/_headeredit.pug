@@ -28,12 +28,12 @@ nav.navbar-top.navbar.navbar-expand-lg.navbar-light.py-2.bg-white.fixed-top.bord
         li.nav-item.dropdown
           a.nav-link.dropdown-toggle(href='https://blog.biihappy.com' target='_blank')
             | Blog
-      if user 
+      if user
         ul.navbar-nav.ms-auto
           li.nav-item.dropdown
             a#navbarUser.nav-link.dropdown-toggle(data-bs-toggle='dropdown' href='#' aria-haspopup='true' aria-expanded='false')
               .avatar.avatar-lg
-                img.avatar-img.rounded-circle(src=`/img/users/${user.photo}` alt='...')  
+                img.avatar-img.rounded-circle(src=`/img/users/${user.photo}`)
               strong.mx-2(style='text-transform: uppercase;vertical-align: middle')=user.name            
               svg(width='12px' height='6px' viewbox='0 0 12 6' xmlns='http://www.w3.org/2000/svg')
                 polygon(fill='#1F303C' points='5 5.7 0 0.7 0.7 0 5 4.4 9.3 0 10 0.7 ')
@@ -41,7 +41,7 @@ nav.navbar-top.navbar.navbar-expand-lg.navbar-light.py-2.bg-white.fixed-top.bord
               .list-group.list-group-flush
                 a.list-group-item.p-3(href='/vi/account/account-settings')
                   .icon.icon-sm.text-primary.avatar.avatar-xl
-                    img.avatar-img.rounded-circle(src=`/img/user/${user.photo}`)
+                    img.avatar-img.rounded-circle(src=`/img/users/${user.photo}`)
                   .ms-4
                     h6.fw-bold.text-uppercase.text-primary.mb-0= user.name
                     p.fs-sm.text-gray-700.mb-0=user.email

@@ -4,32 +4,17 @@ import { showAlert } from './alert';
 import { displayMap } from './mapbox';
 import { login, logout, signup } from './login';
 import { updateSettings } from './updateSetting';
-import { bookTour } from './stripe';
+import { eventUser } from './eventUpdate';
 import { createwedding } from './createwedding';
 //dom element
-const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
 const signupForm = document.querySelector('.form--signup');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const createweddingForm = document.querySelector('.form-create-wedding');
-const bookBtn = document.getElementById('book-tour');
+const eventForm = 
 //delegation
-if (mapBox) {
-  const locations = JSON.parse(mapBox.dataset.locations);
-  displayMap(locations);
-}
-
-if (createweddingForm) {
-  createweddingForm.addEventListener('submit',async e => {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    await createwedding(name);
-    console.log(name)
-  });
-}
-
 if (loginForm) {
   loginForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -48,8 +33,17 @@ if (userDataForm) {
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    form.append('address',document.getElementById('address').value);
+    form.append('address', document.getElementById('address').value);
+    form.append('phone', document.getElementById('phone').value);
+    form.append('nation', document.getElementById('nation').value);
     await updateSettings(form, 'data');
+    // const photo = document.getElementById('photo').files[0];
+    // const name = document.getElementById('name').value;
+    // const email = document.getElementById('email').value;
+    // const address = document.getElementById('address').value;
+    // const phone = document.getElementById('phone').value;
+    // const nation = document.getElementById('nation').value;
+    // await updateSettings(photo,name, email, address, phone, nation);
     document.querySelector('.btn--save-settings').textContent = 'Save settings'
     location.reload(true)
   });
@@ -60,7 +54,8 @@ if (userPasswordForm) {
     document.querySelector('.btn--save-password').textContent = 'Updating...';
     const passwordCurrent = document.getElementById('password-current').value;
     const password = document.getElementById('password').value;
-    const passwordConfirm = document.getElementById('password-confirm').value;
+    const passwordConfirm = document.getElementById('password-confirm')
+.value;
     if (passwordCurrent === password) {
       showAlert('error', 'Password is not same');
       return;
@@ -74,13 +69,7 @@ if (userPasswordForm) {
   });
 }
 //bookBtn response dataset
-if (bookBtn) {
-  bookBtn.addEventListener('click', e => {
-    e.target.textContent = 'Processing...';
-    const { tourId } = e.target.dataset;
-    bookTour(tourId);
-  });
-}
+
 //signup
 if (signupForm) {
   signupForm.addEventListener('submit', async e => {

@@ -1,239 +1,115 @@
 extend editwedsite 
 
 block content
+
   ul.nav.nav-pills.nav-fill.nav-list-website-menu
     li.nav-item
-      a.nav-link.active(aria-current='page' href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/groom-bride') C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
+      a.nav-link.active(aria-current='page' href=`/wedding/edit/${weddings.id}/bridegroom`) C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
     li.nav-item
-      a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/groomsmans-bridesmaids') Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
+      a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/bridesmaids`) Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
     li.nav-item
-      a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/events') S&#x1EF1; ki&#x1EC7;n
+      a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/event`) S&#x1EF1; ki&#x1EC7;n
     li.nav-item
-      a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/stories') Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
-    li.nav-item
-      a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/galleries') Album &#x1EA2;nh
-    li.nav-item
-      a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/general') Th&ocirc;ng Tin Chung
-    li.nav-item
-      a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/wishes') L&#x1EDD;i ch&uacute;c
-    li.nav-item
-      a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/guests') Kh&aacute;ch m&#x1EDD;i
-    li.nav-item
-      a.nav-link.bg-gray-200(href='/vi/account/websites/edit/6262aa0c41d36063a01a549a/templates') Giao di&#x1EC7;n
-  form#groom-bride-form(action='/vi/account/websites/edit/6262aa0c41d36063a01a549a' method='post')
-    input(type='hidden' name='_csrf-biihappy' value='6vYSkLP3QvpLFwI0F6NzTq5zPoWut37khxS5Wq6Hwj6QhSba964rkBN0aURzwB8KmB0Nw9yAK5Dzd9AjwsP7DA==')
-    .row.mt-5
-      .col-12
-        div
-          | &Dstrok;&#x1EC3; t&ecirc;n c&#x1EE7;a c&ocirc; d&acirc;u v&agrave; ch&uacute; r&#x1EC3; &dstrok;&#x1B0;&#x1EE3;c hi&#x1EC3;n th&#x1ECB; &dstrok;&#x1EB9;p tr&ecirc;n website, b&#x1EA1;n kh&ocirc;ng n&ecirc;n nh&#x1EAD;p t&ecirc;n d&#x1EA1;ng in hoa to&agrave;n ph&#x1EA7;n. 
-          br
-          |  V&iacute; d&#x1EE5;: B&#x1EA1;n h&atilde;y d&ugrave;ng &quot;
-          strong Ng&ocirc; Vi&#x1EC7;t Ho&agrave;i
-          | &quot; thay v&igrave; &quot;
-          strong NG&Ocirc; VI&#x1EC6;T HO&Agrave;I
-          | &quot; v&agrave; &quot;
-          strong Vi&#x1EC7;t Ho&agrave;i
-          | &quot; thay v&igrave; &quot;
-          strong VI&#x1EC6;T HO&Agrave;I
-          | &quot;
-    .row.mt-6
-      .col-sm-6
-        .card.card-border.border-dark.shadow-lg.card-border-radius-none
-          .card-body
-            .d-block.text-center
-              a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.image-edit.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
-                .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
-                  button.btn.btn-primary.btn-xs.position-relative(type='button')
-                    | Thay &dstrok;&#x1ED5;i
-                  input#upload_image_groom.file-field-absolute(type='file' name='upload_image_groom')
-                img#show_image_groom.w-100.img-thumbnail.rounded-0(src='https://cdn.biihappy.com/ziiweb/default/website/3b48bc6125ce6d186297a3e90a11085e.jpeg')
-              .field-websiteinformationgroominfoform-avatar_base64
-                input#websiteinformationgroominfoform-avatar_base64.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar_base64]')
-                .help-block
-            h4.fw-bold.text-center.mb-5.text-uppercase Th&ocirc;ng tin ch&uacute; r&#x1EC3;
-            .field-websiteinformationgroominfoform-name.required
-              .form-floating.mb-2.form-group
-                input#websiteinformationgroominfoform-name.form-control(type='text' name='WebsiteInformationGroomInfoForm[name]' value='asd' placeholder='Họ và tên' aria-required='true')
-                label.control-label(for='websiteinformationgroominfoform-name') H&#x1ECD; v&agrave; t&ecirc;n
-                .help-block
-            .field-websiteinformationgroominfoform-short_name.required
-              .form-floating.mb-2.form-group
-                input#websiteinformationgroominfoform-short_name.form-control(type='text' name='WebsiteInformationGroomInfoForm[short_name]' value='asd' placeholder='Tên ngắn gọn' aria-required='true')
-                label.control-label(for='websiteinformationgroominfoform-short_name') T&ecirc;n ng&#x1EAF;n g&#x1ECD;n
-                .help-block
-            .field-websiteinformationgroominfoform-birthday.required
-              .form-floating.mb-2
-                input#websiteinformationgroominfoform-birthday.form-control(type='text' name='WebsiteInformationGroomInfoForm[birthday]' value='12/09/1992' placeholder='Ngày sinh' aria-required='true')
-                label.control-label(for='websiteinformationgroominfoform-birthday') Ng&agrave;y sinh
-                .help-block
-            .field-websiteinformationgroominfoform-intro.required
-              .form-floating.mb-2
-                textarea#websiteinformationgroominfoform-intro.form-control(name='WebsiteInformationGroomInfoForm[intro]' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...' aria-required='true')
-                  | L&agrave; b&aacute;c s&itilde; nha khoa hi&#x1EC7;n &dstrok;ang c&ocirc;ng t&aacute;c t&#x1EA1;i m&#x1ED9;t ph&ograve;ng kh&aacute;m nha khoa &#x1EDF; Qu&#x1EAD;n 1 th&agrave;nh ph&#x1ED3; H&#x1ED3; Ch&iacute; Minh. L&agrave; m&#x1ED9;t ng&#x1B0;&#x1EDD;i hi&#x1EC1;n l&agrave;nh v&agrave; &iacute;t n&oacute;i. Lu&ocirc;n coi tr&#x1ECD;ng t&igrave;nh c&#x1EA3;m v&agrave; y&ecirc;u th&#x1B0;&#x1A1;ng gia &dstrok;&igrave;nh. V&#x1EDB;i anh: &ldquo;Gia &dstrok;&igrave;nh l&agrave; &dstrok;i&#x1EC3;m t&#x1EF1;a v&#x1EEF;ng ch&#x1EAF;c nh&#x1EA5;t v&agrave; l&agrave; b&#x1EBF;n &dstrok;&#x1ED7; b&igrave;nh y&ecirc;n kh&ocirc;ng &dstrok;&acirc;u s&aacute;nh b&#x1EB1;ng &dstrok;&#x1ED1;i v&#x1EDB;i m&#x1ED7;i con ng&#x1B0;&#x1EDD;i. &Dstrok;&oacute; lu&ocirc;n l&agrave; n&#x1A1;i tr&agrave;n ng&#x1EAD;p t&igrave;nh y&ecirc;u th&#x1B0;&#x1A1;ng &dstrok;&#x1EC3; ta tr&#x1EDF; v&#x1EC1;.&rdquo;
-                label.form-label(for='websiteinformationgroominfoform-intro') Gi&#x1EDB;i thi&#x1EC7;u
-                .help-block
-            .field-websiteinformationgroominfoform-facebook
-              .form-floating.mb-2
-                input#websiteinformationgroominfoform-facebook.form-control(type='text' name='WebsiteInformationGroomInfoForm[facebook]' value='' placeholder='Facebook')
-                label.control-label(for='websiteinformationgroominfoform-facebook') Facebook
-                .help-block
-            .field-websiteinformationgroominfoform-twitter
-              .form-floating.mb-2
-                input#websiteinformationgroominfoform-twitter.form-control(type='text' name='WebsiteInformationGroomInfoForm[twitter]' value='' placeholder='Twitter')
-                label.control-label(for='websiteinformationgroominfoform-twitter') Twitter
-                .help-block
-            .field-websiteinformationgroominfoform-instagram
-              .form-floating.mb-2
-                input#websiteinformationgroominfoform-instagram.form-control(type='text' name='WebsiteInformationGroomInfoForm[instagram]' value='' placeholder='Instagram')
-                label.control-label(for='websiteinformationgroominfoform-instagram') Instagram
-                .help-block
-            h6.fw-bold.text-left.fs-sm.mt-6.mb-0.text-uppercase Th&ocirc;ng tin ng&acirc;n h&agrave;ng
-            p.text-muted.fs-6.mb-3
-              | Hi&#x1EC3;n th&#x1ECB; tr&ecirc;n site &dstrok;&#x1EC3; b&#x1EA1;n b&egrave; c&oacute; th&#x1EC3; ch&#x1EE7; &dstrok;&#x1ED9;ng g&#x1EED;i ti&#x1EC1;n m&#x1EEB;ng cho b&#x1EA1;n th&ocirc;ng qua internet banking.
-            .field-websiteinformationgroominfoform-bank_name
-              .form-floating.mb-2
-                input#websiteinformationgroominfoform-bank_name.form-control(type='text' name='WebsiteInformationGroomInfoForm[bank_name]' placeholder='Tên ngân hàng')
-                label.control-label(for='websiteinformationgroominfoform-bank_name') T&ecirc;n ng&acirc;n h&agrave;ng
-                .help-block
-            .field-websiteinformationgroominfoform-bank_account_number
-              .form-floating.mb-2
-                input#websiteinformationgroominfoform-bank_account_number.form-control(type='text' name='WebsiteInformationGroomInfoForm[bank_account_number]' placeholder='Tên ngân hàng')
-                label.control-label(for='websiteinformationgroominfoform-bank_account_number') T&ecirc;n ch&#x1EE7; kho&#x1EA3;n
-                .help-block
-            .field-websiteinformationgroominfoform-bank_account_name
-              .form-floating.mb-2
-                input#websiteinformationgroominfoform-bank_account_name.form-control(type='text' name='WebsiteInformationGroomInfoForm[bank_account_name]' placeholder='Tên ngân hàng')
-                label.control-label(for='websiteinformationgroominfoform-bank_account_name') S&#x1ED1; t&agrave;i kho&#x1EA3;n
-                .help-block
-            .field-websiteinformationgroominfoform-bank_branch
-              .form-floating.mb-2
-                input#websiteinformationgroominfoform-bank_branch.form-control(type='text' name='WebsiteInformationGroomInfoForm[bank_branch]' placeholder='Tên chi nhánh')
-                label.control-label(for='websiteinformationgroominfoform-bank_branch') T&ecirc;n chi nh&aacute;nh
-                .help-block
-            h6.fw-bold.text-left.fs-sm.mt-6.mb-0.text-uppercase Th&ocirc;ng tin v&iacute; cryptos (Coin)
-            p.text-muted.fs-6.mb-3 Hi&#x1EC3;n th&#x1ECB; tr&ecirc;n site &dstrok;&#x1EC3; b&#x1EA1;n b&egrave; c&oacute; th&#x1EC3; ch&#x1EE7; &dstrok;&#x1ED9;ng t&#x1EB7;ng coin cho b&#x1EA1;n &dstrok;&#x1EC3; ch&uacute;c m&#x1EEB;ng.
-            .cryptocurrenciesContainerGroom
-              .row.mb-3
-                .col-12.col-md-5
-                  .mb-2.form-group
-                    select#groom_crypto_index_1.form-control.cryptocurrencies-select.select2-hidden-accessible(name='groom_crypto[index_1][id]' data-select2-id='select2-data-groom_crypto_index_1' tabindex='-1' aria-hidden='true')
-                    span.select2.select2-container.select2-container--default(dir='ltr' data-select2-id='select2-data-1-bk1p' style='width: 208.325px;')
-                      span.selection
-                        span.select2-selection.select2-selection--single(role='combobox' aria-haspopup='true' aria-expanded='false' tabindex='0' aria-disabled='false' aria-labelledby='select2-groom_crypto_index_1-container' aria-controls='select2-groom_crypto_index_1-container')
-                          span#select2-groom_crypto_index_1-container.select2-selection__rendered(role='textbox' aria-readonly='true' title='Chọn loại Coin')
-                            span.select2-selection__placeholder Ch&#x1ECD;n lo&#x1EA1;i Coin
-                          span.select2-selection__arrow(role='presentation')
-                            b(role='presentation')
-                      span.dropdown-wrapper(aria-hidden='true')
-                    .help-block
-                .col-12.col-md-7.ps-md-0
-                  .mb-2.form-group.position-relative
-                    input#groom_crypto_address_index_1.form-control.pe-6(type='text' name='groom_crypto[index_1][address]' placeholder='Nhập địa chỉ ví coin' aria-required='true' autocomplete='off')
-                    span.text-danger.delete-crypto(title='' data-bs-toggle='tooltip' data-index='index_1' style='cursor: pointer;position: absolute;right: 8px;top: 13px;user-select: none;' data-bs-original-title='Xóa')
-                      svg(aria-hidden='true' style='display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em;width:.875em;' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 448 512')
-                        path(fill='currentColor' d='M32 464a48 48 0 0048 48h288a48 48 0 0048-48V128H32zm272-256a16 16 0 0132 0v224a16 16 0 01-32 0zm-96 0a16 16 0 0132 0v224a16 16 0 01-32 0zm-96 0a16 16 0 0132 0v224a16 16 0 01-32 0zM432 32H312l-9-19a24 24 0 00-22-13H167a24 24 0 00-22 13l-9 19H16A16 16 0 000 48v32a16 16 0 0016 16h416a16 16 0 0016-16V48a16 16 0 00-16-16z')
-            div
-              span.btn.btn-dark-soft.btn-sm.w-100.button-add-more-groom-crypto.mb-7(type='button')
-                svg.bi.bi-plus(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                  path(d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z')
-                | &#x9;&#x9;&#x9;&#x9;&#x9;Th&ecirc;m v&iacute; crypto
-      .col-sm-6
-        .card.card-border.border-danger.shadow-lg.card-border-radius-none
-          .card-body
-            .d-block.text-center
-              a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.image-edit.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
-                .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
-                  button.btn.btn-primary.btn-xs.position-relative(type='button')
-                    | Thay &dstrok;&#x1ED5;i
-                  input#upload_image_bride.file-field-absolute(type='file' name='upload_image_bride')
-                img#show_image_bride.w-100.img-thumbnail.rounded-0(src='https://cdn.biihappy.com/ziiweb/default/website/59b631f29bfb9f7cd20437d27ddbe4db.jpeg')
-              .field-websiteinformationbrideinfoform-avatar_base64
-                input#websiteinformationbrideinfoform-avatar_base64.form-control(type='hidden' name='WebsiteInformationBrideInfoForm[avatar_base64]')
-                .help-block
-            h4.fw-bold.text-center.mb-5.text-uppercase.text-danger Th&ocirc;ng tin c&ocirc; d&acirc;u
-            .field-websiteinformationbrideinfoform-name.required
-              .form-floating.mb-2
-                input#websiteinformationbrideinfoform-name.form-control(type='text' name='WebsiteInformationBrideInfoForm[name]' value='asd' placeholder='Họ và tên' aria-required='true')
-                label.control-label(for='websiteinformationbrideinfoform-name') H&#x1ECD; v&agrave; t&ecirc;n
-                .help-block
-            .field-websiteinformationbrideinfoform-short_name.required
-              .form-floating.mb-2
-                input#websiteinformationbrideinfoform-short_name.form-control(type='text' name='WebsiteInformationBrideInfoForm[short_name]' value='asd' placeholder='Tên ngắn gọn' aria-required='true')
-                label.control-label(for='websiteinformationbrideinfoform-short_name') T&ecirc;n ng&#x1EAF;n g&#x1ECD;n
-                .help-block
-            .field-websiteinformationbrideinfoform-birthday.required
-              .form-floating.mb-2
-                input#websiteinformationbrideinfoform-birthday.form-control(type='text' name='WebsiteInformationBrideInfoForm[birthday]' value='10/02/1993' placeholder='Ngày sinh' aria-required='true')
-                label.control-label(for='websiteinformationbrideinfoform-birthday') Ng&agrave;y sinh
-                .help-block
-            .field-websiteinformationbrideinfoform-intro.required
-              .form-floating.mb-2
-                textarea#websiteinformationbrideinfoform-intro.form-control(name='WebsiteInformationBrideInfoForm[intro]' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về cô dâu...' aria-required='true')
-                  | C&ocirc; g&aacute;i &dstrok;&#x1EBF;n t&#x1EEB; x&#x1EE9; Hu&#x1EBF; m&#x1ED9;ng m&#x1A1;, hi&#x1EC7;n &dstrok;ang sinh s&#x1ED1;ng v&agrave; l&agrave;m vi&#x1EC7;c t&#x1EA1;i S&agrave;i G&ograve;n. Sau khi t&#x1ED1;t nghi&#x1EC7;p H&#x1ECD;c vi&#x1EC7;n B&aacute;o ch&iacute; v&agrave; Tuy&ecirc;n truy&#x1EC1;n, quy&#x1EBF;t t&acirc;m theo &dstrok;u&#x1ED5;i &dstrok;am m&ecirc; l&agrave;m ph&oacute;ng vi&ecirc;n du l&#x1ECB;ch. L&agrave; m&#x1ED9;t ng&#x1B0;&#x1EDD;i hay c&#x1B0;&#x1EDD;i nh&#x1B0;ng l&#x1EA1;i s&#x1ED1;ng n&#x1ED9;i t&acirc;m, th&iacute;ch &dstrok;&#x1ECD;c s&aacute;ch, tr&#x1ED3;ng c&acirc;y v&agrave; y&ecirc;u thi&ecirc;n nhi&ecirc;n. Ngo&agrave;i ra c&ograve;n r&#x1EA5;t th&iacute;ch v&#x1EBD; v&#x1EDD;i, nu&ocirc;i m&egrave;o v&agrave; nu&ocirc;i &#x1B0;&#x1EDB;c m&#x1A1; c&oacute; cho m&igrave;nh m&#x1ED9;t v&#x1B0;&#x1EDD;n h&#x1ED3;ng khoe s&#x1EAF;c.
-                label.form-label(for='websiteinformationbrideinfoform-intro') Gi&#x1EDB;i thi&#x1EC7;u
-                .help-block
-            .field-websiteinformationbrideinfoform-facebook
-              .form-floating.mb-2
-                input#websiteinformationbrideinfoform-facebook.form-control(type='text' name='WebsiteInformationBrideInfoForm[facebook]' value='' placeholder='Facebook')
-                label.control-label(for='websiteinformationbrideinfoform-facebook') Facebook
-                .help-block
-            .field-websiteinformationbrideinfoform-twitter
-              .form-floating.mb-2
-                input#websiteinformationbrideinfoform-twitter.form-control(type='text' name='WebsiteInformationBrideInfoForm[twitter]' value='' placeholder='Twitter')
-                label.control-label(for='websiteinformationbrideinfoform-twitter') Twitter
-                .help-block
-            .field-websiteinformationbrideinfoform-instagram
-              .form-floating.mb-2
-                input#websiteinformationbrideinfoform-instagram.form-control(type='text' name='WebsiteInformationBrideInfoForm[instagram]' value='' placeholder='Instagram')
-                label.control-label(for='websiteinformationbrideinfoform-instagram') Instagram
-                .help-block
-            h6.fw-bold.text-left.fs-sm.mt-6.mb-0.text-uppercase Th&ocirc;ng tin ng&acirc;n h&agrave;ng
-            p.text-muted.fs-6.mb-3
-              | Hi&#x1EC3;n th&#x1ECB; tr&ecirc;n site &dstrok;&#x1EC3; b&#x1EA1;n b&egrave; c&oacute; th&#x1EC3; ch&#x1EE7; &dstrok;&#x1ED9;ng g&#x1EED;i ti&#x1EC1;n m&#x1EEB;ng cho b&#x1EA1;n th&ocirc;ng qua internet banking.
-            .field-websiteinformationbrideinfoform-bank_name
-              .form-floating.mb-2
-                input#websiteinformationbrideinfoform-bank_name.form-control(type='text' name='WebsiteInformationBrideInfoForm[bank_name]' placeholder='Tên ngân hàng')
-                label.control-label(for='websiteinformationbrideinfoform-bank_name') T&ecirc;n ng&acirc;n h&agrave;ng
-                .help-block
-            .field-websiteinformationbrideinfoform-bank_account_number
-              .form-floating.mb-2
-                input#websiteinformationbrideinfoform-bank_account_number.form-control(type='text' name='WebsiteInformationBrideInfoForm[bank_account_number]' placeholder='Tên ngân hàng')
-                label.control-label(for='websiteinformationbrideinfoform-bank_account_number') T&ecirc;n ch&#x1EE7; kho&#x1EA3;n
-                .help-block
-            .field-websiteinformationbrideinfoform-bank_account_name
-              .form-floating.mb-2
-                input#websiteinformationbrideinfoform-bank_account_name.form-control(type='text' name='WebsiteInformationBrideInfoForm[bank_account_name]' placeholder='Tên ngân hàng')
-                label.control-label(for='websiteinformationbrideinfoform-bank_account_name') S&#x1ED1; t&agrave;i kho&#x1EA3;n
-                .help-block
-            .field-websiteinformationbrideinfoform-bank_branch
-              .form-floating.mb-2
-                input#websiteinformationbrideinfoform-bank_branch.form-control(type='text' name='WebsiteInformationBrideInfoForm[bank_branch]' placeholder='Tên chi nhánh')
-                label.control-label(for='websiteinformationbrideinfoform-bank_branch') T&ecirc;n chi nh&aacute;nh
-                .help-block
-            h6.fw-bold.text-left.fs-sm.mt-6.mb-0.text-uppercase Th&ocirc;ng tin v&iacute; cryptos (Coin)
-            p.text-muted.fs-6.mb-3 Hi&#x1EC3;n th&#x1ECB; tr&ecirc;n site &dstrok;&#x1EC3; b&#x1EA1;n b&egrave; c&oacute; th&#x1EC3; ch&#x1EE7; &dstrok;&#x1ED9;ng t&#x1EB7;ng coin cho b&#x1EA1;n &dstrok;&#x1EC3; ch&uacute;c m&#x1EEB;ng.
-            .cryptocurrenciesContainerBride
-              .row.mb-3
-                .col-12.col-md-5
-                  .mb-2.form-group
-                    select#bride_crypto_index_1.form-control.cryptocurrencies-select.select2-hidden-accessible(name='bride_crypto[index_1][id]' data-select2-id='select2-data-bride_crypto_index_1' tabindex='-1' aria-hidden='true')
-                    span.select2.select2-container.select2-container--default(dir='ltr' data-select2-id='select2-data-2-fip2' style='width: 208.325px;')
-                      span.selection
-                        span.select2-selection.select2-selection--single(role='combobox' aria-haspopup='true' aria-expanded='false' tabindex='0' aria-disabled='false' aria-labelledby='select2-bride_crypto_index_1-container' aria-controls='select2-bride_crypto_index_1-container')
-                          span#select2-bride_crypto_index_1-container.select2-selection__rendered(role='textbox' aria-readonly='true' title='Chọn loại Coin')
-                            span.select2-selection__placeholder Ch&#x1ECD;n lo&#x1EA1;i Coin
-                          span.select2-selection__arrow(role='presentation')
-                            b(role='presentation')
-                      span.dropdown-wrapper(aria-hidden='true')
-                .col-12.col-md-7.ps-md-0
-                  .mb-2.form-group.position-relative
-                    input#bride_crypto_address_index_1.form-control.pe-6(type='text' name='bride_crypto[index_1][address]' placeholder='Nhập địa chỉ ví coin' aria-required='true' autocomplete='off')
-                    span.text-danger.delete-crypto(title='' data-bs-toggle='tooltip' data-index='index_1' style='cursor: pointer;position: absolute;right: 8px;top: 13px;user-select: none;' data-bs-original-title='Xóa')
-                      svg(aria-hidden='true' style='display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em;width:.875em;' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 448 512')
-                        path(fill='currentColor' d='M32 464a48 48 0 0048 48h288a48 48 0 0048-48V128H32zm272-256a16 16 0 0132 0v224a16 16 0 01-32 0zm-96 0a16 16 0 0132 0v224a16 16 0 01-32 0zm-96 0a16 16 0 0132 0v224a16 16 0 01-32 0zM432 32H312l-9-19a24 24 0 00-22-13H167a24 24 0 00-22 13l-9 19H16A16 16 0 000 48v32a16 16 0 0016 16h416a16 16 0 0016-16V48a16 16 0 00-16-16z')
-            div
-              span.btn.btn-dark-soft.btn-sm.w-100.button-add-more-bride-crypto.mb-7(type='button')
-                svg.bi.bi-plus(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                  path(d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z')
-                | &#x9;&#x9;&#x9;&#x9;&#x9;Th&ecirc;m v&iacute; crypto
+      a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/storylove`) Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
+  if(weddings)
+    form#groom-bride-form(action=`/wedding/edit/${weddings.id}/bridegroom?_method=PUT` method='post')
+      input(type='hidden' name='_csrf-biihappy' value='')
+      .row.mt-5
+        .col-12
+          div
+            | &Dstrok;&#x1EC3; t&ecirc;n c&#x1EE7;a c&ocirc; d&acirc;u v&agrave; ch&uacute; r&#x1EC3; &dstrok;&#x1B0;&#x1EE3;c hi&#x1EC3;n th&#x1ECB; &dstrok;&#x1EB9;p tr&ecirc;n website, b&#x1EA1;n kh&ocirc;ng n&ecirc;n nh&#x1EAD;p t&ecirc;n d&#x1EA1;ng in hoa to&agrave;n ph&#x1EA7;n. 
+            br
+            |  V&iacute; d&#x1EE5;: B&#x1EA1;n h&atilde;y d&ugrave;ng &quot;
+            strong Ng&ocirc; Vi&#x1EC7;t Ho&agrave;i
+            | &quot; thay v&igrave; &quot;
+            strong NG&Ocirc; VI&#x1EC6;T HO&Agrave;I
+            | &quot; v&agrave; &quot;
+            strong Vi&#x1EC7;t Ho&agrave;i
+            | &quot; thay v&igrave; &quot;
+            strong VI&#x1EC6;T HO&Agrave;I
+            | &quot;
+      .row.mt-6
+        .col-sm-6
+          .card.card-border.border-dark.shadow-lg.card-border-radius-none
+            .card-body
+              .d-block.text-center
+                a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.image-edit.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
+                  .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                    button.btn.btn-primary.btn-xs.position-relative(type='button')
+                      | Thay &dstrok;&#x1ED5;i
+                    input#upload_image_groom.file-field-absolute(type='file' name='upload_image_groom')
+                  img#show_image_groom.w-100.img-thumbnail.rounded-0(src='https://cdn.biihappy.com/ziiweb/default/website/3b48bc6125ce6d186297a3e90a11085e.jpeg')
+                .field-websiteinformationgroominfoform-avatar_base64
+                  input#websiteinformationgroominfoform-avatar_base64.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar_base64]')
+                  .help-block
+              h4.fw-bold.text-center.mb-5.text-uppercase Th&ocirc;ng tin ch&uacute; r&#x1EC3;
+              .field-websiteinformationgroominfoform-name.required
+                .form-floating.mb-2.form-group
+                  input#malename.form-control(type='text' name='malename' value=`${weddings.malename}` placeholder='Họ và tên' aria-required='true')
+                  label.control-label(for='malename') H&#x1ECD; v&agrave; t&ecirc;n
+                  .help-block
+              .field-websiteinformationgroominfoform-short_name.required
+                .form-floating.mb-2.form-group
+                  input#maleshortname.form-control(type='text' name='maleshortname' value=`${weddings.maleshortname}` placeholder='Tên ngắn gọn' aria-required='true')
+                  label.control-label(for='maleshortname') T&ecirc;n ng&#x1EAF;n g&#x1ECD;n
+                  .help-block
+              .field-websiteinformationgroominfoform-birthday.required
+                .form-floating.mb-2
+                  input#maledate.form-control(type='date' name='maledate' value=`${weddings.maledate}`  placeholder='Ngày sinh' aria-required='true')
+                  label.control-label(for='maledate') Ng&agrave;y sinh
+                  .help-block
+              .field-websiteinformationgroominfoform-intro.required
+                .form-floating.mb-2
+                  textarea#maleintroduce.form-control(name='maleintroduce' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...' aria-required='true' value=`ASADAS`)=`${weddings.maleintroduce}`
+                  label.form-label(for='websiteinformationgroominfoform-intro') Gi&#x1EDB;i thi&#x1EC7;u
+                  .help-block
+              .field-websiteinformationgroominfoform-facebook
+                .form-floating.mb-2
+                  input#malefb.form-control(type='text' name='malefb' value=`${weddings.malefb}` placeholder='Facebook')
+                  label.control-label(for='malefb') Facebook
+                  .help-block
+        .col-sm-6
+          .card.card-border.border-danger.shadow-lg.card-border-radius-none
+            .card-body
+              .d-block.text-center
+                a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.image-edit.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
+                  .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                    button.btn.btn-primary.btn-xs.position-relative(type='button')
+                      | Thay &dstrok;&#x1ED5;i
+                    input#upload_image_bride.file-field-absolute(type='file' name='upload_image_bride')
+                  img#show_image_bride.w-100.img-thumbnail.rounded-0(src='https://cdn.biihappy.com/ziiweb/default/website/59b631f29bfb9f7cd20437d27ddbe4db.jpeg')
+                .field-websiteinformationbrideinfoform-avatar_base64
+                  input#websiteinformationbrideinfoform-avatar_base64.form-control(type='hidden' name='WebsiteInformationBrideInfoForm[avatar_base64]')
+                  .help-block
+              h4.fw-bold.text-center.mb-5.text-uppercase.text-danger Th&ocirc;ng tin c&ocirc; d&acirc;u
+              .field-websiteinformationbrideinfoform-name.required
+                .form-floating.mb-2
+                  input#fename.form-control(type='text' name='fename' value=`${weddings.fename}` placeholder='Họ và tên' aria-required='true')
+                  label.control-label(for='fename') H&#x1ECD; v&agrave; t&ecirc;n
+                  .help-block
+              .field-websiteinformationbrideinfoform-short_name.required
+                .form-floating.mb-2
+                  input#feshortname.form-control(type='text' name='feshortname' value=`${weddings.feshortname}` placeholder='Tên ngắn gọn' aria-required='true')
+                  label.control-label(for='feshortname') T&ecirc;n ng&#x1EAF;n g&#x1ECD;n
+                  .help-block
+              .field-websiteinformationbrideinfoform-birthday.required
+                .form-floating.mb-2
+                  input#fedate.form-control(type='date' name='fedate' value=`${weddings.fedate}` placeholder='Ngày sinh' aria-required='true')
+                  label.control-label(for='fedate') Ng&agrave;y sinh
+                  .help-block
+              .field-websiteinformationbrideinfoform-intro.required
+                .form-floating.mb-2
+                  textarea#feintroduce.form-control(name='feintroduce' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về cô dâu...' aria-required='true')=`${weddings.feintroduce}`
+                  label.form-label(for='feintroduce') Gi&#x1EDB;i thi&#x1EC7;u
+                  .help-block
+              .field-websiteinformationbrideinfoform-facebook
+                .form-floating.mb-2
+                  input#fefb.form-control(type='text' name='fefb' value=`${weddings.fefb}`  placeholder='Facebook')
+                  label.control-label(for='fefb') Facebook
+                  .help-block
+      .p-5.text-center.bg-gray-200.mt-7
+        button.btn.btn-danger(type='submit')
+          svg.bi.bi-save(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+            path(d='M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z')
+          | &#x9;&#x9;L&#x1B0;u th&ocirc;ng tin
 
