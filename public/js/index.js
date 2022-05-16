@@ -13,7 +13,17 @@ const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const createweddingForm = document.querySelector('.form-create-wedding');
-const eventForm = 
+const eventForm = document.querySelector('.form-event-user'); 
+
+if (eventForm) {
+  eventForm.addEventListener('submit', async e => {
+    document.querySelector('.btn--save').textContent = 'Updating...';
+    const eventId = e.target.dataset.eventId;
+    console.log(eventId)
+    await eventUser(eventId);
+  });
+}
+
 //delegation
 if (loginForm) {
   loginForm.addEventListener('submit', e => {
@@ -54,8 +64,7 @@ if (userPasswordForm) {
     document.querySelector('.btn--save-password').textContent = 'Updating...';
     const passwordCurrent = document.getElementById('password-current').value;
     const password = document.getElementById('password').value;
-    const passwordConfirm = document.getElementById('password-confirm')
-.value;
+    const passwordConfirm = document.getElementById('password-confirm').value;
     if (passwordCurrent === password) {
       showAlert('error', 'Password is not same');
       return;

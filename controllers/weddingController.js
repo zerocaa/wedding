@@ -1,12 +1,63 @@
 const Wedding = require('../models/weddingModel');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
+const multer = require('multer');
+const sharp = require('sharp');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const Story = require('../models/storyLoveModel');
 const Event = require('../models/eventModel');
 const bridesMaids = require('../models/bridesmaidsModel');
+// const upload = multer({dest: 'public/img/wedding'});
+
 //func create,get,edit,delete wedding
+
+const multerStorage = multer.memoryStorage();
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb(new AppError('Not an image! Please upload only images.', 400), false);
+  }
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter
+});
+
+exports.uploadWeddingImages = upload.fields([
+  { name: 'malephoto', maxCount: 1 },
+  { name: 'fephoto', maxCount: 1}
+]);
+
+// upload.single('image') req.file
+// upload.array('images', 5) req.files
+
+exports.resizeWeddingImages = catchAsync(async (req, res, next) => {
+  if (!req.files.malephoto||!req.files.fephoto) return next();
+  console.log(req.files.malephoto)
+  console.log(req.files.fephoto)
+  // 1) Cover image
+  req.body.malephoto = `wedding-${req.params.weddingId}-${Date.now()}.jpeg`;
+  await sharp(req.files.malephoto[0].buffer)
+    .resize(1000, 1000)
+    .toFormat('jpeg')
+    .jpeg({ quality: 90 })
+    .toFile(`public/img/wedding/${req.body.malephoto}`);
+
+  // 2) Images
+  req.body.fephoto = `wedding-${
+    req.params.weddingId
+  }-${Date.now()}.jpeg`;
+  await sharp(req.files.fephoto[0].buffer)
+    .resize(1000, 1000)
+    .toFormat('jpeg')
+    .jpeg({ quality: 90 })
+    .toFile(`public/img/wedding/${req.body.fephoto}`);
+  next();
+});
 
 exports.getWeddingTest = factory.getOne(Wedding);
 
@@ -124,6 +175,8 @@ exports.getWeddingAll = catchAsync(async (req, res, next) => {
 
 exports.updateWeddingAll = catchAsync(async (req, res, next) => {
   if (req.params.slug === 'bridegroom') {
+    console.log(req.body.malephoto)
+    console.log(req.body.fephoto);
     let wedding = await Wedding.findById(req.params.weddingId);
     console.log(wedding);
     if (!wedding) return next(new AppError('No wedding found with that ID', 404));
@@ -137,15 +190,21 @@ exports.updateWeddingAll = catchAsync(async (req, res, next) => {
       new: true,
       runValidators: true
     });
-    // console.log(wedding);
+    console.log(wedding);
     res.status(200).redirect('/wedding/edit/' + wedding.id + '/bridegroom');
-  }else if (req.params.slug === 'bridesmaids') {
+    // res.status(200).json({
+    //   status: 'success',
+    //   data: {
+    //     data: wedding
+    //   }
+    // });
+  } else if (req.params.slug === 'bridesmaids') {
     let bridesmaids = await bridesMaids.findOne({
       wedding: req.params.weddingId
     });
     if (!bridesmaids)
       return next(new AppError('No bridesmaids found with that Id', 404));
-      bridesmaids = await bridesMaids.findByIdAndUpdate(
+    bridesmaids = await bridesMaids.findByIdAndUpdate(
       bridesmaids.id,
       req.body,
       {

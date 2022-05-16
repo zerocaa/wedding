@@ -2,35 +2,10 @@ const multer = require('multer');
 const sharp = require('sharp');
 const User = require('../models/userModel');
 const Wedding = require('../models/weddingModel');
-const bridesmaids	= require('../models/bridesmaidsModel');
+const bridesmaids = require('../models/bridesmaidsModel');
+const path = require('path');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
-
-const multerStorage = multer.memoryStorage();
-
-const multerFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('image')) {
-    cb(null, true);
-  } else {
-    cb(new AppError('Not an image! Please upload only images.', 400), false);
-  }
-};
-
-const upload = multer({
-  storage: multerStorage,
-  fileFilter: multerFilter
-});
-
-exports.uploadTourImages = upload.fields([
-  { name: 'imageCover', maxCount: 1 },
-  { name: 'images', maxCount: 3 }
- 
-]);
-
-exports.resizeTourImages = catchAsync(async (req, res, next) => {
-  console.log(req.files);
-  next();
-});
 
 
 exports.getSigIn = (req, res) => {
@@ -208,3 +183,36 @@ exports.getPreviewTest = catchAsync(async (req, res, next) => {
     weddings
   });
 });
+
+exports.getTest = catchAsync(async (req, res, next) => {
+  res.status(200).render('bride-groom', {
+    title: 'bride-groom'
+  });
+})
+
+var storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'public/img/wedding');
+  },
+  filename: function(req, file, cb) {
+    cb(
+      null,
+      file.fieldname + '-' + Date.now() + path.extname(file.originalname)
+    );
+  }
+});
+
+var upload = multer({ storage: storage });
+exports.uploadMultiple = upload.fields([
+  { name: 'malephoto', maxCount: 10 },
+  { name: 'fephoto', maxCount: 10 }
+]);
+
+exports.testthu = (req, res, next) => {
+  console.log(req.files)
+  const a = req.files;
+  console.log(a.fieldname);
+    console.log(req.files);
+    console.log('files uploaded');
+  res.status(200).redirect('/')
+};

@@ -1,4 +1,5 @@
 const express = require('express');
+
 const weddingController = require('../controllers/weddingController');
 const authController = require('../controllers/authController');
 const bridesmaidsController = require('../controllers/BridesMaidsController');
@@ -24,25 +25,6 @@ router
     bridesmaidsController.updateBridesMaids
 )
   .get(authController.protect,bridesmaidsController.getAllBridesMaids);
-router
-  .route('/:weddingId/events')
-  .post(
-    authController.protect,
-    authController.restrictTo('user'),
-    eventController.setId,
-    eventController.createEvent
-  );
-  
-
-router
-  .route('/:weddingId/stories')
-  .post(
-    authController.protect,
-    authController.restrictTo('user'),
-    storyController.setId,
-    storyController.createStory
-  )
-  .get(storyController.getAllStories)
 //GET /wedding/:weddingId/bride-groom'
 //POST /wedding/:weddingId/reviews
 // /weddings-within?distance=233&center=-40,45&unit=mi

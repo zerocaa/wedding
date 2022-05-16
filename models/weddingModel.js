@@ -51,6 +51,9 @@ const weddingSchema = new mongoose.Schema(
     malelocation: {
       type: String
     },
+    malephoto: {
+      type: String
+    },
     fename: {
       type: String
     },
@@ -70,6 +73,9 @@ const weddingSchema = new mongoose.Schema(
       type: String
     },
     felocation: {
+      type: String
+    },
+    fephoto: {
       type: String
     },
     slug: {

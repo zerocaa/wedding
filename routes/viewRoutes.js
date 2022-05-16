@@ -2,9 +2,12 @@ const express = require('express');
 const viewsController = require('../controllers/viewsController');
 const weddingController = require('../controllers/weddingController');
 const authController = require('../controllers/authController');
+const multer = require('multer');
 const bridesmaidsController = require('../controllers/BridesMaidsController');
 const storyController = require('../controllers/storyController');
 const eventController = require('../controllers/EventController');
+
+const upload = multer({dest: 'public/img/wedding'});
 
 const router = express.Router();
 
@@ -47,44 +50,11 @@ router
   .put(
     authController.protect,
     authController.restrictTo('user'),
+    weddingController.uploadWeddingImages,
+    weddingController.resizeWeddingImages,
     weddingController.updateWeddingAll
   )
   .get(authController.protect, weddingController.getWeddingAll);
-
-router
-  .route('/wedding/edit/:weddingId/:slug')
-  .post(
-    authController.protect,
-    authController.restrictTo('user'),
-    bridesmaidsController.setId,
-    bridesmaidsController.createBridesMaids
-  )
-  .patch(
-    authController.protect,
-    authController.restrictTo('user', 'admin'),
-    bridesmaidsController.setId,
-    bridesmaidsController.updateBridesMaids
-  )
-  .get(bridesmaidsController.getAllBridesMaids);
-  
-router
-  .route('/wedding/edit/:weddingId/events')
-  .post(
-    authController.protect,
-    authController.restrictTo('user'),
-    eventController.setId,
-    eventController.createEvent
-  );
-
-router
-  .route('/wedding/edit/:weddingId/stories')
-  .post(
-    authController.protect,
-    authController.restrictTo('user'),
-    storyController.setId,
-    storyController.createStory
-  )
-  .get(storyController.getAllStories);
 
 // router.get('/wedding/edit/groom-bride', viewsController.getBrideGroom);
 
