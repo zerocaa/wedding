@@ -38,15 +38,34 @@ router
 //   .get(bridesmaidsController.getAllBridesMaids);
 router
   .route('/wedding/edit/:weddingId')
-  // .post(
-  //   authController.protect,
-  //   authController.restrictTo('user'),
-  //   weddingController.createWedding
-  // )
   .get(authController.protect, weddingController.getWedding);
+
+
+router
+  .route('/wedding/edit/:weddingId/event')
+  .get(authController.protect, weddingController.getEvent);
+
+router
+  .route('/wedding/edit/:weddingId/storyLove')
+  .get(authController.protect, weddingController.getStoryLove);
 
 router
   .route('/wedding/edit/:weddingId/:slug')
+  .post(authController.protect, authController.restrictTo('user'))
+  .put(
+    authController.protect,
+    authController.restrictTo('user'),
+    // weddingController.uploadWeddingImages,
+    // weddingController.resizeWeddingImages,
+    weddingController.updateWeddingAll
+  )
+  .get(
+    authController.protect,
+    weddingController.getWeddingAll
+  );
+
+router
+  .route('/wedding/edit/:weddingId/bridegrrom')
   .put(
     authController.protect,
     authController.restrictTo('user'),
@@ -54,7 +73,8 @@ router
     weddingController.resizeWeddingImages,
     weddingController.updateWeddingAll
   )
-  .get(authController.protect, weddingController.getWeddingAll);
+    .get(authController.protect, weddingController.getWeddingAll);
+
 
 // router.get('/wedding/edit/groom-bride', viewsController.getBrideGroom);
 

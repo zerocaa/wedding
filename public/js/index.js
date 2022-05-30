@@ -4,7 +4,8 @@ import { showAlert } from './alert';
 import { displayMap } from './mapbox';
 import { login, logout, signup } from './login';
 import { updateSettings } from './updateSetting';
-import { eventUser } from './eventUpdate';
+import { eventUser, createEvent, deleteEvent } from './eventUpdate';
+import { storyUser, createStory, deleteStory } from './storyUpdate';
 import { createwedding } from './createwedding';
 //dom element
 const loginForm = document.querySelector('.form--login');
@@ -13,16 +14,100 @@ const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const createweddingForm = document.querySelector('.form-create-wedding');
-const eventForm = document.querySelector('.form-event-user'); 
+const eventForm = document.querySelectorAll('.form-event-user');
+// const createEventForm = document.getElementById('add-more-event');
+const storyForm = document.querySelectorAll('.form-story-user');
+const createEventForm = document.getElementById('add-more-event');
+const createStoryForm = document.getElementById('add-more-story');
 
-if (eventForm) {
-  eventForm.addEventListener('submit', async e => {
-    document.querySelector('.btn--save').textContent = 'Updating...';
-    const eventId = e.target.dataset.eventId;
-    console.log(eventId)
-    await eventUser(eventId);
+if (storyForm) {
+  storyForm.forEach(form => {
+    form.addEventListener('submit',async e => {
+      e.preventDefault();
+      for (let i = 1; i <= storyForm.length; i++) {
+        const id = document.getElementById('id' + i).value;
+        if (id == i) {
+          const story = document.getElementById('storyId' + i).value;
+          const title = document.getElementById('title' + i).value;
+          const time = document.getElementById('time' + i).value;
+          const content = document.getElementById('content' + i).value;
+          await storyUser(story,title,time,content);
+        }
+      }
+      })
+    })
+}
+
+  
+document.addEventListener('DOMContentLoaded', function() {
+  var storyId;
+  var deleteBtn = $('.btn-delete-story');
+  deleteBtn.click(function(e) {
+    e.preventDefault();
+    var storyId = $(this).data('id');
+    deleteStory(storyId);
+  });
+});
+
+if (createStoryForm) {
+  createStoryForm.addEventListener('click', async e => {
+    e.target.textContent = 'Processing...';
+    const { story } = e.target.dataset;
+    console.log(story);
+    await createStory(story);
   });
 }
+
+  
+document.addEventListener('DOMContentLoaded', function() {
+  var eventId;
+  var deleteBtn = $('.btn-delete-event');
+  deleteBtn.click(function(e) {
+    e.preventDefault();
+    var eventId = $(this).data('id');
+    deleteEvent(eventId);
+  });
+});
+
+if (createEventForm) {
+  createEventForm.addEventListener('click', async e => {
+    e.target.textContent = 'Processing...';
+    const { event } = e.target.dataset;
+    console.log(event)
+    await createEvent(event);
+  });
+}
+
+// if (createEventForm)
+//   createEventForm.addEventListener('click', async e => {
+//     // e.preventDefault();
+//     e.target.textContent = 'Processing...';
+//     const { weddingId } = e.target.dataset;
+//     console.log(weddingId)
+//   }
+// );
+
+
+if (eventForm)
+  eventForm.forEach(form => {
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      // const nodeList = document.querySelectorAll('.btn--save');
+      // nodeList.forEach(node => node.textContent = 'Processing...');
+      for (let i = 1; i <= eventForm.length; i++) {
+        const id = document.getElementById('id' + i).value;
+        if (id == i) {
+          const event = document.getElementById('eventId' + i).value;
+          const name = document.getElementById('name' + i).value;
+          const date = document.getElementById('date' + i).value;
+          const time = document.getElementById('time' + i).value;
+          const address = document.getElementById('address' + i).value;
+          const map = document.getElementById('map' + i).value;
+          await eventUser(event, name, date, time, address, map);
+        }
+      }
+    });
+  });
 
 //delegation
 if (loginForm) {

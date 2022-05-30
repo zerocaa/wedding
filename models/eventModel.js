@@ -4,24 +4,28 @@ const slugify = require('slugify');
 const eventSchema = new mongoose.Schema({
   wedding: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Wedding',
-    required: [true, 'A BrideGroom must have a Wedding ID ']
+    ref: 'Wedding'
+    // required: [true, 'A BrideGroom must have a Wedding ID ']
   },
   name: {
-    type:String
+    type: String,
+    default: ''
   },
   date: {
-    type: String
+    type: String,
+    default: ''
   },
   time: {
-    type: String
+    type: String,
+    default: ''
   },
   address: {
     type: String,
-
+    default: ''
   },
   map: {
-    type: String
+    type: String,
+    default: ''
   }
 });
 

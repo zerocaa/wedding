@@ -189,30 +189,3 @@ exports.getTest = catchAsync(async (req, res, next) => {
     title: 'bride-groom'
   });
 })
-
-var storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'public/img/wedding');
-  },
-  filename: function(req, file, cb) {
-    cb(
-      null,
-      file.fieldname + '-' + Date.now() + path.extname(file.originalname)
-    );
-  }
-});
-
-var upload = multer({ storage: storage });
-exports.uploadMultiple = upload.fields([
-  { name: 'malephoto', maxCount: 10 },
-  { name: 'fephoto', maxCount: 10 }
-]);
-
-exports.testthu = (req, res, next) => {
-  console.log(req.files)
-  const a = req.files;
-  console.log(a.fieldname);
-    console.log(req.files);
-    console.log('files uploaded');
-  res.status(200).redirect('/')
-};

@@ -110,11 +110,11 @@ exports.getAllWedding = factory.getAll(Wedding);
 // render data bridegroom
 exports.getWedding = catchAsync(async (req, res, next) => {
   const weddings = await Wedding.findById(req.params.weddingId);
-  if (!weddings)
-    return next(new AppError('No weddings found with that Id', 404));
+  console.log(weddings)
+  if (!weddings) return next(new AppError('No wedding found with that ID', 404));
   res.status(200).render('bride-groom', {
-    title: 'Wedding Details',
-    weddings
+    title: 'Wedding',
+      weddings
   });
 });
 
@@ -139,6 +139,7 @@ exports.updateWedding = catchAsync(async (req, res, next) => {
 exports.deleteWedding = factory.deleteOne(Wedding);
 
 exports.getWeddingAll = catchAsync(async (req, res, next) => {
+  
   if (req.params.slug === 'bridegroom') {
     const weddings = await Wedding.findById(req.params.weddingId);
     if (!weddings)
@@ -157,15 +158,13 @@ exports.getWeddingAll = catchAsync(async (req, res, next) => {
       bridesmaids
     });
   } else if (req.params.slug === 'storylove') {
-    const storys = await Story.findOne({ wedding: req.params.weddingId });
-    // console.log(storys);
+    const storys = await Story.find({ wedding: req.params.weddingId });
     res.status(200).render('storylove', {
       title: 'Wedding Details',
       storys
     });
   } else if (req.params.slug === 'event') {
     const events = await Event.find({ wedding: req.params.weddingId });
-    // console.log(events);
     res.status(200).render('event', {
       title: 'Wedding Details',
       events
@@ -216,17 +215,14 @@ exports.updateWeddingAll = catchAsync(async (req, res, next) => {
       .status(200)
       .redirect('/wedding/edit/' + bridesmaids.wedding + '/bridesmaids');
   } else if (req.params.slug === 'event') {
-    let events = await Event.find({
-      wedding: req.params.weddingId
-    });
-    // console.log(events.id);
-    if (!events)
-      return next(new AppError('No bridesmaids found with that Id', 404));
-    events = await Event.findByIdAndUpdate(events.id, req.body, {
-      new: true,
-      runValidators: true
-    });
-    res.status(200).redirect('/wedding/edit/' + events.wedding + '/event');
+    //  const events = await Event.find({ wedding: req.params.weddingId });
+    // if (!events)
+    //   return next(new AppError('No bridesmaids found with that Id', 404));
+    // events = await Event.findByIdAndUpdate(events.id, req.body, {
+    //   new: true,
+    //   runValidators: true
+    // });
+    // res.status(200).redirect('/wedding/edit/' + events.wedding + '/event');
   } else if (req.params.slug === 'storylove') {
     let storys = await Story.findOne({ wedding: req.params.weddingId });
     // console.log(storys);
@@ -239,4 +235,48 @@ exports.updateWeddingAll = catchAsync(async (req, res, next) => {
     // console.log(storys);
     res.status(200).redirect('/wedding/edit/' + storys.wedding + '/storylove');
   }
+});
+
+exports.getEvent = catchAsync(async (req, res, next) => {
+   req.body.event = [];
+   const event = await Event.find({ wedding: req.params.weddingId });
+   console.log(event);
+   const eventId = event.map((data, i) => {
+     return req.body.event.push(data.id);
+   });
+   const wedding = await Wedding.findByIdAndUpdate(
+     req.params.weddingId,
+     req.body,
+     {
+       new: true,
+       runValidators: true
+     }
+   );
+  const events = await Event.find({ wedding: req.params.weddingId });
+  res.status(200).render('event', {
+    title: 'Wedding Details',
+    events
+  });
+}
+);
+
+exports.getStoryLove = catchAsync(async (req, res, next) => {
+  req.body.storyLove = [];
+  const story = await Story.find({ wedding: req.params.weddingId });
+  const storyId = story.map(data => {
+    return req.body.storyLove.push(data.id);
+  });
+  const wedding = await Wedding.findByIdAndUpdate(
+    req.params.weddingId,
+    req.body,
+    {
+      new: true,
+      runValidators: true
+    }
+  );
+  const storys = await Story.find({ wedding: req.params.weddingId });
+  res.status(200).render('storylove', {
+    title: 'Wedding Details',
+    storys
+  });
 });

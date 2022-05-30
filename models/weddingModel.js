@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-
+const bridesMaids = require('./bridesmaidsModel');
+const Story = require('./storyLoveModel')
+const Event = require('./eventModel')
 // const User = require('./userModel');
 // const Contact = require('./contactModel');
 const weddingSchema = new mongoose.Schema(
@@ -14,18 +16,24 @@ const weddingSchema = new mongoose.Schema(
       type: Date,
       default: Date.now()
     },
-    bridesmaids: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'BridesMaids'
-    },
-    event: {
-       type: mongoose.Schema.ObjectId,
+    bridesmaids: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'BridesMaids'
+      }
+    ],
+    event: [
+      {
+        type: mongoose.Schema.ObjectId,
         ref: 'Event'
-    },
-    storyLove: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'StoryLove'
-    },
+      }
+    ],
+    storyLove: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'StoryLove'
+      }
+    ],
     date: {
       type: String
     },
@@ -52,7 +60,8 @@ const weddingSchema = new mongoose.Schema(
       type: String
     },
     malephoto: {
-      type: String
+      type: String,
+      default: 'user-default.jpg'
     },
     fename: {
       type: String
@@ -76,7 +85,8 @@ const weddingSchema = new mongoose.Schema(
       type: String
     },
     fephoto: {
-      type: String
+      type: String,
+      default: 'user-default.jpg'
     },
     slug: {
       type: String,
@@ -107,6 +117,11 @@ weddingSchema.pre(/^find/, function (next) {
   next(); 
 })
 
+weddingSchema.pre('save', async function (next) {
+  const bridesmaidsPromises = this.bridesmaids.map(async id => await bridesMaids.findById(id));
+  this.bridesmaids = await Promise.all(bridesmaidsPromises);
+  next();
+})
 // middle ware get slugify
 // weddingSchema.pre('save', function(next) {
 //   this.slug = slugify(this.name, { lower: true });

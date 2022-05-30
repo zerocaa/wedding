@@ -9,15 +9,7 @@ exports.setId = catchAsync(async (req, res, next) => {
 });
 
 // BridesMaids
-exports.getAllBridesMaids = catchAsync(async (req, res, next) => {
-  let bridesMaids = await bridesmaids.findOne({ slug: req.params.slug });
-  if (!bridesMaids)
-    return next(new AppError('No bridesmaids found with that ID', 404));
-  res.status(200).render('bridesmaids-groomsmen', {
-    title: 'Bride & Groom',
-    bridesMaids
-  });
-});
+exports.getAllBridesMaids = factory.getAll(bridesmaids);
 exports.getOneBridesMaids = factory.getOne(bridesmaids);
 exports.createBridesMaids = factory.createOne(bridesmaids);
 exports.updateBridesMaids = catchAsync(async (req, res, next) => {

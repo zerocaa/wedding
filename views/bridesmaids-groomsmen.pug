@@ -2,16 +2,19 @@ extend editwedsite
 
 block content 
     if(bridesmaids)
+        - var n =1
         each bridesmaid in bridesmaids
-            ul.nav.nav-pills.nav-fill.nav-list-website-menu
-                li.nav-item
-                    a.nav-link.bg-gray-200(aria-current='page' href=`/wedding/edit/${bridesmaid.wedding}/bridegroom` ) C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
-                li.nav-item
-                    a.nav-link.active(href=`/wedding/edit/${bridesmaid.wedding}/bridesmaids` ) Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
-                li.nav-item
-                    a.nav-link.bg-gray-200(href=`/wedding/edit/${bridesmaid.wedding}/event`) S&#x1EF1; ki&#x1EC7;n
-                li.nav-item
-                    a.nav-link.bg-gray-200(href=`/wedding/edit/${bridesmaid.wedding}/storylove`) Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
+            while n < 2
+                ul.nav.nav-pills.nav-fill.nav-list-website-menu
+                    li.nav-item
+                        a.nav-link.bg-gray-200(aria-current='page' href=`/wedding/edit/${bridesmaid.wedding}/bridegroom` ) C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
+                    li.nav-item
+                        a.nav-link.active(href=`/wedding/edit/${bridesmaid.wedding}/bridesmaids` ) Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
+                    li.nav-item
+                        a.nav-link.bg-gray-200(href=`/wedding/edit/${bridesmaid.wedding}/event`) S&#x1EF1; ki&#x1EC7;n
+                    li.nav-item
+                        a.nav-link.bg-gray-200(href=`/wedding/edit/${bridesmaid.wedding}/storylove`) Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
+                    li(style='color:white')=n++
     .row.mt-6
         .col-12
             .p.rounded
@@ -21,9 +24,9 @@ block content
                         strong &Dstrok;ang hi&#x1EC3;n th&#x1ECB;
                         |  / B&#x1EA1;n c&oacute; th&#x1EC3; thi&#x1EBF;t l&#x1EAD;p &quot;Hi&#x1EC3;n th&#x1ECB;&quot; ho&#x1EB7;c &quot;Kh&ocirc;ng hi&#x1EC3;n th&#x1ECB;&quot; kh&#x1ED1;i n&agrave;y &#x1EDF; website &dstrok;&aacute;m c&#x1B0;&#x1EDB;i.   
         if(bridesmaids)
-            each bridesmaid in bridesmaids
-                form#groomsmans-bridesmaids-form(action=`/wedding/edit/${bridesmaid.wedding}/bridesmaids?_method=PUT` method='post')
-                    input(type='hidden' name='_csrf-biihappy' value='FAs6BQ1KTYfXi8QUBtG2HNJ4yC2YbQDx2arlfKwN-homeXc2RAYY5Jimg3p3uedbn0C_FPlYWbWj5LFMw2CiKg==')
+            form#groomsmans-bridesmaids-form
+                input(type='hidden' name='_csrf-biihappy')
+                each bridesmaid in bridesmaids   
                     .row.mt-6
                         .col-sm-6
                             .groomsmansContainer.formInforContainer
@@ -56,7 +59,7 @@ block content
                                                 .help-block
                                         .field-groomsmans_intro_index_1.required
                                             .form-floating.mb-2
-                                                textarea#introduce.form-control(name='introduce' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')=`${bridesmaid.introduce}`
+                                            textarea#introduce.form-control(name='introduce' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')=`${bridesmaid.introduce}`
                                                 label.form-label(for='introduce') Gi&#x1EDB;i thi&#x1EC7;u
                                                 .help-block
                                         .field-groomsmans_facebook_index_1
@@ -66,10 +69,6 @@ block content
                                                 .help-block
                                         .d-block.text-center
                                             button.btn.btn-danger-soft.btn-sm.btn-remove-form(type='button') Xo&aacute;
-                            button.btn.btn-dark-soft.btn-sm.w-100.button-add-more-groomsman.mb-7(type='button')
-                                svg.bi.bi-plus(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                                    path(d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z')
-                                | &#x9;&#x9;&#x9;Th&ecirc;m ph&ugrave; r&#x1EC3;
                         .col-sm-6
                             .groomsmansContainer.formInforContainer
                                 .card.card-border.border-dark.shadow-lg.card-border-radius-none.mb-7
@@ -81,12 +80,12 @@ block content
                                                         | Thay &dstrok;&#x1ED5;i
                                                     input#upload_image_groomsman_index_1.upload_image_groomsman.file-field-absolute(type='file' data-index='index_1' name='upload_image_groomsman_index_1')
                                                 img#show_image_groomsman_index_1.w-100.img-avatar.img-thumbnail.rounded-0(src='https://cdn.biihappy.com/ziiweb/default/website/975cfb98a98bdadceb256b9160ac706e.jpeg')
-                                            .field-groomsmans_avatar_base64_index_1
-                                                input#groomsmans_avatar_base64_index_1.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar_base64][]')
-                                                .help-block
-                                            .field-groomsmans_avatar_index_1
-                                                input#groomsmans_avatar_index_1.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar][]' value='default/website/4fa239218590ce0e7b44013a504e3d99.jpeg')
-                                                .help-block
+                                                .field-groomsmans_avatar_base64_index_1
+                                                    input#groomsmans_avatar_base64_index_1.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar_base64][]')
+                                                    .help-block
+                                                .field-groomsmans_avatar_index_1
+                                                    input#groomsmans_avatar_index_1.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar][]' value='default/website/4fa239218590ce0e7b44013a504e3d99.jpeg')
+                                                    .help-block
                                         h4.fw-bold.text-center.mb-5.text-uppercase
                                             | Th&ocirc;ng tin phù dâu
                                         .field-groomsmans_name_index_1.required
@@ -97,8 +96,7 @@ block content
                                         .field-groomsmans_birthday_index_1.required
                                             .form-floating.mb-2
                                                 input#febirthday.form-control(type='text' name='febirthday' value=`${bridesmaid.febirthday}` placeholder='Ngày sinh')
-                                                label.control-label(for='febirthday') Ng&agrave;y sinh
-                                                .help-block
+                                                label.control-label(for='febirthday') Ng&agrave;y sinh                                                    .help-block
                                         .field-groomsmans_intro_index_1.required
                                             .form-floating.mb-2
                                                 textarea#feintroduce.form-control(name='feintroduce' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')=`${bridesmaid.feintroduce}`
@@ -111,13 +109,13 @@ block content
                                                 .help-block
                                         .d-block.text-center
                                             button.btn.btn-danger-soft.btn-sm.btn-remove-form(type='button') Xo&aacute;
-                            button.btn.btn-dark-soft.btn-sm.w-100.button-add-more-groomsman.mb-7(type='button')
-                                svg.bi.bi-plus(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                                    path(d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z')
-                                | &#x9;&#x9;&#x9;Th&ecirc;m ph&ugrave; r&#x1EC3;
-                    .p-5.text-center.bg-gray-200.mt-7
-                        button.btn.btn-danger(type='submit')
-                            svg.bi.bi-save(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                                path(d='M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z')
-                            | &#x9;&#x9;L&#x1B0;u th&ocirc;ng tin
+                .p-5.text-center.bg-gray-200.mt-7
+                    button.btn.btn-danger(type='submit')
+                        svg.bi.bi-save(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                            path(d='M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z')
+                        | &#x9;&#x9;L&#x1B0;u th&ocirc;ng tin
+                    button.btn.btn-dark-soft.btn-sm.w-100.button-add-more-groomsman.mb-7(type='button')
+                        svg.bi.bi-plus(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                            path(d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z')
+                        | &#x9;&#x9;&#x9;Th&ecirc;m ph&ugrave; r&#x1EC3;            
                     

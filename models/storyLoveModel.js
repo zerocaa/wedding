@@ -9,13 +9,16 @@ const storyLoveSchema = new mongoose.Schema({
   },
   title: {
     type: String,
+    default: ''
   },
   time: {
-    type: String
+    type: String,
+    default: ''
   },
   content: {
-    type: String
-  },
+    type: String,
+    default: ''
+  }
 });
 
 //

@@ -9,7 +9,22 @@ const router = express.Router();
 
 // router.use('/:weddingId/bride-groom', brideGroom);
 
+router
+  .route('/:id')
+  .get(weddingController.getWedding)
+  .patch(
+    authController.protect,
+    authController.restrictTo('user', 'admin'),
+    weddingController.updateWedding
+  )
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin', 'lead-guide'),
+    weddingController.deleteWedding
+  );
 
+
+// router.get('/updatewedding/:weddingId', weddingController.updateWeddingEvent);
 router
   .route('/:weddingId/:slug')
   .post(
@@ -43,17 +58,6 @@ router
     weddingController.createWedding
   )
   .get(authController.protect, weddingController.getAllWedding);
-router
-  .route('/:id')
-  .get(weddingController.getWedding)
-  .patch(authController.protect,
-    authController.restrictTo('user','admin'),
-    weddingController.updateWedding)
-  .delete(
-    authController.protect,
-    authController.restrictTo('admin','lead-guide'),
-    weddingController.deleteWedding
-);
 
   
 module.exports = router;

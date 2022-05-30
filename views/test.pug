@@ -1,3 +1,8 @@
-if(weddings)
-   each wedding in weddings
-      h2=`${weddings.malename}`
+extend base
+block content 
+
+    button.btn.btn-primary(type='button' data-bs-toggle='modal' data data-bs-target='#exampleModal')
+        | Launch demo modal
+
+
+    

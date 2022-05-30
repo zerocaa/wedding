@@ -13,6 +13,6 @@ router
 router.
     route('/:id')
     .get(story.getOneStory)
-    .patch(story.updateStory)
+    .put(story.updateStory)
     .delete(story.deleteStory)
 module.exports = router;

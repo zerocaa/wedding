@@ -8,6 +8,7 @@ router
   .post(
     authController.protect,
     authController.restrictTo('user'),
+    event.setId,
     event.createEvent
   )
   .get(event.getAllEvents);

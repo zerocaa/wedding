@@ -3,7 +3,6 @@ const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
 
 exports.setId = catchAsync(async (req, res, next) => {
-  if (!req.body.user) req.body.user = req.user.id;
   if (!req.body.wedding) req.body.wedding = req.params.weddingId;
   next();
 });
