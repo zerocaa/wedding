@@ -16,6 +16,10 @@ router
 router
   .route('/:id')
   .get(event.getOneEvent)
-  .put(event.updateEvent)
+  .put(
+    authController.protect,
+    event.uploadEventPhoto,
+    event.resizeEventPhoto,
+    event.updateEvent)
   .delete(event.deleteEvent);
 module.exports = router;

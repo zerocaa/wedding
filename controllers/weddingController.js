@@ -120,7 +120,6 @@ exports.getWedding = catchAsync(async (req, res, next) => {
 
 exports.updateWedding = catchAsync(async (req, res, next) => {
   let wedding = await Wedding.findById(req.params.weddingId);
-  console.log(wedding);
   if (!wedding) return next(new AppError('No wedding found with that ID', 404));
   const a = wedding.user.toString();
   // console.log(a);
@@ -240,7 +239,6 @@ exports.updateWeddingAll = catchAsync(async (req, res, next) => {
 exports.getEvent = catchAsync(async (req, res, next) => {
    req.body.event = [];
    const event = await Event.find({ wedding: req.params.weddingId });
-   console.log(event);
    const eventId = event.map((data, i) => {
      return req.body.event.push(data.id);
    });
@@ -253,6 +251,8 @@ exports.getEvent = catchAsync(async (req, res, next) => {
      }
    );
   const events = await Event.find({ wedding: req.params.weddingId });
+  // console.log(events)
+  // res.json(events);
   res.status(200).render('event', {
     title: 'Wedding Details',
     events

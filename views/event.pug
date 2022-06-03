@@ -23,11 +23,12 @@ block content
                         form#events-form.form-event-user(data-event-id=`${event.id}`)
                             .card-body
                                 a.thumbnail.d-block.mb-3.choose-image-parent.position-relative(href='javascript:void(0)')
-                                    //- .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
-                                    //-     button.btn.btn-primary.btn-xs.position-relative(type='button')
-                                    //-         | Thay &dstrok;&#x1ED5;i
-                                    //-     input#upload_image_event_index_1.upload_image_event.file-field-absolute(type='file' data-index='index_1' name='upload_image_event_index_1')
-                                    //- img#show_image_event_index_1.img-thumbnail.w-100.img-photo.rounded-0(src='https://cdn.biihappy.com/ziiweb/default/website/7744fc9739685fe61c53cd8fe2cf7e52.png')
+                                    .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                                        button.btn.btn-primary.btn-xs.position-relative(type='button')
+                                            | Thay &dstrok;&#x1ED5;i
+                                        input.upload_image_event.file-field-absolute(type='file' accept='image/*' id =`eventPhoto${i+1}` name=`eventPhoto${i+1}`)
+                                        input.form-control(type='hidden' id=`eventphotostore${i+1}` name=`eventphotostore${i+1}` value=`${event.eventPhoto}`)
+                                    img#show_image_event.img-thumbnail.w-100.img-photo.rounded-0(src=`/img/wedding/${event.eventPhoto}`)
                                 .field-event_name.required
                                     .field-event-id.required
                                         input.form-control(type='hidden' name='id' id=`id${i+1}` value=`${i+1}`)

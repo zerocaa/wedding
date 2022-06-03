@@ -14,7 +14,11 @@ router
 router
   .route('/:id')
   .get(bridesmaids.getOneBridesMaids)
-  .patch(bridesmaids.updateBridesMaids)
+  .put(
+    authController.protect,
+    bridesmaids.uploadBrideImages,
+    bridesmaids.resizeBrideImages,
+    bridesmaids.updateBridesMaids)
   .delete(bridesmaids.deleteBridesMaids);
 
 module.exports = router;

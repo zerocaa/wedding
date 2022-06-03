@@ -26,6 +26,10 @@ const eventSchema = new mongoose.Schema({
   map: {
     type: String,
     default: ''
+  },
+  eventPhoto: {
+    type: String,
+    default: 'noImg.png'
   }
 });
 

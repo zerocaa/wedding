@@ -1,7 +1,7 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
-export const eventUser = async (eventId, name, date, time, address, map) => {
+export const eventUser = async (eventId,data) => {
   // const test = await axios(`http://localhost:3000/api/v1/events/${eventId}`);
   // console.log(test);
   //   if (test.data.status === 'success') {
@@ -14,13 +14,7 @@ export const eventUser = async (eventId, name, date, time, address, map) => {
     const res = await axios({
       method: 'PUT',
       url: `http://localhost:3000/api/v1/events/${eventId}`,
-      data: {
-        name,
-        date,
-        time,
-        address,
-        map
-      }
+      data
     });
     if (res.data.status === 'success') {
       location.reload(true);

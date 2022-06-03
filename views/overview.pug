@@ -16,7 +16,9 @@ head
   link#nd_options_font_family_third-css(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Great+Vibes&ver=5.2.2' type='text/css' media='all')
   link#nd_tds_style-css(rel='stylesheet' href='http://www.nicdarkthemes.com/themes/wedding/wp/demo/wedding-planner/wp-content/plugins/nd-theme-demos-switcher/css/style.css?ver=5.2.2' type='text/css' media='all')
   link(rel='stylesheet' href='/css/style.css')
-if(weddings) 
+if(weddings)
+  each wedding in weddings.storyLove
+    h2= wedding.title
   #nd_options_navigation_2_container.nd_options_section.nd_options_position_relative
     .nd_options_section(style='background-color: #bb93af ; border-bottom: 1px solid #bb93af ;')
       .nd_options_container.nd_options_clearfix.nd_options_position_relative

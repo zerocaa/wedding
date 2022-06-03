@@ -40,7 +40,6 @@ router
   .route('/wedding/edit/:weddingId')
   .get(authController.protect, weddingController.getWedding);
 
-
 router
   .route('/wedding/edit/:weddingId/event')
   .get(authController.protect, weddingController.getEvent);
@@ -55,8 +54,8 @@ router
   .put(
     authController.protect,
     authController.restrictTo('user'),
-    // weddingController.uploadWeddingImages,
-    // weddingController.resizeWeddingImages,
+    weddingController.uploadWeddingImages,
+    weddingController.resizeWeddingImages,
     weddingController.updateWeddingAll
   )
   .get(

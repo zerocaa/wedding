@@ -25,6 +25,7 @@ router
 
 
 // router.get('/updatewedding/:weddingId', weddingController.updateWeddingEvent);
+
 router
   .route('/:weddingId/:slug')
   .post(

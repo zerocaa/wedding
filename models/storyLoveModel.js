@@ -18,6 +18,10 @@ const storyLoveSchema = new mongoose.Schema({
   content: {
     type: String,
     default: ''
+  },
+  storyPhoto: {
+    type: String,
+    default: 'noImg.png'
   }
 });
 

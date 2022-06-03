@@ -10,34 +10,44 @@ const bridesmaidsSchema = new mongoose.Schema(
     },
     name: {
       type: String,
+      default: ''
     },
     birthday: {
-      type:String,
+      type: String,
+      default: ''
     },
     introduce: {
-      type: String
+      type: String,
+      default: ''
     },
     fb: {
-      type: String
+      type: String,
+      default: ''
     },
     avatar: {
-      type: String
+      type: String,
+      default: 'noImg.png'
     },
     fename: {
-      type: String
+      type: String,
+      default: ''
     },
     feintroduce: {
-      type: String
+      type: String,
+      default: ''
     },
     febirthday: {
-      type: String
+      type: String,
+      default: ''
     },
     fefb: {
-      type: String
+      type: String,
+      default: ''
     },
     feavatar: {
-      type: String
-    },
+      type: String,
+      default: 'noImg.png'
+    }
   },
   {
     toJSON: { virtuals: true },

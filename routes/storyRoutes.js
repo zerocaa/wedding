@@ -10,9 +10,14 @@ router
     story.createStory)
   .get(story.getAllStories);
   
-router.
-    route('/:id')
-    .get(story.getOneStory)
-    .put(story.updateStory)
-    .delete(story.deleteStory)
+router
+  .route('/:id')
+  .get(story.getOneStory)
+  .put(
+    authController.protect,
+    story.uploadStoryPhoto,
+    story.resizeStoryPhoto,
+    story.updateStory
+  )
+  .delete(story.deleteStory);
 module.exports = router;
