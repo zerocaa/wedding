@@ -33,8 +33,10 @@ head
     meta(name='csrf-param' content='_csrf-Behappy')
     meta(name='csrf-token' content='3W6rXH3oIR-ZhLWYhiJd5hg5QH8Tuiuc1uegHepZnsu4L-oLSKtvZazm8dS3Thy8fn50Nnn2ffau39BN3j73jA==')
     link(href='wedding.html' rel='canonical')
+    script(src="/socket.io/socket.io.js")
     script(async='' src='https://www.googletagmanager.com/gtag/js?id=G-P4QBSSV7TG')
     script(src='https://unpkg.com/axios/dist/axios.min.js')
+    script(const socket = io(window.location.origin);)
 
 
 body.flex-colum.h-100(style='padding-top:65px!important')

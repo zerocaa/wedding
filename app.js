@@ -3,6 +3,7 @@ const express = require('express');
 const methodOverride = require('method-override');
 const path = require('path');
 const morgan = require('morgan');
+const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -17,7 +18,6 @@ const weddingRouter = require('./routes/weddingRoutes');
 const bridesmaidRouter = require('./routes/bridesmaidsRoutes');
 const eventRouter = require('./routes/eventRoutes');
 const storyRouter = require('./routes/storyRoutes');
-
 
 const app = express();
 app.set('view engine', 'pug');
@@ -45,6 +45,27 @@ app.use(
     }
   })
 );
+
+app.use(
+  cors({
+    origin: ['https://wedding-production-09d7.up.railway.app'],
+    credentials: true
+  })
+);
+
+app.use(function(req, res, next) {
+  res.header(
+    'Access-Control-Allow-Origin',
+    'https://wedding-production-09d7.up.railway.app'
+  );
+  res.header('Access-Control-Allow-Headers', true);
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header(
+    'Access-Control-Allow-Methods',
+    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+  );
+  next();
+});
 
 // Development logging
 if (process.env.NODE_ENV === 'development') {
@@ -91,7 +112,7 @@ app.use((req, res, next) => {
   // console.log(req.cookies);
   next();
 });
-// 3) ROUTES  
+// 3) ROUTES
 //  create routes for main pages
 app.use('/', viewRouter);
 app.use('/api/v1/users', userRouter);
