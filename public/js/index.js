@@ -35,8 +35,8 @@ if (bridesmaidsForm) {
         const fephoto = document.getElementById('feavatar' + i).files[0];
         console.log(photo);
         console.log(fephoto);
+        const formData = new FormData();
         if (photo != undefined && fephoto != undefined) {
-          const formData = new FormData();
           formData.append('name', document.getElementById('name' + i).value);
           formData.append('birthday', document.getElementById('birthday' + i).value);
           formData.append('introduce', document.getElementById('introduce' + i).value);
@@ -47,10 +47,8 @@ if (bridesmaidsForm) {
           formData.append('feintroduce', document.getElementById('feintroduce' + i).value);
           formData.append('fefb', document.getElementById('fefb' + i).value);
           formData.append('feavatar', document.getElementById('feavatar' + i).files[0]);
-          await updateBridesMaids(bridesmaidId, formData);
         }
         else if (photo != undefined && fephoto == undefined) {
-          const formData = new FormData();
           formData.append('name', document.getElementById('name' + i).value);
           formData.append('birthday', document.getElementById('birthday' + i).value);
           formData.append('introduce', document.getElementById('introduce' + i).value);
@@ -60,10 +58,7 @@ if (bridesmaidsForm) {
           formData.append('febirthday', document.getElementById('febirthday' + i).value);
           formData.append('feintroduce', document.getElementById('feintroduce' + i).value);
           formData.append('fefb', document.getElementById('fefb' + i).value);
-          await updateBridesMaids(bridesmaidId, formData);
-          location.reload(true);
         } else if (fephoto != undefined && photo == undefined) {
-          const formData = new FormData();
           formData.append('name', document.getElementById('name' + i).value);
           formData.append('birthday', document.getElementById('birthday' + i).value);
           formData.append('introduce', document.getElementById('introduce' + i).value);
@@ -73,10 +68,7 @@ if (bridesmaidsForm) {
           formData.append('feintroduce', document.getElementById('feintroduce' + i).value);
           formData.append('fefb', document.getElementById('fefb' + i).value);
           formData.append('feavatar', document.getElementById('feavatar' + i).files[0]);
-          await updateBridesMaids(bridesmaidId, formData);
-          location.reload(true);
         } else {
-          const formData = new FormData();
           formData.append('name', document.getElementById('name' + i).value);
           formData.append('birthday', document.getElementById('birthday' + i).value);
           formData.append('introduce', document.getElementById('introduce' + i).value);
@@ -85,29 +77,8 @@ if (bridesmaidsForm) {
           formData.append('febirthday', document.getElementById('febirthday' + i).value);
           formData.append('feintroduce', document.getElementById('feintroduce' + i).value);
           formData.append('fefb', document.getElementById('fefb' + i).value);
-          await updateBridesMaids(bridesmaidId, formData);
-          location.reload(true);
-          }
-        // const name = document.getElementById('name' + i).value;
-        // const birthday = document.getElementById('birthday' + i).value;
-        // const introduce = document.getElementById('introduce' + i).value;
-        // const fb = document.getElementById('fb' + i).value;
-        // const fename = document.getElementById('fename' + i).value;
-        // const febirthday = document.getElementById('febirthday' + i).value;
-        // const feintroduce = document.getElementById('feintroduce' + i).value;
-        // const fefb = document.getElementById('fefb' + i).value;
-        // console.log(
-        //   bridesmaidId,
-        //   name,
-        //   birthday,
-        //   introduce,
-        //   fb,
-        //   fename,
-        //   febirthday,
-        //   feintroduce,
-        //   fefb
-        // );
-        // updateBridesMaids(bridesmaidId,name, birthday, introduce, fb, fename, febirthday, feintroduce, fefb);
+        }
+        await updateBridesMaids(bridesmaidId, formData);
       }
     }
   })

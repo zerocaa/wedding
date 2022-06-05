@@ -38,12 +38,12 @@ block content
                                         label.control-label(for=`name${i+1}`) T&ecirc;n s&#x1EF1; ki&#x1EC7;n
                                 .field-event_hour.required
                                     .form-floating.mb-2
-                                        input.form-control(type='text' name=`time${i+1}` id=`time${i+1}` value=`${event.time}` placeholder='Giờ')
+                                        input.form-control(type="time" name=`time${i+1}` id=`time${i+1}` value=`${event.time}` placeholder='Giờ')
                                         label.control-label(for=`time${i+1}`) Gi&#x1EDD;
                                         .help-block
                                 .field-event_date.required
                                     .form-floating.mb-2
-                                        input.form-control(type='text' name='date' id=`date${i+1}` value=`${event.date}` placeholder='Ngày')
+                                        input.form-control(type='date' name='date' id=`date${i+1}` value=`${event.date}` placeholder='Ngày')
                                         label.control-label(for=`date${i+1}`) Ng&agrave;y
                                         .help-block
                                 .field-event_address.required

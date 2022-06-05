@@ -20,17 +20,12 @@ block content
                 form#stories-form.form-story-user                  
                     .card-body
                         a.thumbnail.d-block.mb-3.choose-image-parent.position-relative(href='javascript:void(0)')
-                            //- .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-10
-                                input#upload_image_story.upload_image_story.file-field-absolute(type='file' name='storyPhoto')
-                                label(for='storyPhoto') 
-                            img#show_image_story.img-thumbnail.w-100.img-photo.rounded-0(src=`/img/wedding/${story.storyPhoto}`)
-                        .col-12.col-md-auto
-                            //- button.btn.btn-xs.w-100.btn-secondary.mt-5.mt-md-0.position-relative
-                            input.form__upload(type='file' accept='image/*' id =`storyPhoto${i+1}` name=`storyPhoto${i+1}` )
-                            label(for=`storyPhoto${i+1}`) 
-                        .field-story_photo_base64
-                            input.form-control(type='hidden' id=`storyphotostore${i+1}` name=`storyphotostore${i+1}` value=`${story.storyPhoto}`)
-                            .help-block
+                            .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                                button.btn.btn-primary.btn-xs.position-relative(type='button')
+                                    | Thay &dstrok;&#x1ED5;i
+                                input.upload_image_event.file-field-absolute(type='file' accept='image/*' id =`storyPhoto${i+1}` name=`storyPhoto${i+1}`)
+                                input.form-control(type='hidden' id=`storyphotostore${i+1}` name=`storyphotostore${i+1}` value=`${story.storyPhoto}`)
+                            img#show_image_event.img-thumbnail.w-100.img-photo.rounded-0(src=`/img/wedding/${story.storyPhoto}`)
                         //- .field-story_photo
                         //-     input#story_photo.form-control(type='hidden' name='WebsiteInformationStoryForm[photo][]' value='default/website/383875f7dbad0c73b240243aeecb74dd.jpeg')
                         //-     .help-block
@@ -44,7 +39,7 @@ block content
                                 .help-block
                         .field-story_time.required
                             .form-floating.mb-2
-                                input.form-control(type='text' name=`time${i+1}` id=`time${i+1}` value=`${story.time}` placeholder='Thời gian')
+                                input.form-control(type='date' name=`time${i+1}` id=`time${i+1}` value=`${story.time}` placeholder='Thời gian')
                                 label.control-label(for='time') Th&#x1EDD;i gian
                             .help-block
                         .field-story_intro.required

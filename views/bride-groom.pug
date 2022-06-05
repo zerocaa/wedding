@@ -35,16 +35,10 @@ block content
               .d-block.text-center
                 a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.image-edit.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
                   .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
-                    //- button.btn.btn-primary.btn-xs.position-relative(type='button')
-                    //-   | Thay &dstrok;&#x1ED5;i  
+                    button.btn.btn-primary.btn-xs.position-relative(type='button')
+                      | Thay &dstrok;&#x1ED5;i
+                    input.upload_image_event.file-field-absolute(type='file' accept='image/*' id ='malephoto' name='malephoto' value=`/img/wedding/${weddings.malephoto}`)
                   img#show_image_groom.w-100.img-thumbnail.rounded-0(src=`/img/wedding/${weddings.malephoto}`)
-                col-12.col-md-auto
-                  //- button.btn.btn-xs.w-100.btn-secondary.mt-5.mt-md-0.position-relative
-                  input.form__upload(type='file' accept='image/*' id ='malephoto' name='malephoto')
-                  label(for='malephoto') 
-                .field-websiteinformationgroominfoform-avatar_base64
-                  input#websiteinformationgroominfoform-avatar_base64.form-control(type='hidden' name='WebsiteInformationGroomInfoForm[avatar_base64]')
-                  .help-block
               h4.fw-bold.text-center.mb-5.text-uppercase Th&ocirc;ng tin ch&uacute; r&#x1EC3;
               .field-websiteinformationgroominfoform-name.required
                 .form-floating.mb-2.form-group
@@ -77,18 +71,10 @@ block content
               .d-block.text-center
                 a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.image-edit.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
                   .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
-                    //- button.btn.btn-primary.btn-xs.position-relative(type='button')
-                    //-   | Thay &dstrok;&#x1ED5;i
-                    //- input.form__upload(type='file' accept='image/*' id ='malephoto' name='malephoto')
-                    //- label(for='malephoto') 
+                    button.btn.btn-primary.btn-xs.position-relative(type='button')
+                      | Thay &dstrok;&#x1ED5;i
+                    input.upload_image_event.file-field-absolute(type='file' accept='image/*' id ='fephoto' name='fephoto' value=`/img/wedding/${weddings.malephoto}`)
                   img#show_image_bride.w-100.img-thumbnail.rounded-0(src=`/img/wedding/${weddings.fephoto}`)
-                .col-12.col-md-auto
-                  //- button.btn.btn-xs.w-100.btn-secondary.mt-5.mt-md-0.position-relative
-                  input.form__upload(type='file' accept='image/*' id ='fephoto' name='fephoto' value=`/img/wedding/${weddings.malephoto}`)
-                  label(for='fephoto') 
-                .field-websiteinformationbrideinfoform-avatar_base64
-                  input#websiteinformationbrideinfoform-avatar_base64.form-control(type='hidden' name='WebsiteInformationBrideInfoForm[avatar_base64]')
-                  .help-block
               h4.fw-bold.text-center.mb-5.text-uppercase.text-danger Th&ocirc;ng tin c&ocirc; d&acirc;u
               .field-websiteinformationbrideinfoform-name.required
                 .form-floating.mb-2

@@ -27,9 +27,9 @@ exports.uploadBrideImages = upload.fields([
 // upload.array('images', 5) req.files
 
 exports.resizeBrideImages = catchAsync(async (req, res, next) => {
-  if (!req.files.feavatar) 
-  {} else {
-    req.body.feavatar = `bride-${req.user.id}-${Date.now()}.jpeg`;
+  if (!req.files.avatar && !req.files.feavatar) return next();
+  if (req.files.feavatar) 
+  { req.body.feavatar = `bride-${req.user.id}-${Date.now()}.jpeg`;
     await sharp(req.files.feavatar[0].buffer)
       .resize(1000, 1000)
       .toFormat('jpeg')
@@ -37,8 +37,7 @@ exports.resizeBrideImages = catchAsync(async (req, res, next) => {
       .toFile(`public/img/wedding/${req.body.feavatar}`);
   }
 
-  if (!req.files.avatar) { }
-  else {
+  if (req.files.avatar){
      req.body.avatar = `birde-${req.user.id}-${Date.now()}.jpeg`;
      await sharp(req.files.avatar[0].buffer)
        .resize(1000, 1000)

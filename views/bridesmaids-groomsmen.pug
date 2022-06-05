@@ -45,7 +45,7 @@ block content
                                                 .help-block
                                         .field-groomsmans_birthday_.required
                                             .form-floating.mb-2
-                                                input.form-control(type='text' name=`birthday${i+1}` id=`birthday${i+1}` value=`${bridesmaid.birthday}` placeholder='Ngày sinh')
+                                                input.form-control(type='date' name=`birthday${i+1}` id=`birthday${i+1}` value=`${bridesmaid.birthday}` placeholder='Ngày sinh')
                                                 label.control-label(for=`birthday${i+1}`) Ng&agrave;y sinh
                                                 .help-block
                                         .field-groomsmans_intro_.required
@@ -81,8 +81,9 @@ block content
                                                 .help-block
                                         .field-groomsmans_birthday_.required
                                             .form-floating.mb-2
-                                                input.form-control(type='text' name=`febirthday${i+1}` id=`febirthday${i+1}` value=`${bridesmaid.febirthday}` placeholder='Ngày sinh')
-                                                label.control-label(for=`febirthday${i+1}`) Ng&agrave;y sinh                                                    .help-block
+                                                input.form-control(type='date' name=`febirthday${i+1}` id=`febirthday${i+1}` value=`${bridesmaid.febirthday}` placeholder='Ngày sinh')
+                                                label.control-label(for=`febirthday${i+1}`) Ng&agrave;y sinh                                                    
+                                                .help-block
                                         .field-groomsmans_intro_.required
                                             .form-floating.mb-2
                                                 textarea.form-control(name=`feintroduce${i+1}` id=`feintroduce${i+1}` style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')=`${bridesmaid.feintroduce}`

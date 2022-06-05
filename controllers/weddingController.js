@@ -32,30 +32,26 @@ exports.uploadWeddingImages = upload.fields([
   { name: 'fephoto', maxCount: 1}
 ]);
 
-// upload.single('image') req.file
-// upload.array('images', 5) req.files
-
 exports.resizeWeddingImages = catchAsync(async (req, res, next) => {
-  if (!req.files.malephoto||!req.files.fephoto) return next();
-  console.log(req.files.malephoto)
-  console.log(req.files.fephoto)
-  // 1) Cover image
-  req.body.malephoto = `wedding-${req.params.weddingId}-${Date.now()}.jpeg`;
-  await sharp(req.files.malephoto[0].buffer)
+  if (!req.files.malephoto && !req.files.fephoto) return next();
+  
+  if (req.files.malephoto) {
+     req.body.malephoto = `wedding-${req.params.weddingId}-${Date.now()}.jpeg`;
+    await sharp(req.files.malephoto[0].buffer)
     .resize(1000, 1000)
     .toFormat('jpeg')
     .jpeg({ quality: 90 })
     .toFile(`public/img/wedding/${req.body.malephoto}`);
+  }
 
-  // 2) Images
-  req.body.fephoto = `wedding-${
-    req.params.weddingId
-  }-${Date.now()}.jpeg`;
-  await sharp(req.files.fephoto[0].buffer)
+  if (req.files.fephoto) {
+     req.body.fephoto = `wedding-${req.params.weddingId}-${Date.now()}.jpeg`;
+    await sharp(req.files.fephoto[0].buffer)
     .resize(1000, 1000)
     .toFormat('jpeg')
     .jpeg({ quality: 90 })
     .toFile(`public/img/wedding/${req.body.fephoto}`);
+  }
   next();
 });
 

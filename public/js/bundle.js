@@ -9971,8 +9971,7 @@ var test = document.querySelectorAll('.form-user-test');
 if (bridesmaidsForm) {
   bridesmaidsForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-      var i, id, bridesmaidId, photo, fephoto, formData, _formData, _formData2, _formData3;
-
+      var i, id, bridesmaidId, photo, fephoto, formData;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -9982,14 +9981,14 @@ if (bridesmaidsForm) {
 
             case 2:
               if (!(i <= test.length)) {
-                _context.next = 73;
+                _context.next = 17;
                 break;
               }
 
               id = document.getElementById('id' + i).value;
 
               if (!(id == i)) {
-                _context.next = 70;
+                _context.next = 14;
                 break;
               }
 
@@ -9998,129 +9997,59 @@ if (bridesmaidsForm) {
               fephoto = document.getElementById('feavatar' + i).files[0];
               console.log(photo);
               console.log(fephoto);
+              formData = new FormData();
 
-              if (!(photo != undefined && fephoto != undefined)) {
-                _context.next = 26;
-                break;
+              if (photo != undefined && fephoto != undefined) {
+                formData.append('name', document.getElementById('name' + i).value);
+                formData.append('birthday', document.getElementById('birthday' + i).value);
+                formData.append('introduce', document.getElementById('introduce' + i).value);
+                formData.append('fb', document.getElementById('fb' + i).value);
+                formData.append('avatar', document.getElementById('avatar' + i).files[0]);
+                formData.append('fename', document.getElementById('fename' + i).value);
+                formData.append('febirthday', document.getElementById('febirthday' + i).value);
+                formData.append('feintroduce', document.getElementById('feintroduce' + i).value);
+                formData.append('fefb', document.getElementById('fefb' + i).value);
+                formData.append('feavatar', document.getElementById('feavatar' + i).files[0]);
+              } else if (photo != undefined && fephoto == undefined) {
+                formData.append('name', document.getElementById('name' + i).value);
+                formData.append('birthday', document.getElementById('birthday' + i).value);
+                formData.append('introduce', document.getElementById('introduce' + i).value);
+                formData.append('fb', document.getElementById('fb' + i).value);
+                formData.append('avatar', document.getElementById('avatar' + i).files[0]);
+                formData.append('fename', document.getElementById('fename' + i).value);
+                formData.append('febirthday', document.getElementById('febirthday' + i).value);
+                formData.append('feintroduce', document.getElementById('feintroduce' + i).value);
+                formData.append('fefb', document.getElementById('fefb' + i).value);
+              } else if (fephoto != undefined && photo == undefined) {
+                formData.append('name', document.getElementById('name' + i).value);
+                formData.append('birthday', document.getElementById('birthday' + i).value);
+                formData.append('introduce', document.getElementById('introduce' + i).value);
+                formData.append('fb', document.getElementById('fb' + i).value);
+                formData.append('fename', document.getElementById('fename' + i).value);
+                formData.append('febirthday', document.getElementById('febirthday' + i).value);
+                formData.append('feintroduce', document.getElementById('feintroduce' + i).value);
+                formData.append('fefb', document.getElementById('fefb' + i).value);
+                formData.append('feavatar', document.getElementById('feavatar' + i).files[0]);
+              } else {
+                formData.append('name', document.getElementById('name' + i).value);
+                formData.append('birthday', document.getElementById('birthday' + i).value);
+                formData.append('introduce', document.getElementById('introduce' + i).value);
+                formData.append('fb', document.getElementById('fb' + i).value);
+                formData.append('fename', document.getElementById('fename' + i).value);
+                formData.append('febirthday', document.getElementById('febirthday' + i).value);
+                formData.append('feintroduce', document.getElementById('feintroduce' + i).value);
+                formData.append('fefb', document.getElementById('fefb' + i).value);
               }
 
-              formData = new FormData();
-              formData.append('name', document.getElementById('name' + i).value);
-              formData.append('birthday', document.getElementById('birthday' + i).value);
-              formData.append('introduce', document.getElementById('introduce' + i).value);
-              formData.append('fb', document.getElementById('fb' + i).value);
-              formData.append('avatar', document.getElementById('avatar' + i).files[0]);
-              formData.append('fename', document.getElementById('fename' + i).value);
-              formData.append('febirthday', document.getElementById('febirthday' + i).value);
-              formData.append('feintroduce', document.getElementById('feintroduce' + i).value);
-              formData.append('fefb', document.getElementById('fefb' + i).value);
-              formData.append('feavatar', document.getElementById('feavatar' + i).files[0]);
-              _context.next = 24;
+              _context.next = 14;
               return (0, _bridesMaidsUpdate.updateBridesMaids)(bridesmaidId, formData);
 
-            case 24:
-              _context.next = 70;
-              break;
-
-            case 26:
-              if (!(photo != undefined && fephoto == undefined)) {
-                _context.next = 42;
-                break;
-              }
-
-              _formData = new FormData();
-
-              _formData.append('name', document.getElementById('name' + i).value);
-
-              _formData.append('birthday', document.getElementById('birthday' + i).value);
-
-              _formData.append('introduce', document.getElementById('introduce' + i).value);
-
-              _formData.append('fb', document.getElementById('fb' + i).value);
-
-              _formData.append('avatar', document.getElementById('avatar' + i).files[0]);
-
-              _formData.append('fename', document.getElementById('fename' + i).value);
-
-              _formData.append('febirthday', document.getElementById('febirthday' + i).value);
-
-              _formData.append('feintroduce', document.getElementById('feintroduce' + i).value);
-
-              _formData.append('fefb', document.getElementById('fefb' + i).value);
-
-              _context.next = 39;
-              return (0, _bridesMaidsUpdate.updateBridesMaids)(bridesmaidId, _formData);
-
-            case 39:
-              location.reload(true);
-              _context.next = 70;
-              break;
-
-            case 42:
-              if (!(fephoto != undefined && photo == undefined)) {
-                _context.next = 58;
-                break;
-              }
-
-              _formData2 = new FormData();
-
-              _formData2.append('name', document.getElementById('name' + i).value);
-
-              _formData2.append('birthday', document.getElementById('birthday' + i).value);
-
-              _formData2.append('introduce', document.getElementById('introduce' + i).value);
-
-              _formData2.append('fb', document.getElementById('fb' + i).value);
-
-              _formData2.append('fename', document.getElementById('fename' + i).value);
-
-              _formData2.append('febirthday', document.getElementById('febirthday' + i).value);
-
-              _formData2.append('feintroduce', document.getElementById('feintroduce' + i).value);
-
-              _formData2.append('fefb', document.getElementById('fefb' + i).value);
-
-              _formData2.append('feavatar', document.getElementById('feavatar' + i).files[0]);
-
-              _context.next = 55;
-              return (0, _bridesMaidsUpdate.updateBridesMaids)(bridesmaidId, _formData2);
-
-            case 55:
-              location.reload(true);
-              _context.next = 70;
-              break;
-
-            case 58:
-              _formData3 = new FormData();
-
-              _formData3.append('name', document.getElementById('name' + i).value);
-
-              _formData3.append('birthday', document.getElementById('birthday' + i).value);
-
-              _formData3.append('introduce', document.getElementById('introduce' + i).value);
-
-              _formData3.append('fb', document.getElementById('fb' + i).value);
-
-              _formData3.append('fename', document.getElementById('fename' + i).value);
-
-              _formData3.append('febirthday', document.getElementById('febirthday' + i).value);
-
-              _formData3.append('feintroduce', document.getElementById('feintroduce' + i).value);
-
-              _formData3.append('fefb', document.getElementById('fefb' + i).value);
-
-              _context.next = 69;
-              return (0, _bridesMaidsUpdate.updateBridesMaids)(bridesmaidId, _formData3);
-
-            case 69:
-              location.reload(true);
-
-            case 70:
+            case 14:
               i++;
               _context.next = 2;
               break;
 
-            case 73:
+            case 17:
             case "end":
               return _context.stop();
           }
@@ -10591,7 +10520,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51049" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55900" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
