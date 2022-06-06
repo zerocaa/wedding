@@ -1,6 +1,7 @@
 
 ### Node ###
 #exe
+congif.env
 node_modules/
 *.exe
 # Logs

@@ -1,0 +1,43 @@
+extends base
+block content
+    section.section-border.border-success.login-page
+        .container.active.d-flex.flex-column
+            .row.align-items-center.justify-content-center.gx-0.min-vh-100
+                .col-8.col-md-6.col-lg-7.offset-md-1.order-md-2.mt-auto.mt-md-0.pt-8.pb-4.py-md-11
+                    img.img-fluid(src='/img/banner-common.png' alt='Behappy')
+                .col-12.col-md-5.col-lg-4.order-md-1.mb-auto.mb-md-0.pb-8.py-md-11   
+                    h1.mb-0.fw-bold.text-center T&#x1EA1;o t&agrave;i kho&#x1EA3;n m&#x1EDB;i
+                    p.mb-6.text-center.text-muted Nhanh ch&oacute;ng v&agrave; d&#x1EC5; d&agrave;ng.
+                    forms#register-form.mb-5   
+                        form.form--signup
+                            form(action='#')    
+                                .form-group.field-userregisterform-username.required
+                                    .form-group
+                                        .input-field
+                                            input#name1.form-control(type='text', placeholder='Enter your name', required='')
+                                            i.uil.uil-user
+                                .form-group.field-userregisterform-username.required
+                                    .form-group
+                                        .input-field
+                                            input#email1.form-control(type='email', placeholder='Enter your email', required='')
+                                            i.uil.uil-envelope.icon
+                                .form-group.field-userregisterform-username.required
+                                    .form-group
+                                        .input-field
+                                            input#password1.form-control(type='password', placeholder='Create a password', required='')
+                                            i.uil.uil-lock.icon
+                                .form-group.field-userregisterform-username.required
+                                    .form-group
+                                        .input-field
+                                            input#password2.form-control(type='password', placeholder='Confirm a password', required='')
+                                            i.uil.uil-lock.icon
+                                            i.uil.uil-eye-slash.showHidePw
+                                .input-field.button
+                                    button.btn.btn-success.w-100 Đăng ký
+                            .login-signup
+                                p.mb-0.text-center.text-muted
+                                    | B&#x1EA1;n &dstrok;&atilde; c&oacute; t&agrave;i kho&#x1EA3;n? 
+                                    a(href='login.html') &Dstrok;&abreve;ng nh&#x1EAD;p
+                                        | .
+                                .mt-2.text-center
+                                    a(href='../../index.html') &lt; Tr&#x1EDF; v&#x1EC1; trang ch&#x1EE7;

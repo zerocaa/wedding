@@ -1,0 +1,34 @@
+extends base
+block content
+    section.section-border.border-danger.login-page
+        .container.d-flex.flex-column
+            .row.align-items-center.justify-content-center.gx-0.min-vh-100
+                .col-8.col-md-6.col-lg-7.offset-md-1.order-md-2.mt-auto.mt-md-0.pt-8.pb-4.py-md-11
+                    img.img-fluid(src='/img/banner-common.png' alt='Behappy')
+                .col-12.col-md-5.col-lg-4.order-md-1.mb-auto.mb-md-0.pb-8.py-md-11
+                    h1.mb-0.fw-bold.text-center Đăng nhập
+                    p.mb-6.text-center.text-muted
+                        | Cùng Behappy kết nối và chia sẻ những điều hạnh phúc đến mọi
+                        | người trong cuộc sống của bạn.
+                    forms#login-form.mb-5
+                        form.form--login
+                            .form-group.field-userloginform-username.required
+                                .form-group
+                                    .input-field
+                                        input#email.form-control(type='text', placeholder='Enter your email', required='')
+                                        i.uil.uil-envelope.icon
+                            .form-group.field-userloginform-username.required
+                                .form-group            
+                                    .input-field
+                                        input#password.password.form-control(type='password', placeholder='Enter your password', required='')
+                                        i.uil.uil-lock.icon
+                                        i.uil.uil-eye-slash.showHidePw
+                                .input-field.button
+                                    button.btn.btn-danger.w-100 Login
+                        .login-signup
+                            span.text
+                                | Not a member?
+                                br
+                                a.text.signup-link(href='signup') Signup now
+                        mt-4.text-left
+                                a(href='/wedding.html') Trở về trang chủ

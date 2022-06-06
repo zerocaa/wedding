@@ -1,8 +1,9 @@
 const express = require('express');
-// const bodyParser  =  Required ('body-parser')
+// var bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
 const morgan = require('morgan');
+const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -14,6 +15,9 @@ const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const weddingRouter = require('./routes/weddingRoutes');
+const bridesmaidRouter = require('./routes/bridesmaidsRoutes');
+const eventRouter = require('./routes/eventRoutes');
+const storyRouter = require('./routes/storyRoutes');
 
 const app = express();
 app.set('view engine', 'pug');
@@ -42,6 +46,27 @@ app.use(
   })
 );
 
+app.use(
+  cors({
+    origin: ['https://wedding-production-09d7.up.railway.app'],
+    credentials: true
+  })
+);
+
+app.use(function(req, res, next) {
+  res.header(
+    'Access-Control-Allow-Origin',
+    'https://wedding-production-09d7.up.railway.app'
+  );
+  res.header('Access-Control-Allow-Headers', true);
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header(
+    'Access-Control-Allow-Methods',
+    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+  );
+  next();
+});
+
 // Development logging
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
@@ -57,7 +82,7 @@ app.use('/api', limiter);
 
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
@@ -83,6 +108,7 @@ app.use(express.static(`${__dirname}/public`));
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
+  // console.log(req.headers);
   // console.log(req.cookies);
   next();
 });
@@ -91,6 +117,9 @@ app.use((req, res, next) => {
 app.use('/', viewRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/weddings', weddingRouter);
+app.use('/api/v1/bridesmaids', bridesmaidRouter);
+app.use('/api/v1/events', eventRouter);
+app.use('/api/v1/storyloves', storyRouter);
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });

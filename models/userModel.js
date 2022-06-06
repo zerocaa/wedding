@@ -10,8 +10,13 @@ const userSchema = new mongoose.Schema(
       required: [true, 'Please add a name']
     },
     address: {
+      type: String
+    },
+    nation: {
+      type: String
+    },
+    phone: {
       type: String,
-      required: [true, 'Please add an address']
     },
     date: {
       type: Date,
@@ -71,8 +76,7 @@ userSchema.virtual('data', {
   ref: 'Wedding',
   localField: '_id',
   foreignField: 'user'
-}
-);
+});
 
 userSchema.pre('save', async function(next) {
   // Only run this function if password was actually modified
@@ -135,6 +139,6 @@ userSchema.methods.createPasswordResetToken = function() {
   return resetToken;
 };
 
-const User = mongoose.model('User', userSchema);
+const user = mongoose.model('User', userSchema);
 
-module.exports = User;
+module.exports = user;

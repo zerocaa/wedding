@@ -1,62 +1,97 @@
 extends base
 
-mixin navItem(link, text, icon, active)
-  li(class=`${active ? 'side-nav--active' : ''}`)
-    a(href=`${link}`)
-      svg
-        use(xlink:href=`img/icons.svg#icon-${icon}`)
-      | #{text}
-
 block content
-  main.main
-    .user-view
-      nav.user-view__menu
-        ul.side-nav
-          +navItem('#', 'Settings', 'settings', true)
-          +navItem('/my-tours', 'My bookings', 'briefcase')
-          +navItem('#', 'My reviews', 'star')
-          +navItem('#', 'Billing', 'credit-card')
-
-        - if (user.role === 'admin')
-          .admin-nav
-            h5.admin-nav__heading Admin
-            ul.side-nav
-              +navItem('#', 'Manage tours', 'map')
-              +navItem('#', 'Manage users', 'users')
-              +navItem('#', 'Manage reviews', 'star')
-              +navItem('#', 'Manage bookings', 'briefcase')
-
-      .user-view__content
-        .user-view__form-container
-          h2.heading-secondary.ma-bt-md Your account settings
-          //- form.form.form-user-data(action='/submit-user-data?_method=PATCH' method='POST')
-          form.form.form-user-data
-            .form__group
-              label.form__label(for='name') Name
-              input#name.form__input(type='text', value=`${user.name}`, required, name='name')
-            .form__group.ma-bt-md
-              label.form__label(for='email') Email address
-              input#email.form__input(type='email', value=`${user.email}`, required, name='email')
-            .form__group.form__photo-upload
-              img.form__user-photo(src=`/img/users/${user.photo}`, alt='User photo')
-              input.form__upload(type='file', accept='image/*', id ='photo' , name='photo')
-              label(for='photo') Choose new photo
-            .form__group.right
-              button.btn.btn--small.btn--green.btn--save-settings Save settings
-
-        .line &nbsp;
-
-        .user-view__form-container
-          h2.heading-secondary.ma-bt-md Password change
-          form.form.form-user-password
-            .form__group
-              label.form__label(for='password-current') Current password
-              input#password-current.form__input(type='password', placeholder='••••••••', required, minlength='8')
-            .form__group
-              label.form__label(for='password') New password
-              input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
-            .form__group.ma-bt-lg
-              label.form__label(for='password-confirm') Confirm password
-              input#password-confirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
-            .form__group.right
-              button.btn.btn--small.btn--green.btn--save-password Save password
+  nav.bg-dark.d-md-none
+    .container-md
+      .row.align-items-center
+        .col
+          ol.breadcrumb
+            li.breadcrumb-item
+              span.text-white
+                | Thi&#x1EBF;t l&#x1EAD;p t&agrave;i kho&#x1EA3;n
+            li.breadcrumb-item.active(aria-current='page')
+              span.text-white
+                | H&#x1ED3; s&#x1A1;
+        .col-auto
+          .navbar-dark
+            button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#sidenavCollapse' aria-controls='sidenavCollapse' aria-expanded='false' aria-label='Toggle navigation')
+              span.navbar-toggler-icon
+  header.pt-9.pb-11.d-none.d-md-block.background-header.position-relative
+    .container-md
+      .row.align-items-center
+        .col
+          h1.fw-bold.text-white.mb-2
+            | Thi&#x1EBF;t l&#x1EAD;p t&agrave;i kho&#x1EA3;n
+          p.fs-lg.text-white-75.mb-0
+            | C&agrave;i &dstrok;&#x1EB7;t t&agrave;i kho&#x1EA3;n cho 
+            a.text-reset(href=`mailto:${user.email}`)= user.email
+        .col-auto
+          a.btn.btn-sm.btn-gray-300-20.nav__el--logout(href='#')
+            | &Dstrok;&abreve;ng xu&#x1EA5;t
+  main.pb-8.pb-md-11.mt-md-n6
+    .container-md
+      .row
+        .col-12.col-md-3
+          .card.card-bleed.border-bottom.border-bottom-md-0.shadow-light-lg
+            #sidenavCollapse.collapse.d-md-block
+              .card-body
+                h6.fw-bold.text-uppercase.mb-3
+                  | T&agrave;i kho&#x1EA3;n
+                ul.card-list.list.text-gray-700.mb-0
+                  li.list-item.active
+                    a.list-link.text-reset(href='/user/me')
+                      | Thi&#x1EBF;t l&#x1EAD;p h&#x1ED3; s&#x1A1;
+                  li.list-item
+                    a.list-link.text-reset(href='/user/account-security')
+                      | Thi&#x1EBF;t l&#x1EAD;p b&#x1EA3;o m&#x1EAD;t
+        .col-12.col-md-9
+          .card.card-bleed.shadow-light-lg.mb-6
+            .card-header
+              h4.mb-0
+                | Th&ocirc;ng tin h&#x1ED3; s&#x1A1;
+            .card-body
+              form.form.form-user-data
+                input(type='hidden' name='_csrf-biihappy' value='f1zcOac31FNMM51l7iF7r0JtjHAep2MfwF1UoLv62A0xae1u9n-jPmF47C6FTDXgDSfoI1XAM1SqbxbElqyHfg==')
+                .row
+                  .col-12
+                    .row.align-items-center
+                      .col-auto.form__photo-upload
+                        .avatar.avatar-xxl
+                          img#show_image_avatar.avatar-img.rounded-circle.border.border-gray-800-50.p-1.form__user-photo(src=`/img/users/${user.photo}`, alt='User photo')
+                      .col.ms-n5
+                        p.mb-0
+                          | &#x1EA2;nh &dstrok;&#x1EA1;i di&#x1EC7;n
+                        small.text-gray-700
+                          | Ch&#x1EC9; cho ph&eacute;p &dstrok;&#x1ECB;nh d&#x1EA1;ng PNG ho&#x1EB7;c JPG. v&agrave; k&iacute;ch th&#x1B0;&#x1EDB;c ph&#x1EA3;i l&#x1EDB;n h&#x1A1;n 500x500px.
+                      .col-12.col-md-auto
+                        button.btn.btn-xs.w-100.btn-secondary.mt-5.mt-md-0.position-relative
+                          input.form__upload(type='file' accept='image/*', id ='photo' , name='photo')
+                    hr.mb-5
+                  .col-12   
+                    .form__group.field-userupdateprofileform-username.required
+                      .form-floating.mb-2.form-group
+                        input#name.form__input.form-control(type='text', value=`${user.name}`, required, name='name')
+                        label.form__label.control-label(for='name') Name
+                        p.help-block.help-block-error
+                  .col-12
+                     .form-group.form-user-datal.required
+                      .form-floating.mb-2.form-group.ma-bt-md
+                        input#email.form__input.form-control(type='email', value=`${user.email}`, required, name='email')
+                        label.form__label.control-label(for='email') Email address
+                  .col-12
+                    .form-group.form-user-datal.required
+                      .form-floating.mb-2.form-group.ma-bt-md  
+                        input#address.form__input.form-control(type='text', value=`${user.address}`, required, name='address')
+                        label.form__label.control-label(for='address') address
+                  .col-12
+                    .form-group.form-user-datal.required
+                      .form-floating.mb-2.form-group.ma-bt-md   
+                        input#phone.form__input.form-control(type='text', value=`${user.phone}`, required, name='phone')
+                        label.form__label(for='phone') phone
+                .col-12
+                    .form-group.form-user-datal.required
+                      .form-floating.mb-2.form-group.ma-bt-md  
+                        input#nation.form__input.form-control(type='text', value=`${user.nation}`, required, name='nation')
+                        label.form__label(for='nation') nation
+                .col-12.text-center.mt-5
+                  button.btn.btn.btn-danger.btn--save-settings Save settings     
