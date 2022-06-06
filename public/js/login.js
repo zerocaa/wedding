@@ -5,12 +5,13 @@ export const login = async (email,password) => {
     console.log(email,password);
     try{
         const res = await axios({
-            method: 'POST',
-            url: 'http://localhost:3000/api/v1/users/login',
-            data: {
-                email,
-                password
-            }
+          method: 'POST',
+          url:
+            'https://wedding-production-09d7.up.railway.app/api/v1/users/login',
+          data: {
+            email,
+            password
+          }
         });
         if (res.data.status === 'success') {
             showAlert('success', 'Logged in successfully!');
@@ -28,7 +29,7 @@ export const logout = async () => {
     try{
         const res = await axios({
             method: 'GET',
-            url: 'https://wedding-production-09d7.up.railway.app/api/v1/users/logout',
+            url: 'http://localhost:3000/api/v1/users/logout',
         });
        if((res.data.status = "success")) location.reload(true) 
        showAlert('success', 'logout success');
