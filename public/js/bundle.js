@@ -9538,7 +9538,7 @@ var createBridesMaids = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:3000/api/v1/bridesmaids',
+              url: 'https://wedding-production-09d7.up.railway.app//api/v1/bridesmaids',
               data: {
                 wedding: wedding
               }
@@ -9586,7 +9586,7 @@ var updateBridesMaids = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'PUT',
-              url: "http://localhost:3000/api/v1/bridesmaids/".concat(bridesmaidId),
+              url: "https://wedding-production-09d7.up.railway.app//api/v1/bridesmaids/".concat(bridesmaidId),
               data: data
             });
 
@@ -9632,7 +9632,7 @@ var deleteBridesMaids = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'DELETE',
-              url: "http://localhost:3000/api/v1/bridesmaids/".concat(bridesmaidId)
+              url: "https://wedding-production-09d7.up.railway.app//api/v1/bridesmaids/".concat(bridesmaidId)
             });
 
           case 3:
