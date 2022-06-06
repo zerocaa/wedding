@@ -8875,7 +8875,7 @@ var login = /*#__PURE__*/function () {
             _context.next = 4;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:3000/api/v1/users/login',
+              url: 'https://wedding-production-09d7.up.railway.app/api/v1/users/login',
               data: {
                 email: email,
                 password: password
@@ -10520,7 +10520,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55900" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52061" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
