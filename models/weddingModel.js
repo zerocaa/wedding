@@ -61,7 +61,7 @@ const weddingSchema = new mongoose.Schema(
     },
     malephoto: {
       type: String,
-      default: 'user-default.jpg'
+      default: 'undefined.jpg'
     },
     fename: {
       type: String
@@ -86,7 +86,7 @@ const weddingSchema = new mongoose.Schema(
     },
     fephoto: {
       type: String,
-      default: 'user-default.jpg'
+      default: 'undefined.jpg'
     },
     slug: {
       type: String,

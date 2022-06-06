@@ -8927,7 +8927,7 @@ var logout = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'GET',
-              url: 'http://localhost:3000/api/v1/users/logout'
+              url: 'https://wedding-production-09d7.up.railway.app/api/v1/users/logout'
             });
 
           case 3:
@@ -8969,7 +8969,7 @@ var signup = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:3000/api/v1/users/signup',
+              url: 'https://wedding-production-09d7.up.railway.app/api/v1/users/signup',
               data: {
                 name: name,
                 email: email,
@@ -9106,7 +9106,7 @@ var eventUser = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'PUT',
-              url: "http://localhost:3000/api/v1/events/".concat(eventId),
+              url: "https://wedding-production-09d7.up.railway.app/api/v1/events/".concat(eventId),
               data: data
             });
 
@@ -9153,7 +9153,7 @@ var createEvent = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:3000/api/v1/events',
+              url: 'https://wedding-production-09d7.up.railway.app/api/v1/events',
               data: {
                 wedding: wedding
               }
@@ -9201,7 +9201,7 @@ var deleteEvent = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'DELETE',
-              url: "http://localhost:3000/api/v1/events/".concat(courseId)
+              url: "https://wedding-production-09d7.up.railway.app/api/v1/events/".concat(courseId)
             });
 
           case 3:
@@ -9264,7 +9264,7 @@ var updateStory = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'PUT',
-              url: "http://localhost:3000/api/v1/storyloves/".concat(storyId),
+              url: "https://wedding-production-09d7.up.railway.app/api/v1/storyloves/".concat(storyId),
               data: {
                 title: title,
                 time: time,
@@ -9315,7 +9315,7 @@ var storyUser = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'PUT',
-              url: "http://localhost:3000/api/v1/storyloves/".concat(storyId),
+              url: "https://wedding-production-09d7.up.railway.app/api/v1/storyloves/".concat(storyId),
               data: data
             });
 
@@ -9362,7 +9362,7 @@ var createStory = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:3000/api/v1/storyloves',
+              url: 'https://wedding-production-09d7.up.railway.app/api/v1/storyloves',
               data: {
                 wedding: wedding
               }

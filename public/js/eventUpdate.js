@@ -13,7 +13,7 @@ export const eventUser = async (eventId,data) => {
   try {
     const res = await axios({
       method: 'PUT',
-      url: `http://localhost:3000/api/v1/events/${eventId}`,
+      url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${eventId}`,
       data
     });
     if (res.data.status === 'success') {
@@ -31,7 +31,7 @@ export const createEvent = async wedding => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://localhost:3000/api/v1/events',
+      url: 'https://wedding-production-09d7.up.railway.app/api/v1/events',
       data: {
         wedding
       }
@@ -49,7 +49,7 @@ export const deleteEvent = async courseId => {
   try {
       const res = await axios({
         method: 'DELETE',
-             url: `http://localhost:3000/api/v1/events/${courseId}`
+        url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${courseId}`
       });
     console.log(res);
            if (res) {
