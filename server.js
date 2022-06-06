@@ -29,6 +29,19 @@ const server = http.createServer(app);
 server.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
+const io = require('socket.io')(server, { maxHttpBufferSize: 1e8 }).listen(
+  server
+);
+
+io.on('connection', socket => {
+  console.log('new connection', socket.id);
+  socket.on('message', msg => {
+    socket.broadcast.emit('message', msg);
+  });
+  socket.on('file-message', msg => {
+    socket.broadcast.emit('file-message', msg);
+  });
+});
 
 process.on('unhandledRejection', err => {
   console.log('UNHANDLED REJECTION! 💥 Shutting down...');
