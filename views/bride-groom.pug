@@ -1,109 +1,131 @@
 extend editwedsite 
 
 block content
+  .container.account-websites-edit-page
+    .row
+      .col-12
+        .row.mb-6.mb-md-8.align-items-center
+          .col-12.col-lg-auto.mb-4.mb-lg-0.box-header
+            .icon-circle.bg-danger.text-white
+              svg.bi.bi-globe(xmlns='http://www.w3.org/2000/svg' width='35' height='35' fill='currentColor' viewbox='0 0 16 16')
+                path(d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z')
+          .col.ms-lg-n4.mb-4.mb-lg-0.box-header
+            h2.fw-bold.mb-0 Wedding site!
+            p.fs-5.text-gray-700.mb-0.limit-1-line
+              svg.bi.bi-link-45deg(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                path(d='M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z')
+                path(d='M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z')
+              span.d-inline.d-lg-none
+                a(href=`/wedding/preview/${weddings.id}` target='_blank') Link website
+              span.d-none.d-lg-inline
+                 a.text-gray-700(href=`/wedding/preview/${weddings.id}` target='_blank') Nhấp Vào Đây Để Xem Website Của Bạn!
+          .col-12.col-lg-auto.box-header
+            button.btn.btn-sm.btn-danger-soft.btn-remove-website(data-id=`${weddings.id}` type='submit' )
+              span.fe.fe-trash-2
+              |  X&oacute;a website
 
-  ul.nav.nav-pills.nav-fill.nav-list-website-menu
-    li.nav-item
-      a.nav-link.active(aria-current='page' href=`/wedding/edit/${weddings.id}/bridegroom`) C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
-    li.nav-item
-      a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/bridesmaids`) Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
-    li.nav-item
-      a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/event`) S&#x1EF1; ki&#x1EC7;n
-    li.nav-item
-      a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/storylove`) Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
-  if(weddings)
-    form#groom-bride-form(action=`/wedding/edit/${weddings.id}/bridegroom?_method=PUT` method='post' enctype='multipart/form-data')
-      input(type='hidden' name='_csrf-biihappy' value='')
-      .row.mt-5
-        .col-12
-          div
-            | &Dstrok;&#x1EC3; t&ecirc;n c&#x1EE7;a c&ocirc; d&acirc;u v&agrave; ch&uacute; r&#x1EC3; &dstrok;&#x1B0;&#x1EE3;c hi&#x1EC3;n th&#x1ECB; &dstrok;&#x1EB9;p tr&ecirc;n website, b&#x1EA1;n kh&ocirc;ng n&ecirc;n nh&#x1EAD;p t&ecirc;n d&#x1EA1;ng in hoa to&agrave;n ph&#x1EA7;n. 
-            br
-            |  V&iacute; d&#x1EE5;: B&#x1EA1;n h&atilde;y d&ugrave;ng &quot;
-            strong Ng&ocirc; Vi&#x1EC7;t Ho&agrave;i
-            | &quot; thay v&igrave; &quot;
-            strong NG&Ocirc; VI&#x1EC6;T HO&Agrave;I
-            | &quot; v&agrave; &quot;
-            strong Vi&#x1EC7;t Ho&agrave;i
-            | &quot; thay v&igrave; &quot;
-            strong VI&#x1EC6;T HO&Agrave;I
-            | &quot;
-      .row.mt-6
-        .col-sm-6
-          .card.card-border.border-dark.shadow-lg.card-border-radius-none
-            .card-body
-              .d-block.text-center
-                a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.image-edit.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
-                  .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
-                    button.btn.btn-primary.btn-xs.position-relative(type='button')
-                      | Thay &dstrok;&#x1ED5;i
-                    input.upload_image_event.file-field-absolute(type='file' accept='image/*' id ='malephoto' name='malephoto' value=`/img/wedding/${weddings.malephoto}`)
-                  img#show_image_groom.w-100.img-thumbnail.rounded-0(src=`/img/wedding/${weddings.malephoto}`)
-              h4.fw-bold.text-center.mb-5.text-uppercase Th&ocirc;ng tin ch&uacute; r&#x1EC3;
-              .field-websiteinformationgroominfoform-name.required
-                .form-floating.mb-2.form-group
-                  input#malename.form-control(type='text' name='malename' value=`${weddings.malename}` placeholder='Họ và tên' aria-required='true')
-                  label.control-label(for='malename') H&#x1ECD; v&agrave; t&ecirc;n
-                  .help-block
-              .field-websiteinformationgroominfoform-short_name.required
-                .form-floating.mb-2.form-group
-                  input#maleshortname.form-control(type='text' name='maleshortname' value=`${weddings.maleshortname}` placeholder='Tên ngắn gọn' aria-required='true')
-                  label.control-label(for='maleshortname') T&ecirc;n ng&#x1EAF;n g&#x1ECD;n
-                  .help-block
-              .field-websiteinformationgroominfoform-birthday.required
-                .form-floating.mb-2
-                  input#maledate.form-control(type='date' name='maledate' value=`${weddings.maledate}`  placeholder='Ngày sinh' aria-required='true')
-                  label.control-label(for='maledate') Ng&agrave;y sinh
-                  .help-block
-              .field-websiteinformationgroominfoform-intro.required
-                .form-floating.mb-2
-                  textarea#maleintroduce.form-control(name='maleintroduce' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...' aria-required='true' value=`ASADAS`)=`${weddings.maleintroduce}`
-                  label.form-label(for='websiteinformationgroominfoform-intro') Gi&#x1EDB;i thi&#x1EC7;u
-                  .help-block
-              .field-websiteinformationgroominfoform-facebook
-                .form-floating.mb-2
-                  input#malefb.form-control(type='text' name='malefb' value=`${weddings.malefb}` placeholder='Facebook')
-                  label.control-label(for='malefb') Facebook
-                  .help-block
-        .col-sm-6
-          .card.card-border.border-danger.shadow-lg.card-border-radius-none
-            .card-body
-              .d-block.text-center
-                a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.image-edit.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
-                  .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
-                    button.btn.btn-primary.btn-xs.position-relative(type='button')
-                      | Thay &dstrok;&#x1ED5;i
-                    input.upload_image_event.file-field-absolute(type='file' accept='image/*' id ='fephoto' name='fephoto' value=`/img/wedding/${weddings.malephoto}`)
-                  img#show_image_bride.w-100.img-thumbnail.rounded-0(src=`/img/wedding/${weddings.fephoto}`)
-              h4.fw-bold.text-center.mb-5.text-uppercase.text-danger Th&ocirc;ng tin c&ocirc; d&acirc;u
-              .field-websiteinformationbrideinfoform-name.required
-                .form-floating.mb-2
-                  input#fename.form-control(type='text' name='fename' value=`${weddings.fename}` placeholder='Họ và tên' aria-required='true')
-                  label.control-label(for='fename') H&#x1ECD; v&agrave; t&ecirc;n
-                  .help-block
-              .field-websiteinformationbrideinfoform-short_name.required
-                .form-floating.mb-2
-                  input#feshortname.form-control(type='text' name='feshortname' value=`${weddings.feshortname}` placeholder='Tên ngắn gọn' aria-required='true')
-                  label.control-label(for='feshortname') T&ecirc;n ng&#x1EAF;n g&#x1ECD;n
-                  .help-block
-              .field-websiteinformationbrideinfoform-birthday.required
-                .form-floating.mb-2
-                  input#fedate.form-control(type='date' name='fedate' value=`${weddings.fedate}` placeholder='Ngày sinh' aria-required='true')
-                  label.control-label(for='fedate') Ng&agrave;y sinh
-                  .help-block
-              .field-websiteinformationbrideinfoform-intro.required
-                .form-floating.mb-2
-                  textarea#feintroduce.form-control(name='feintroduce' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về cô dâu...' aria-required='true')=`${weddings.feintroduce}`
-                  label.form-label(for='feintroduce') Gi&#x1EDB;i thi&#x1EC7;u
-                  .help-block
-              .field-websiteinformationbrideinfoform-facebook
-                .form-floating.mb-2
-                  input#fefb.form-control(type='text' name='fefb' value=`${weddings.fefb}`  placeholder='Facebook')
-                  label.control-label(for='fefb') Facebook
-                  .help-block
-      .p-5.text-center.bg-gray-200.mt-7
-        button.btn.btn-danger(type='submit')
-          svg.bi.bi-save(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-            path(d='M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z')
-          | &#x9;&#x9;L&#x1B0;u th&ocirc;ng tin
+      ul.nav.nav-pills.nav-fill.nav-list-website-menu
+        li.nav-item
+          a.nav-link.active(aria-current='page' href=`/wedding/edit/${weddings.id}/bridegroom`) C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
+        li.nav-item
+          a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/bridesmaids`) Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
+        li.nav-item
+          a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/event`) S&#x1EF1; ki&#x1EC7;n
+        li.nav-item
+          a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/storylove`) Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
+      if(weddings)
+        form#groom-bride-form(action=`/wedding/edit/${weddings.id}/bridegroom?_method=PUT` method='post' enctype='multipart/form-data')
+          input(type='hidden' name='_csrf-biihappy' value='')
+          .row.mt-5
+            .col-12
+              div
+                | &Dstrok;&#x1EC3; t&ecirc;n c&#x1EE7;a c&ocirc; d&acirc;u v&agrave; ch&uacute; r&#x1EC3; &dstrok;&#x1B0;&#x1EE3;c hi&#x1EC3;n th&#x1ECB; &dstrok;&#x1EB9;p tr&ecirc;n website, b&#x1EA1;n kh&ocirc;ng n&ecirc;n nh&#x1EAD;p t&ecirc;n d&#x1EA1;ng in hoa to&agrave;n ph&#x1EA7;n. 
+                br
+                |  V&iacute; d&#x1EE5;: B&#x1EA1;n h&atilde;y d&ugrave;ng &quot;
+                strong Ng&ocirc; Vi&#x1EC7;t Ho&agrave;i
+                | &quot; thay v&igrave; &quot;
+                strong NG&Ocirc; VI&#x1EC6;T HO&Agrave;I
+                | &quot; v&agrave; &quot;
+                strong Vi&#x1EC7;t Ho&agrave;i
+                | &quot; thay v&igrave; &quot;
+                strong VI&#x1EC6;T HO&Agrave;I
+                | &quot;
+          .row.mt-6
+            .col-sm-6
+              .card.card-border.border-dark.shadow-lg.card-border-radius-none
+                .card-body
+                  .d-block.text-center
+                    a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.image-edit.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
+                      .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                        button.btn.btn-primary.btn-xs.position-relative(type='button')
+                          | Thay &dstrok;&#x1ED5;i
+                        input.upload_image_event.file-field-absolute(type='file' accept='image/*' id ='malephoto' name='malephoto' value=`/img/wedding/${weddings.malephoto}`)
+                      img#show_image_groom.w-100.img-thumbnail.rounded-0(src=`/img/wedding/${weddings.malephoto}`)
+                  h4.fw-bold.text-center.mb-5.text-uppercase Th&ocirc;ng tin ch&uacute; r&#x1EC3;
+                  .field-websiteinformationgroominfoform-name.required
+                    .form-floating.mb-2.form-group
+                      input#malename.form-control(type='text' name='malename' value=`${weddings.malename}` placeholder='Họ và tên' aria-required='true')
+                      label.control-label(for='malename') H&#x1ECD; v&agrave; t&ecirc;n
+                      .help-block
+                  .field-websiteinformationgroominfoform-short_name.required
+                    .form-floating.mb-2.form-group
+                      input#maleshortname.form-control(type='text' name='maleshortname' value=`${weddings.maleshortname}` placeholder='Tên ngắn gọn' aria-required='true')
+                      label.control-label(for='maleshortname') T&ecirc;n ng&#x1EAF;n g&#x1ECD;n
+                      .help-block
+                  .field-websiteinformationgroominfoform-birthday.required
+                    .form-floating.mb-2
+                      input#maledate.form-control(type='date' name='maledate' value=`${weddings.maledate}`  placeholder='Ngày sinh' aria-required='true')
+                      label.control-label(for='maledate') Ng&agrave;y sinh
+                      .help-block
+                  .field-websiteinformationgroominfoform-intro.required
+                    .form-floating.mb-2
+                      textarea#maleintroduce.form-control(name='maleintroduce' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...' aria-required='true' value=`ASADAS`)=`${weddings.maleintroduce}`
+                      label.form-label(for='websiteinformationgroominfoform-intro') Gi&#x1EDB;i thi&#x1EC7;u
+                      .help-block
+                  .field-websiteinformationgroominfoform-facebook
+                    .form-floating.mb-2
+                      input#malefb.form-control(type='text' name='malefb' value=`${weddings.malefb}` placeholder='Facebook')
+                      label.control-label(for='malefb') Facebook
+                      .help-block
+            .col-sm-6
+              .card.card-border.border-danger.shadow-lg.card-border-radius-none
+                .card-body
+                  .d-block.text-center
+                    a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.image-edit.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
+                      .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                        button.btn.btn-primary.btn-xs.position-relative(type='button')
+                          | Thay &dstrok;&#x1ED5;i
+                        input.upload_image_event.file-field-absolute(type='file' accept='image/*' id ='fephoto' name='fephoto' value=`/img/wedding/${weddings.malephoto}`)
+                      img#show_image_bride.w-100.img-thumbnail.rounded-0(src=`/img/wedding/${weddings.fephoto}`)
+                  h4.fw-bold.text-center.mb-5.text-uppercase.text-danger Th&ocirc;ng tin c&ocirc; d&acirc;u
+                  .field-websiteinformationbrideinfoform-name.required
+                    .form-floating.mb-2
+                      input#fename.form-control(type='text' name='fename' value=`${weddings.fename}` placeholder='Họ và tên' aria-required='true')
+                      label.control-label(for='fename') H&#x1ECD; v&agrave; t&ecirc;n
+                      .help-block
+                  .field-websiteinformationbrideinfoform-short_name.required
+                    .form-floating.mb-2
+                      input#feshortname.form-control(type='text' name='feshortname' value=`${weddings.feshortname}` placeholder='Tên ngắn gọn' aria-required='true')
+                      label.control-label(for='feshortname') T&ecirc;n ng&#x1EAF;n g&#x1ECD;n
+                      .help-block
+                  .field-websiteinformationbrideinfoform-birthday.required
+                    .form-floating.mb-2
+                      input#fedate.form-control(type='date' name='fedate' value=`${weddings.fedate}` placeholder='Ngày sinh' aria-required='true')
+                      label.control-label(for='fedate') Ng&agrave;y sinh
+                      .help-block
+                  .field-websiteinformationbrideinfoform-intro.required
+                    .form-floating.mb-2
+                      textarea#feintroduce.form-control(name='feintroduce' style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về cô dâu...' aria-required='true')=`${weddings.feintroduce}`
+                      label.form-label(for='feintroduce') Gi&#x1EDB;i thi&#x1EC7;u
+                      .help-block
+                  .field-websiteinformationbrideinfoform-facebook
+                    .form-floating.mb-2
+                      input#fefb.form-control(type='text' name='fefb' value=`${weddings.fefb}`  placeholder='Facebook')
+                      label.control-label(for='fefb') Facebook
+                      .help-block
+          .p-5.text-center.bg-gray-200.mt-7
+            button.btn.btn-danger(type='submit')
+              svg.bi.bi-save(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                path(d='M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z')
+              | &#x9;&#x9;L&#x1B0;u th&ocirc;ng tin
 

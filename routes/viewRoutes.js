@@ -11,12 +11,6 @@ const upload = multer({dest: 'public/img/wedding'});
 
 const router = express.Router();
 
-// router.get(authController.protect, viewsController.getUserStore)
-
-
-// router.
-//   route('/wedding/complete')
-//   .get(authController.protect, viewsController.getUserStore)
 
 router
   .route('/wedding/complete')
@@ -26,16 +20,6 @@ router
   .route('/wedding/complete/:id')
   .get(authController.protect, viewsController.getUserStore);
 
-
-// router.get('/user/create',authController.protect, viewsController.getCreateWedding);
-
-// router.get(
-//   '/wedding/edit/bridesmaids-groomsmen',
-//   viewsController.getBridesmaidsGroomsmen
-// );
-// router
-//   .route('/:weddingId/:slug')
-//   .get(bridesmaidsController.getAllBridesMaids);
 router
   .route('/wedding/edit/:weddingId')
   .get(authController.protect, weddingController.getWedding);
@@ -49,49 +33,48 @@ router
   .get(authController.protect, weddingController.getStoryLove);
 
 router
-  .route('/wedding/edit/:weddingId/:slug')
-  .post(authController.protect, authController.restrictTo('user'))
+  .route('/wedding/edit/:weddingId/bridesmaids')
+  .get(authController.protect, weddingController.getBridesMaids);
+
+router
+  .route('/wedding/edit/:weddingId/bridegroom')
   .put(
     authController.protect,
     authController.restrictTo('user'),
     weddingController.uploadWeddingImages,
     weddingController.resizeWeddingImages,
-    weddingController.updateWeddingAll
+    weddingController.updateWedding
   )
   .get(
     authController.protect,
-    weddingController.getWeddingAll
+    weddingController.checkUser,
+    weddingController.getWedding
   );
 
-router
-  .route('/wedding/edit/:weddingId/bridegrrom')
-  .put(
-    authController.protect,
-    authController.restrictTo('user'),
-    weddingController.uploadWeddingImages,
-    weddingController.resizeWeddingImages,
-    weddingController.updateWeddingAll
-  )
-    .get(authController.protect, weddingController.getWeddingAll);
-
-
-// router.get('/wedding/edit/groom-bride', viewsController.getBrideGroom);
-
-router.get('/wedding/templates', viewsController.getTemplates);
+router.get(
+  '/wedding/templates',
+  authController.protect,viewsController.getTemplates
+);
 
 router
-  .route('/wedding/templates/test')
+  .route('/wedding/templates/createwedding1')
   .get(authController.protect, viewsController.getDetailTempaltes);
 
-
 router
-  .route('/wedding/:weddingId')
-  .get(viewsController.getPreviewTest)  	
-
+  .route('/wedding/templates/createwedding2')
+  .get(authController.protect, viewsController.getDetailTempaltes2);
 
 router
   .route('/wedding/preview/:weddingId')
   .get(viewsController.getPreview)
+
+router
+  .route('/wedding/about-us')
+  .get(viewsController.getAboutUs)
+
+router
+  .route('/user/websites')
+  .get(authController.protect, viewsController.getManagementPage);
 router.get('/about-us', viewsController.getAbout);
 router.get('/terms', viewsController.getTerms);
 router.get(

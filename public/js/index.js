@@ -6,8 +6,9 @@ import { login, logout, signup } from './login';
 import { updateSettings } from './updateSetting';
 import { eventUser, createEvent, deleteEvent } from './eventUpdate';
 import { storyUser, createStory, deleteStory,updateStory } from './storyUpdate';
-import { createwedding } from './createwedding';
-import { createBridesMaids,deleteBridesMaids,updateBridesMaids } from './bridesMaidsUpdate'
+import { createwedding , deleteWedding } from './createwedding';
+import { createBridesMaids, deleteBridesMaids, updateBridesMaids } from './bridesMaidsUpdate'
+import { createContact } from './contact';
 //dom element
 const loginForm = document.querySelector('.form--login');
 const signupForm = document.querySelector('.form--signup');
@@ -15,13 +16,27 @@ const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const createweddingForm = document.querySelector('.form-create-wedding');
+const createContactForm = document.querySelector('.form-contact');
 const eventForm = document.querySelectorAll('.form-event-user');
 const storyForm = document.querySelectorAll('.form-story-user');
+const contact = document.querySelector('.send-button');
 const bridesmaidsForm = document.querySelector('.form-bridesmaid-user');
 const createEventForm = document.getElementById('add-more-event');
 const createStoryForm = document.getElementById('add-more-story');
 const createBridesMaidForm = document.getElementById('add-more-bridesmaids');
 const test = document.querySelectorAll('.form-user-test');
+
+if (createContactForm) {
+  contact.addEventListener('click', async e => {
+    e.preventDefault();
+    const { wedding } = e.target.dataset;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const content = document.getElementById('content').value;
+    console.log(wedding, name, email, content);
+    createContact(name, email, content, wedding);
+  });
+}
 
 if (bridesmaidsForm) {
   bridesmaidsForm.addEventListener('submit', async (e) => {
@@ -93,6 +108,16 @@ if (createBridesMaidForm) {
       await createBridesMaids(groomens);
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var weddingId;
+  var deleteBtn = $('.btn-remove-website');
+  deleteBtn.click(function(e) {
+    e.preventDefault();
+    var weddingId = $(this).data('id');
+    deleteWedding(weddingId);
+  });
+},true);
 
 document.addEventListener('DOMContentLoaded', function() {
   var bridemaidId;
@@ -187,41 +212,76 @@ if (createEventForm) {
 
 if (eventForm)
   eventForm.forEach(form => {
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      // const nodeList = document.querySelectorAll('.btn--save');
-      // nodeList.forEach(node => node.textContent = 'Processing...');
-      for (let i = 1; i <= eventForm.length; i++) {
-        const id = document.getElementById('id' + i).value;
-        if (id == i) {
-          const event = document.getElementById('eventId' + i).value;
-          const photo = document.getElementById('eventPhoto' + i).files[0];
-          console.log(photo)
-          const test = document.getElementById('eventphotostore' + i)
-            .value;
+    form.addEventListener(
+      'submit',
+      async e => {
+        e.preventDefault();
+        // const nodeList = document.querySelectorAll('.btn--save');
+        // nodeList.forEach(node => node.textContent = 'Processing...');
+        for (let i = 1; i <= eventForm.length; i++) {
+          const id = document.getElementById('id' + i).value;
+          if (id == i) {
+            const event = document.getElementById('eventId' + i).value;
+            const photo = document.getElementById('eventPhoto' + i)
+              .files[0];
+            console.log(photo);
+            const test = document.getElementById('eventphotostore' + i)
+              .value;
             console.log(test);
-          if (photo != undefined) {
-            const form = new FormData();
-            form.append('name', document.getElementById('name' + i).value);
-            form.append('date', document.getElementById('date' + i).value);
-            form.append('time', document.getElementById('time' + i).value);
-            form.append('address', document.getElementById('address' + i).value);
-            form.append('map', document.getElementById('map' + i).value);
-            form.append('eventPhoto', document.getElementById('eventPhoto' + i).files[0]);
-            await eventUser(event, form);
-          } else {
-            const form = new FormData();
-            form.append('name', document.getElementById('name' + i).value);
-            form.append('date', document.getElementById('date' + i).value);
-            form.append('time', document.getElementById('time' + i).value);
-            form.append('address', document.getElementById('address' + i).value);
-            form.append('map', document.getElementById('map' + i).value);
-            form.append('eventPhoto', document.getElementById('eventphotostore' + i).value);
-            await eventUser(event, form);
+            if (photo != undefined) {
+              const form = new FormData();
+              form.append(
+                'name',
+                document.getElementById('name' + i).value
+              );
+              form.append(
+                'date',
+                document.getElementById('date' + i).value
+              );
+              form.append(
+                'time',
+                document.getElementById('time' + i).value
+              );
+              form.append(
+                'address',
+                document.getElementById('address' + i).value
+              );
+              form.append('map', document.getElementById('map' + i).value);
+              form.append(
+                'eventPhoto',
+                document.getElementById('eventPhoto' + i).files[0]
+              );
+              await eventUser(event, form);
+            } else {
+              const form = new FormData();
+              form.append(
+                'name',
+                document.getElementById('name' + i).value
+              );
+              form.append(
+                'date',
+                document.getElementById('date' + i).value
+              );
+              form.append(
+                'time',
+                document.getElementById('time' + i).value
+              );
+              form.append(
+                'address',
+                document.getElementById('address' + i).value
+              );
+              form.append('map', document.getElementById('map' + i).value);
+              form.append(
+                'eventPhoto',
+                document.getElementById('eventphotostore' + i).value
+              );
+              await eventUser(event, form);
+            }
           }
         }
-      }
-    });
+      },
+      { passive: true }
+    );
   });
 
 //delegation
@@ -239,14 +299,27 @@ if (userDataForm) {
   userDataForm.addEventListener('submit', async e => {
     e.preventDefault();
     document.querySelector('.btn--save-settings').textContent = 'Updating...'
-    const form = new FormData();
-    form.append('name', document.getElementById('name').value);
-    form.append('email', document.getElementById('email').value);
-    form.append('photo', document.getElementById('photo').files[0]);
-    form.append('address', document.getElementById('address').value);
-    form.append('phone', document.getElementById('phone').value);
-    form.append('nation', document.getElementById('nation').value);
-    await updateSettings(form, 'data');
+    const photoTest = document.getElementById('photo').files[0];
+  
+    if (photoTest == undefined) {
+      const form = new FormData();
+      form.append('name', document.getElementById('name').value);
+      form.append('email', document.getElementById('email').value);
+      form.append('photo', document.getElementById('photoCover').value);
+      form.append('address', document.getElementById('address').value);
+      form.append('phone', document.getElementById('phone').value);
+      form.append('nation', document.getElementById('nation').value);
+      await updateSettings(form, 'data');
+  } else {
+      const form = new FormData();
+      form.append('name', document.getElementById('name').value);
+      form.append('email', document.getElementById('email').value);
+       form.append('photo', document.getElementById('photo').files[0]);
+      form.append('address', document.getElementById('address').value);
+      form.append('phone', document.getElementById('phone').value);
+      form.append('nation', document.getElementById('nation').value);
+      await updateSettings(form, 'data');
+    }
     // console.log(document.getElementById('photo').files[0]);
     // const photo = document.getElementById('photo').files[0];
     // const name = document.getElementById('name').value;
@@ -255,7 +328,7 @@ if (userDataForm) {
     // const phone = document.getElementById('phone').value;
     // const nation = document.getElementById('nation').value;
     // await updateSettings(photo,name, email, address, phone, nation);
-    document.querySelector('.btn--save-settings').textContent = 'Save settings'
+    // document.querySelector('.btn--save-settings').textContent = 'Save settings'
     // location.reload(true)
   });
 }

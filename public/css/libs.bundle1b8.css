@@ -14164,9 +14164,7 @@ a.thumbnail:hover {
 }
 
 .alert-success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6
+    background-color: whitesmoke;
 }
 
 .alert-success hr {

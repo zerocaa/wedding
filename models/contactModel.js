@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const contactSchema = new mongoose.Schema({
+    wedding: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Wedding'
+    },
     name: {
         type: String,
         required: [true, 'Please add a name']

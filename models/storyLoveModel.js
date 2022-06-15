@@ -9,7 +9,7 @@ const storyLoveSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-    default: ''
+    default: 'Bạn có tin vào tình yêu online không?'
   },
   time: {
     type: String,
@@ -17,7 +17,8 @@ const storyLoveSchema = new mongoose.Schema({
   },
   content: {
     type: String,
-    default: ''
+    default:
+      'Tôi đã từng không tin vào tình yêu online. Đã từng nghĩ làm sao có thể thích một người chưa từng gặp mặt? Vậy mà giờ đây tôi lại đang như vậy, bây giờ tôi đã hiểu: thế giới ảo tình yêu thật đấy!!! Ngày ấy vu vơ đăng một dòng status trên facebook than thở, vu vơ đùa giỡn nói chuyện với một người xa lạ chưa từng quen. Mà nào hay biết, 4 năm sau người ấy lại là chồng mình.'
   },
   storyPhoto: {
     type: String,

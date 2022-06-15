@@ -65,7 +65,8 @@ block content
                           | Ch&#x1EC9; cho ph&eacute;p &dstrok;&#x1ECB;nh d&#x1EA1;ng PNG ho&#x1EB7;c JPG. v&agrave; k&iacute;ch th&#x1B0;&#x1EDB;c ph&#x1EA3;i l&#x1EDB;n h&#x1A1;n 500x500px.
                       .col-12.col-md-auto
                         button.btn.btn-xs.w-100.btn-secondary.mt-5.mt-md-0.position-relative
-                          input.form__upload(type='file' accept='image/*', id ='photo' , name='photo')
+                          input.form__upload(type='file' accept='image/*', id ='photo' , name='photo' value=`${user.photo}`)
+                          input.form_upload(type='hidden' id='photoCover' name='photoCover' value=`${user.photo}`)
                     hr.mb-5
                   .col-12   
                     .form__group.field-userupdateprofileform-username.required

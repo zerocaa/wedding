@@ -883,7 +883,7 @@ img {
 
 	#znid-584505610725>.zn-element>.zn-banner {
 		box-sizing: border-box;
-		background: url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/5d32ff474e21a19e20fc2ee0298a1b39.jpg);
+		background: url(/img/wedding/wedding.jpg);
 		background-size: cover;
 		background-position: center center;
 		width: 100%;
@@ -892,7 +892,7 @@ img {
 	}
 
 	#znid-584505610725[data-effect="overlay"]>.zn-element>.zn-banner {
-		background: linear-gradient(#FFFFFFC0, #FFFFFFC0), url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/5d32ff474e21a19e20fc2ee0298a1b39.jpg);
+		background: linear-gradient(#FFFFFFC0, #FFFFFFC0), url(/img/wedding/wedding.jpg);
 		background-size: cover;
 		background-position: center center;
 	}

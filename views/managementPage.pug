@@ -1,0 +1,47 @@
+extend base
+block  content
+    nav.bg-gray-200
+        .container
+            .row
+                .col-12
+                    ol.breadcrumb.breadcrumb-scroll
+                        li.breadcrumb-item
+                            a.text-gray-700(href='/user/websites') Dashboard
+                        li.breadcrumb-item.active(aria-current='page') Qu&#x1EA3;n l&yacute; websites
+    section.py-8.py-md-11.bg-light
+        .container
+            .row.justify-content-center
+                .col-12.text-center
+                    h2.fw-bold Danh s&aacute;ch website c&#x1EE7;a b&#x1EA1;n
+                    p.fs-lg.text-muted.mb-7.mb-md-9
+                        | B&#x1EA1;n &dstrok;&atilde; t&#x1EA1;o 
+                        - var numb = 0;
+                        - for(let i = 0;i<weddings.length;i++){numb++}
+                        strong=numb
+                        |  websites t&#x1EEB; n&#x1EC1;n t&#x1EA3;ng Biihappy.
+                        span.d-block.text-center
+                            a.btn.btn-lg.btn-danger-soft.mt-3(href='/wedding/templates')
+                                | T&#x1EA1;o website &dstrok;&aacute;m c&#x1B0;&#x1EDB;i
+                                i.fe.fe-arrow-right.ms-2
+            .row
+                each wedding in weddings
+                    .col-12.col-md-6.col-lg-4.d-flex.mb-7
+                        .card.mb-6.mb-lg-0.shadow-light-lg.lift.lift-lg
+                            .card-img-top(href='#!')
+                                img.card-img-top(src='/img/wedding/website-nothumb.jpeg' alt=' Wedding site!')
+                                .position-relative
+                                .shape.shape-bottom.shape-fluid-x.text-white
+                                    svg(viewbox='0 0 2880 480' fill='none' xmlns='http://www.w3.org/2000/svg')
+                                    path(fill-rule='evenodd' clip-rule='evenodd' d='M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z' fill='currentColor')
+                            .card-body(href='#!')
+                                h3=`${wedding.malename} - ${wedding.fename} Wedding Site!`
+                                p.mb-0.text-muted
+                            .card-meta.mt-auto
+                                hr.card-meta-divider
+                                .d-block.w-100.text-center
+                                    a.btn.btn-sm.btn-secondary-soft(href=`/wedding/preview/${wedding.id}` target='_blank')
+                                        span.fe.fe-globe
+                                        |  Xem trang
+                                    a.btn.btn-sm.btn-danger-soft(href=`/wedding/edit/${wedding.id}`)
+                                        span.fe.fe-edit
+                                        |  Qu&#x1EA3;n l&yacute;

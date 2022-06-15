@@ -23,14 +23,12 @@ exports.uploadStoryPhoto = upload.fields([{ name: 'storyPhoto', maxCount: 1 }]);
 
 exports.resizeStoryPhoto = catchAsync(async (req, res, next) => {
   if (!req.files) return next();
-  console.log(req.files)
   req.body.storyPhoto = `story-${req.user.id}-${Date.now()}.jpeg`;
   sharp(req.files.storyPhoto[0].buffer)
     .resize(500, 500)
     .toFormat('jpeg')
     .jpeg({ quality: 90 })
     .toFile(`public/img/wedding/${req.body.storyPhoto}`);
-  console.log(req.body.storyPhoto);
   next();
   // req.body.storyPhoto = req.file.filename
 });

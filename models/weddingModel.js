@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 const bridesMaids = require('./bridesmaidsModel');
-const Story = require('./storyLoveModel')
-const Event = require('./eventModel')
+const Story = require('./storyLoveModel');
+const Event = require('./eventModel');
 // const User = require('./userModel');
 // const Contact = require('./contactModel');
 const weddingSchema = new mongoose.Schema(
@@ -34,63 +34,75 @@ const weddingSchema = new mongoose.Schema(
         ref: 'StoryLove'
       }
     ],
+    contact: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Contact'
+      }
+    ],
     date: {
-      type: String
+      type: String,
+      required: [true, 'Cần Phải Nhập Ngày Cưới']
     },
     malename: {
-      type: String
-      // required: [true, 'Please add a firstname']
+      type: String,
+      required: [true, 'Cần Phải Nhập Tên Chú Rễ']
     },
     maleshortname: {
-      type: String
+      type: String,
+      default: ''
     },
     maleintroduce: {
-      type: String
+      type: String,
+      default:
+        'Chàng trai sinh ra và lớn lên bởi mảnh đất Vĩnh Bảo, mang trong mình lòng say mê nhiệt thành của nghề "bác tài". Là một người hiền lành và ít nói. Luôn coi trọng tình cảm và yêu thương gia đình. Với anh: “Gia đình là điểm tựa vững chắc nhất và là bến đỗ bình yên không đâu sánh bằng đối với mỗi con người. Đó luôn là nơi tràn ngập tình yêu thương để ta trở về"'
     },
     malefb: {
-      type: String
+      type: String,
+      default: ''
     },
     maledate: {
-      type: String
-    },
-    maleavatar: {
-      type: String
+      type: String,
+      default: ''
     },
     malelocation: {
-      type: String
+      type: String,
+      default: ''
     },
     malephoto: {
       type: String,
       default: 'undefined.jpg'
     },
     fename: {
-      type: String
+      type: String,
+      required: [true, 'Cần Phải Nhập Tên Cô Dâu']
     },
     feshortname: {
-      type: String
+      type: String,
+      default: ''
     },
     feintroduce: {
-      type: String
+      type: String,
+      default: ''
     },
     fefb: {
-      type: String
+      type: String,
+      default: ''
     },
     fedate: {
-      type: String
-    },
-    feavatar: {
-      type: String
+      type: String,
+      default: ''
     },
     felocation: {
-      type: String
+      type: String,
+      default: ''
     },
     fephoto: {
       type: String,
       default: 'undefined.jpg'
     },
-    slug: {
-      type: String,
-      default: 'bridegroom'
+    templateId: {
+      type: Number
     }
   },
   {
@@ -101,27 +113,36 @@ const weddingSchema = new mongoose.Schema(
 
 weddingSchema.index({ slug: 1 });
 weddingSchema.index({ startLocation: '2dsphere' });
+weddingSchema.index({ user: 1, wedding: 3 }, { unique: true });
 
 // select -id find
 // Virtual Populate
-weddingSchema.pre(/^find/, function (next) {	
+weddingSchema.pre(/^find/, function(next) {
   this.populate({
-    path: 'user',
-  }).populate({
-    path: 'bridesmaids',
-  }).populate({
-    path: 'event',
-  }).populate({
-    path: 'storyLove',
+    path: 'user'
   })
-  next(); 
-})
+    .populate({
+      path: 'bridesmaids'
+    })
+    .populate({
+      path: 'event'
+    })
+    .populate({
+      path: 'storyLove'
+    })
+    .populate({
+      path: 'contact'
+    });
+  next();
+});
 
-weddingSchema.pre('save', async function (next) {
-  const bridesmaidsPromises = this.bridesmaids.map(async id => await bridesMaids.findById(id));
+weddingSchema.pre('save', async function(next) {
+  const bridesmaidsPromises = this.bridesmaids.map(
+    async id => await bridesMaids.findById(id)
+  );
   this.bridesmaids = await Promise.all(bridesmaidsPromises);
   next();
-})
+});
 // middle ware get slugify
 // weddingSchema.pre('save', function(next) {
 //   this.slug = slugify(this.name, { lower: true });

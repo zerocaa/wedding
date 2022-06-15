@@ -5,6 +5,7 @@ const Wedding = require('../models/weddingModel');
 const bridesmaids = require('../models/bridesmaidsModel');
 const path = require('path');
 const catchAsync = require('../utils/catchAsync');
+const Contact = require('../models/contactModel');
 const AppError = require('../utils/appError');
 
 
@@ -49,7 +50,6 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
       runValidators: true
     }
   );
-  console.log(updatedUser);
   res.status(200).redirect('/user/me');
 });
 
@@ -97,25 +97,21 @@ exports.getDetailTempaltes = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getDetailTempaltes2 = catchAsync(async (req, res, next) => {
+  const wedding = await Wedding.findById(req.params.id);
+  res.status(200).render('detailtemplate2', {
+    title: 'Detail Templates'
+  });
+});
+
 exports.getUserStore = catchAsync(async (req, res, next) => {
   const weddings = await Wedding.findById({ _id: req.params.id });
-  console.log(weddings)
   res.status(200).render('complete', {
     title: 'User Store',
     weddings
   });
 });
 
-// exports.createWedding = catchAsync(async (req, res, next) => {
-//     req.body.user = req.body.id
-//   const newwedding = await Wedding.create({
-//     name: req.body.name
-//   });
-//   console.log(newwedding)
-//   res.status(200).redirect('/user/stored', {
-//     newwedding
-//   });
-// });
 
 exports.getCreateWedding = catchAsync(async (req, res, next) => {
   res.status(200).render('createwedding', {
@@ -132,53 +128,42 @@ exports.getBrideGroom = catchAsync(async (req, res, next) => {
   });
 });
 
-// exports.getBridesmaidsGroomsmen = catchAsync(async (req, res, next) => {
-//   res.status(200).render('bridesmaids-groomsmen', {
-//     title: 'Bridesmaids & Groomsmen'
-//   });
-// });
-
-
-exports.getOne = catchAsync(async (req, res, next) => {
-  if (req.params.slug === 'bridegroom') {
-    const weddings = await Wedding.findOne({ slug: req.params.slug });
-      if (!weddings)
-        return next(new AppError('No weddings found with that Slug', 404));
-      res.status(200).render('bride-groom', {
-        title: 'Wedding Details',
-        weddings
-      });
-  }
-  else if (req.params.slug === 'bridesmaids') {
-         let bridesMaids = await bridesmaids.findOne({
-           slug: req.params.slug
-         });
-         if (!bridesMaids)
-           return next(
-             new AppError('No bridesmaids found with that ID', 404)
-           );
-         res.status(200).render('bridesmaids-groomsmen', {
-           title: 'Bride & Groom',
-           bridesMaids
-         });
-       }
-})
-
-
 
 exports.getPreview = catchAsync(async (req, res, next) => {
-  const weddings = await Wedding.findById(req.params.weddingId);
-  console.log(weddings)
-  res.status(200).render('overview', {
-    title: 'PreviewTest',
-    weddings
+  req.body.contact = [];
+  const contact = await Contact.find({ wedding: req.params.weddingId });
+  const contactId = contact.map((data, i) => {
+    return req.body.contact.push(data.id);
   });
+  const weddings = await Wedding.findByIdAndUpdate(
+    req.params.weddingId,
+    req.body,
+    {
+      new: true,
+      runValidators: true
+    }
+  );
+  const wedding = await Wedding.findById(req.params.weddingId);
+  // res.status(200).render('overview', {
+  //   title: 'Preview',
+  //   wedding
+  // });
+    if (wedding.templateId == 1) {
+      res.status(200).render('overview', {
+        title: 'PreviewTest',
+        wedding
+      });
+    } else {
+      res.status(200).render('overview2', {
+        title: 'PreviewTest',
+        wedding
+      });
+    }
 });
 
 exports.getPreviewTest = catchAsync(async (req, res, next) => {
   const weddings = await Wedding.findById(req.params.weddingId);
-  console.log(weddings);
-  res.status(200).render('test', {
+  res.status(200).render('editwedsite', {
     title: 'PreviewTest',
     weddings
   });
@@ -187,5 +172,23 @@ exports.getPreviewTest = catchAsync(async (req, res, next) => {
 exports.getTest = catchAsync(async (req, res, next) => {
   res.status(200).render('bride-groom', {
     title: 'bride-groom'
+  });
+})
+
+exports.getManagementPage = catchAsync(async (req, res, next) => {
+  const weddings = await Wedding.find({ user: req.user.id });
+  // res.status(200).json({
+  //   status: 'success',
+  //   weddings
+  // })
+  res.status(200).render('managementPage', {
+    title: 'Management Page',
+    weddings
+  });
+});
+
+exports.getAboutUs = catchAsync(async (req, res, next) => {
+  res.status(200).render('aboutus', {
+    title: 'About-Us'
   });
 })

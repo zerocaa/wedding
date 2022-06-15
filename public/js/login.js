@@ -6,8 +6,7 @@ export const login = async (email,password) => {
     try{
         const res = await axios({
           method: 'POST',
-          url:
-            'https://wedding-production-09d7.up.railway.app/api/v1/users/login',
+          url: 'http://localhost:3000/api/v1/users/login',
           data: {
             email,
             password
@@ -28,8 +27,8 @@ export const login = async (email,password) => {
 export const logout = async () => {
     try{
         const res = await axios({
-            method: 'GET',
-            url: 'https://wedding-production-09d7.up.railway.app/api/v1/users/logout',
+          method: 'GET',
+          url: 'http://localhost:3000/api/v1/users/logout'
         });
        if((res.data.status = "success")) location.reload(true) 
        showAlert('success', 'logout success');
@@ -42,20 +41,22 @@ export const logout = async () => {
 export const signup = async (name,email,password,passwordConfirm) => {
     try{
         const res = await axios({
-            method: 'POST',
-            url: 'https://wedding-production-09d7.up.railway.app/api/v1/users/signup',
-            data: {
-                name,
-                email,
-                password,
-                passwordConfirm
-            }
+          method: 'POST',
+          url: 'http://localhost:3000/api/v1/users/signup',
+          data: {
+            name,
+            email,
+            password,
+            passwordConfirm
+          }
         });
         if (res.data.status === 'success') {
             showAlert('success', 'Signup success');
             window.setTimeout(() => {
               location.assign('/');
             }, 1500);
+        } else {
+            showAlert('error', res.data.message);
         }
     }
     catch(err) {

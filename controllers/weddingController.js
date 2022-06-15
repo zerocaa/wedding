@@ -8,6 +8,7 @@ const AppError = require('../utils/appError');
 const Story = require('../models/storyLoveModel');
 const Event = require('../models/eventModel');
 const bridesMaids = require('../models/bridesmaidsModel');
+const Contact = require('../models/contactModel');
 // const upload = multer({dest: 'public/img/wedding'});
 
 //func create,get,edit,delete wedding
@@ -105,135 +106,44 @@ exports.getWeddingsWithin = catchAsync(async (req, res, next) => {
 exports.getAllWedding = factory.getAll(Wedding);
 // render data bridegroom
 exports.getWedding = catchAsync(async (req, res, next) => {
-  const weddings = await Wedding.findById(req.params.weddingId);
-  console.log(weddings)
-  if (!weddings) return next(new AppError('No wedding found with that ID', 404));
-  res.status(200).render('bride-groom', {
-    title: 'Wedding',
+  const wedding = await Wedding.findById(req.params.weddingId)
+  if (wedding.user.id == req.user.id || req.user.role == 'admin') {
+    const weddings = await Wedding.findById(req.params.weddingId);
+    if (!weddings)
+      return next(new AppError('No wedding found with that ID', 404));
+    res.status(200).render('bride-groom', {
+      title: 'Wedding',
       weddings
-  });
+    });
+  } else {
+    return next(
+      new AppError('You are not authorized to access this page', 401)
+    );
+  }
 });
 
-exports.updateWedding = catchAsync(async (req, res, next) => {
+exports.checkUser = catchAsync(async (req, res, next) => {
   let wedding = await Wedding.findById(req.params.weddingId);
-  if (!wedding) return next(new AppError('No wedding found with that ID', 404));
-  const a = wedding.user.toString();
-  // console.log(a);
-  if (wedding.user.toString() !== req.user.id && req.user.role !== 'admin')
+  if (wedding.user.toString() == req.user.id)
     return next(
       new AppError('You do not have permission to perform this action', 403)
     );
-    wedding = await Wedding.findByIdAndUpdate(req.params.weddingId, req.body, {
+  next();
+})
+  
+exports.updateWedding = catchAsync(async (req, res, next) => {
+  const  wedding = await Wedding.findByIdAndUpdate(req.params.weddingId, req.body, {
     new: true,
     runValidators: true
   });
-  // console.log(wedding);
-
   res.status(200).redirect('/wedding/edit/' + wedding.id + '/bridegroom');
 });
 exports.deleteWedding = factory.deleteOne(Wedding);
 
-exports.getWeddingAll = catchAsync(async (req, res, next) => {
-  
-  if (req.params.slug === 'bridegroom') {
-    const weddings = await Wedding.findById(req.params.weddingId);
-    if (!weddings)
-      return next(new AppError('No weddings found with that Id', 404));
-    res.status(200).render('bride-groom', {
-      title: 'Wedding Details',
-      weddings
-    });
-  } else if (req.params.slug === 'bridesmaids') {
-    const bridesmaids = await bridesMaids.find({
-      wedding: req.params.weddingId
-    });
-    // console.log(bridesmaids);
-    res.status(200).render('bridesmaids-groomsmen', {
-      title: 'Wedding Details',
-      bridesmaids
-    });
-  } else if (req.params.slug === 'storylove') {
-    const storys = await Story.find({ wedding: req.params.weddingId });
-    res.status(200).render('storylove', {
-      title: 'Wedding Details',
-      storys
-    });
-  } else if (req.params.slug === 'event') {
-    const events = await Event.find({ wedding: req.params.weddingId });
-    res.status(200).render('event', {
-      title: 'Wedding Details',
-      events
-    });
-  }
-});
-
-exports.updateWeddingAll = catchAsync(async (req, res, next) => {
-  if (req.params.slug === 'bridegroom') {
-    console.log(req.body.malephoto)
-    console.log(req.body.fephoto);
-    let wedding = await Wedding.findById(req.params.weddingId);
-    console.log(wedding);
-    if (!wedding) return next(new AppError('No wedding found with that ID', 404));
-    const a = wedding.user.toString();
-    // console.log(a);
-    // if (wedding.user.toString() !== req.user.id && req.user.role !== 'admin')
-    //   return next(
-    //     new AppError('You do not have permission to perform this action', 403)
-    //   );
-    wedding = await Wedding.findByIdAndUpdate(req.params.weddingId, req.body, {
-      new: true,
-      runValidators: true
-    });
-    console.log(wedding);
-    res.status(200).redirect('/wedding/edit/' + wedding.id + '/bridegroom');
-    // res.status(200).json({
-    //   status: 'success',
-    //   data: {
-    //     data: wedding
-    //   }
-    // });
-  } else if (req.params.slug === 'bridesmaids') {
-    let bridesmaids = await bridesMaids.findOne({
-      wedding: req.params.weddingId
-    });
-    if (!bridesmaids)
-      return next(new AppError('No bridesmaids found with that Id', 404));
-    bridesmaids = await bridesMaids.findByIdAndUpdate(
-      bridesmaids.id,
-      req.body,
-      {
-        new: true,
-        runValidators: true
-      }
-    );
-    res
-      .status(200)
-      .redirect('/wedding/edit/' + bridesmaids.wedding + '/bridesmaids');
-  } else if (req.params.slug === 'event') {
-    //  const events = await Event.find({ wedding: req.params.weddingId });
-    // if (!events)
-    //   return next(new AppError('No bridesmaids found with that Id', 404));
-    // events = await Event.findByIdAndUpdate(events.id, req.body, {
-    //   new: true,
-    //   runValidators: true
-    // });
-    // res.status(200).redirect('/wedding/edit/' + events.wedding + '/event');
-  } else if (req.params.slug === 'storylove') {
-    let storys = await Story.findOne({ wedding: req.params.weddingId });
-    // console.log(storys);
-    if (!storys) return next(new AppError('No story found with that Id', 404));
-    // console.log(storys.wedding);
-    storys = await Story.findByIdAndUpdate(storys.id, req.body, {
-      new: true,
-      runValidators: true
-    });
-    // console.log(storys);
-    res.status(200).redirect('/wedding/edit/' + storys.wedding + '/storylove');
-  }
-});
-
 exports.getEvent = catchAsync(async (req, res, next) => {
-   req.body.event = [];
+  const weddings = await Wedding.findById(req.params.weddingId);
+  if (weddings.user.id == req.user.id || req.user.role == 'admin') {
+ req.body.event = [];
    const event = await Event.find({ wedding: req.params.weddingId });
    const eventId = event.map((data, i) => {
      return req.body.event.push(data.id);
@@ -253,14 +163,36 @@ exports.getEvent = catchAsync(async (req, res, next) => {
     title: 'Wedding Details',
     events
   });
+  } else {
+    return next(new AppError('You do not have permission to perform this action', 403));
+  }
+   
+  
 }
 );
 
-exports.getStoryLove = catchAsync(async (req, res, next) => {
-  req.body.storyLove = [];
-  const story = await Story.find({ wedding: req.params.weddingId });
-  const storyId = story.map(data => {
-    return req.body.storyLove.push(data.id);
+exports.getIdContact = catchAsync(async (req, res, next) => {
+  req.body.contact = [];
+  const contact = await Contact.find({ wedding: req.params.weddingId });
+  const contactId = contact.map((data, i) => {
+    return req.body.contact.push(data.id);
+  });
+  const wedding = await Wedding.findByIdAndUpdate(
+    req.params.weddingId,
+    req.body,
+    {
+      new: true,
+      runValidators: true
+    });
+});
+
+exports.getBridesMaids = catchAsync(async (req, res, next) => {
+  const weddings = await Wedding.findById(req.params.weddingId);
+  if (weddings.user.id == req.user.id || req.user.role == 'admin'){
+    req.body.bridesmaids = [];
+  const bridesmaid = await bridesMaids.find({ wedding: req.params.weddingId });
+  const bridesmaidsId = bridesmaid.map((data, i) => {
+    return req.body.bridesmaids.push(data.id);
   });
   const wedding = await Wedding.findByIdAndUpdate(
     req.params.weddingId,
@@ -269,10 +201,40 @@ exports.getStoryLove = catchAsync(async (req, res, next) => {
       new: true,
       runValidators: true
     }
-  );
-  const storys = await Story.find({ wedding: req.params.weddingId });
-  res.status(200).render('storylove', {
+    );
+  const bridesmaids = await bridesMaids.find({ wedding: req.params.weddingId });
+  res.status(200).render('bridesmaids-groomsmen', {
     title: 'Wedding Details',
-    storys
+    bridesmaids
   });
+}
+  else{    return next(new AppError('You do not have permission to perform this action', 403));}
+});
+
+
+exports.getStoryLove = catchAsync(async (req, res, next) => {
+  const weddings = await Wedding.findById(req.params.weddingId);
+  if (weddings.user.id == req.user.id || req.user.role == 'admin') {
+    req.body.storyLove = [];
+    const story = await Story.find({ wedding: req.params.weddingId });
+    const storyId = story.map(data => {
+      return req.body.storyLove.push(data.id);
+    });
+    console.log(storyId)
+    const wedding = await Wedding.findByIdAndUpdate(
+      req.params.weddingId,
+      req.body,
+      {
+        new: true,
+        runValidators: true
+      }
+    );
+    const storys = await Story.find({ wedding: req.params.weddingId });
+    res.status(200).render('storylove', {
+      title: 'Wedding Details',
+      storys
+    });
+  } else {
+    return next(new AppError('You do not have permission to perform this action', 403));
+  }
 });

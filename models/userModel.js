@@ -10,13 +10,16 @@ const userSchema = new mongoose.Schema(
       required: [true, 'Please add a name']
     },
     address: {
-      type: String
+      type: String,
+      default: ''
     },
     nation: {
-      type: String
+      type: String,
+      default: ''
     },
     phone: {
       type: String,
+      default: '' 
     },
     date: {
       type: Date,

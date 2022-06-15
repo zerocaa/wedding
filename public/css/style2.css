@@ -1,0 +1,14 @@
+a.text-logo {
+    color: #000!important;
+    font-family: 'Playball', cursive!important;
+}
+.navbar>.container, .navbar>.container-fluid {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    /* align-items: center; */
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}

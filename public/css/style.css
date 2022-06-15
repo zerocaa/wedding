@@ -14,6 +14,7 @@ a {
 		display: flex;
 	}
 }
+
 /* Typography */
 h1, h2, h3, h4, h5, h6, figure {
 	color: #000000;
@@ -693,7 +694,7 @@ img {
 	.nd_options_navigation_2 div > ul > li { display: inline-block; padding: 0px; }
 	.nd_options_navigation_2 div > ul > li:after { content: "|"; display: inline-block; margin: 0px 20px; color: #bb93af; }
 	.nd_options_navigation_2 div > ul > li:last-child:after { content: ""; margin: 0px; }
-	.nd_options_navigation_2 div li a { color: #ffffff; font-size: 16px; line-height: 16px; font-family: Cinzel; }
+	.nd_options_navigation_2 div li a { color: #ffffff; font-size: 16px	; font-family: Cinzel; }
 	.nd_options_navigation_2 div > ul li:hover > ul.sub-menu { display: block; }
 	.nd_options_navigation_2 div > ul li > ul.sub-menu { z-index: 999; position: absolute; margin: 0px; padding: 0px; list-style: none; display: none; margin-left: -20px; padding-top: 20px; width: 190px; }
 	.nd_options_navigation_2 div > ul li > ul.sub-menu > li { padding: 15px 20px; border-bottom: 1px solid #f1f1f1; text-align: left; background-color: #fff; position: relative; box-shadow: 0px 2px 5px #f1f1f1; float: left; width: 100%; box-sizing:border-box; }
@@ -883,7 +884,7 @@ img {
 
 	#znid-584505610725>.zn-element>.zn-banner {
 		box-sizing: border-box;
-		background: url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/5d32ff474e21a19e20fc2ee0298a1b39.jpg);
+		background: url(/img/wedding/wedding.jpg);
 		background-size: cover;
 		background-position: center center;
 		width: 100%;
@@ -892,7 +893,7 @@ img {
 	}
 
 	#znid-584505610725[data-effect="overlay"]>.zn-element>.zn-banner {
-		background: linear-gradient(#FFFFFFC0, #FFFFFFC0), url(https://wonderfulengineering.com/wp-content/uploads/2014/05/twitter-header-4.jpg);
+		background: linear-gradient(#FFFFFFC0, #FFFFFFC0), url(/img/wedding/wedding.jpg);
 		background-size: cover;
 		background-position: center center;
 	}
@@ -902,7 +903,7 @@ img {
 	}
 
 	#znid-584505610725[data-effect="none"]>.zn-element>.zn-banner {
-		background-image: url(https://wonderfulengineering.com/wp-content/uploads/2014/05/twitter-header-4.jpg);
+		background-image: url(/img/wedding/wedding.jpg);
 		background-attachment: initial;
 	}
 
@@ -913,7 +914,7 @@ img {
 
 	@media (min-width: 721px) and (max-width: 1025px) {
 		#znid-584505610725[data-effect="overlay"]>.zn-element>.zn-banner {
-			background: linear-gradient(#FFFFFFCC, #FFFFFFCC), url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/5d32ff474e21a19e20fc2ee0298a1b39.jpg);
+			background: linear-gradient(#FFFFFFCC, #FFFFFFCC), url(/img/wedding/wedding.jpg);
 			background-size: cover;
 			background-position: center center;
 		}
@@ -921,7 +922,7 @@ img {
 
 	@media (max-width: 720px) {
 		#znid-584505610725[data-effect="overlay"]>.zn-element>.zn-banner {
-			background: linear-gradient(#FFFFFFCC, #FFFFFFCC), url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/5d32ff474e21a19e20fc2ee0298a1b39.jpg);
+			background: linear-gradient(#FFFFFFCC, #FFFFFFCC), url(/img/wedding/wedding.jpg);
 			background-size: cover;
 			background-position: center center;
 		}
@@ -1084,3 +1085,150 @@ img {
 	@media (max-width: 991px){
 		.account-websites-edit-page .box-header{text-align:center;}
 	}
+		.section-bg-color {
+    	background: #F2EDED!important;
+	}
+
+	.blog-section {
+    background-color: #f8f8f7;
+    padding-bottom: 65px;
+	}
+	.section-padding {
+    padding: 120px 0;
+	}
+	.blog-section .blog-grids .grid {
+    display: flex;
+    margin-bottom: 80px;
+    align-items: center;
+	}
+	.blog-section .blog-grids .grid .inner {
+    margin-left: 20px;
+    flex: 1;
+}
+	.blog-section .inner ul {
+    display: flex;
+}
+.blog-section .blog-grids .grid img {
+    width: 200px;
+    border-radius: 50%;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 52px;
+    padding-top: 70px;
+    position: relative;
+}
+.section-title:before {
+    content: "";
+    background: url(https://asdasd332222222222.iwedding.info/templates/template15/images/sec-title-flower.png) center center/cover no-repeat local;
+    width: 126px;
+    height: 59px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 0;
+}
+.blog-section .inner h4 {
+    color: #c89d9c;
+}
+
+.header-content-float-img {
+    left: 0px!important;
+    z-index: 100;
+    top: -590%!important;
+    width: 90%!important;
+}
+
+.wedding-date {
+    background: url(../images/wishes-bg.jpg) center center/cover no-repeat local;
+    text-align: center;
+    padding: 120px 0;
+    position: relative;
+}
+
+.text-puple{
+	color: #e88bd1;
+}
+
+.section-title-top h2, .section-title-s2 h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 48px;
+    margin: 0;
+    text-transform: capitalize;
+    position: relative;
+}
+.section-title-top, .section-title-s2 {
+    text-align: center;
+    margin-bottom: 45px;
+}
+.clock-grids {
+    color: #f14148;
+	margin-top:62px;
+}
+
+.wedding-date h3 {
+    font-size: 32px;
+    margin: 0;
+    font-style: italic;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+}
+.wedding-date h3:before {
+    left: auto;
+    right: -55px;
+}
+.wedding-date h3::before, .wedding-date h3:after {
+    content: "";
+    background-color: #fff;
+    width: 40px;
+    height: 1px;
+    position: absolute;
+    left: -55px;
+    top: 50%;
+}
+
+.wedding-date h3:after {
+    left: auto;
+    right: -55px;
+}
+#clock{
+	overflow: hidden;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 20px;
+	font-size: 40px;
+}
+.time{
+	color:#f14148;
+	font-size: 3.375rem;
+}
+.size{
+	font-size: 18px;
+}
+#clock .box > span{
+	font-size: 32px;
+}
+#clock > div{
+	width: 176px;
+	height: 176px;
+	float: left;
+	display: table;
+	border: 3px solid #f23b43;
+	border-radius: 50%;
+	background-color: rgb(255 255 255 / 60%);
+	color:#000;
+}
+.box-time{
+	font-family: cursive;
+}
+
+.box-time > div{
+	margin-top:35px
+}

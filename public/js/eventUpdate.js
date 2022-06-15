@@ -13,11 +13,12 @@ export const eventUser = async (eventId,data) => {
   try {
     const res = await axios({
       method: 'PUT',
-      url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${eventId}`,
+      url: `http://localhost:3000/api/v1/events/${eventId}`,
+      // url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${eventId}`,
       data
     });
     if (res.data.status === 'success') {
-      location.reload(true);
+      // location.reload(true);
       showAlert('success', 'Update success');
     }
   } catch (err) {
@@ -31,14 +32,15 @@ export const createEvent = async wedding => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'https://wedding-production-09d7.up.railway.app/api/v1/events',
+      url: 'http://localhost:3000//api/v1/events',
+      // url: 'https://wedding-production-09d7.up.railway.app/api/v1/events',
       data: {
         wedding
       }
     });
     if (res.data.status === 'success') {
       showAlert('success', 'Create success');
-      location.reload(true);
+      // location.reload(true);
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
@@ -49,12 +51,12 @@ export const deleteEvent = async courseId => {
   try {
       const res = await axios({
         method: 'DELETE',
-        url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${courseId}`
+        url: `http://localhost:3000/api/v1/events/${courseId}`
+        // url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${courseId}`
       });
-    console.log(res);
            if (res) {
              showAlert('success', 'Delete success');
-             location.reload(true);
+            //  location.reload(true);
            }
          } catch (err) {
            showAlert('error', 'Error, please try again');

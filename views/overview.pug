@@ -4,27 +4,28 @@ head
   title
   link(rel='shortcut icon' type='image/x-icon' href='https://preview.iwedding.info/templates/template6/favicon.ico')
   link(rel='stylesheet' href='/css/libs.bundle1b8.css')
-  link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap' rel='stylesheet')
-  link(href='https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css?family=Playball&display=swap' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css?family=Pacifico%7CWork+Sans:400,300,600,400italic,700%7CAmatic+SC:400,700&subset=latin-ext' rel='stylesheet' type='text/css')
   link(rel='stylesheet' href='https://preview.iwedding.info/templates/template6/css/style.css?v=20220227')
-  link(rel='stylesheet' href='/css/themef9f5.css?v=202111121')
+  link(href="https://aancouple.iwedding.info/templates/template5/css/libs.css?v=20220523" rel="stylesheet")
   link#nd_options_style-css(rel='stylesheet' href='http://www.nicdarkthemes.com/themes/wedding/wp/demo/wedding-planner/wp-content/plugins/nd-shortcodes/css/style.css?ver=5.2.2' type='text/css' media='all')
   link#nd_options_font_family_h-css(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Cinzel%3A400%2C700&ver=5.2.2' type='text/css' media='all')
   link#nd_options_font_family_p-css(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Halant%3A300%2C400%2C700&ver=5.2.2' type='text/css' media='all')
   link#nd_options_font_family_third-css(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Great+Vibes&ver=5.2.2' type='text/css' media='all')
   link#nd_tds_style-css(rel='stylesheet' href='http://www.nicdarkthemes.com/themes/wedding/wp/demo/wedding-planner/wp-content/plugins/nd-theme-demos-switcher/css/style.css?ver=5.2.2' type='text/css' media='all')
   link(rel='stylesheet' href='/css/style.css')
-if(weddings)
+  script(type='text/javascript' async='' src='https://www.google-analytics.com/analytics.js')
+if(wedding)
   .main
     #nd_options_navigation_2_container.nd_options_section.nd_options_position_relative
-      .nd_options_section(style='background-color: #bb93af ; border-bottom: 1px solid #bb93af ;')
+      .nd_options_section(style='background-color: #DDA0DD ; border-bottom: 1px solid #DDA0DD ;')
         .nd_options_container.nd_options_clearfix.nd_options_position_relative
           .nd_options_grid_12.nd_options_display_none_all_responsive
             .nd_options_section(style='height: 4px;')
-            // LOGO
-            img.nd_options_position_absolute.nd_options_left_15(style='top:17px;' alt='' width='246' src='/img/logo-white.png')
+              a.navbar-brand.text-logo(href='#home' )
+                input( id="malename" type="hidden" value=`${wedding.malename}`)
+                input(id="fename" type="hidden" value=`${wedding.fename}`)
+                h1#demo(style='font-size: 24px; color: red;')
             .nd_options_navigation_2.nd_options_navigation_type.nd_options_text_align_right.nd_options_float_right.nd_options_display_none_all_responsive
               .nd_options_display_table
                 .nd_options_display_table_cell.nd_options_vertical_align_middle
@@ -38,10 +39,10 @@ if(weddings)
                         a(href='#couple-story') Chuy&#x1EC7;n t&igrave;nh y&ecirc;u
                       li.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-has-children.menu-item-355
                         a(href='#people') Ph&ugrave; d&acirc;u &amp; Ph&ugrave; r&#x1EC3;
-                      li.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-has-children.menu-item-344
-                        a(href='##wishes') L&#x1EDD;i ch&uacute;c
+                      li.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-has-children.menu-item-355
+                        a(href='#wishes') L&#x1EDD;i ch&uacute;c
     .zn-container
-      #znid-584505610725.zn-element-wrapper(data-type='banner' data-effect='none' data-border-enable='false' data-shadow-enable='false')
+      #znid-584505610725.zn-element-wrapper(style='background:url(/img/wedding/wedding.jpg)' data-type='banner' data-effect='none' data-border-enable='false' data-shadow-enable='false' )
         .zn-element.zn-lg
           .zn-banner(id='' data-element-animation='' data-scroll-animation='')
             .zn-children-container
@@ -51,8 +52,8 @@ if(weddings)
                     #znid-093705202550.zn-element-wrapper(data-type='heading' data-background-type='none' data-border-enable='false' data-shadow-enable='false' data-text-shadow-enable='false')
                       .zn-element.zn-lg
                         h2.zn-heading(id='' data-element-animation='' data-scroll-animation='')
-                          h1(style='color:#fff')=`${weddings.malename} & ${weddings.fename}`
-                          h2=`${weddings.date}`
+                          h1(style='color:	#EE82EE')=`${wedding.malename} & ${wedding.fename}`
+                          h2(style='color:	#EE82EE')=`${wedding.date}`
                 .zn-child
                   .zn-template
                     #znid-701590015515.zn-element-wrapper(data-type='text' data-background-type='none' data-border-enable='false' data-shadow-enable='false' data-text-shadow-enable='false')
@@ -85,9 +86,8 @@ if(weddings)
             .nd_options_section.nd_options_bg_greydark_alpha_5
               .nd_options_section.nd_options_text_align_center
                 .nd_options_section.nd_options_height_100
-                a.nd_options_color_white(rel='' title='' target='' href='#')
-                  h1.nd_options_margin_0_important.nd_options_color_white
-                    | WEDDINGS
+                h1.nd_options_margin_0_important.nd_options_color_white
+                  | WEDDINGS
                 .nd_options_section.nd_options_height_20
                 h3.nd_options_margin_0_important.nd_options_text_transform_uppercase.nd_options_color_white LOCATIONS
                 .nd_options_section.nd_options_height_100
@@ -100,9 +100,8 @@ if(weddings)
             .nd_options_section.nd_options_bg_greydark_alpha_5
               .nd_options_section.nd_options_text_align_center
                 .nd_options_section.nd_options_height_100
-                a.nd_options_color_white(rel='' title='' target='' href='#')
-                  h1.nd_options_margin_0_important.nd_options_color_white
-                    | HONEYMOON
+                h1.nd_options_margin_0_important.nd_options_color_white
+                  | HONEYMOON
                 .nd_options_section.nd_options_height_20
                 h3.nd_options_margin_0_important.nd_options_text_transform_uppercase.nd_options_color_white DESTINATIONS
                 .nd_options_section.nd_options_height_100
@@ -119,72 +118,66 @@ if(weddings)
               .row.couple-wrap
                 .groom-wrap.col-md-6.clearfix
                   .groom
-                    img.img-responsive(src=`/img/wedding/${weddings.malephoto}` alt='groom')
+                    img.img-responsive(src=`/img/wedding/${wedding.malephoto}` alt='groom')
                   .desc-groom
-                    h3=`${weddings.malename}`
+                    h3=`${wedding.malename}`
                     // <h4>12/09/1992</h4>
-                    p=`${weddings.maleintroduce}`
+                    p=`${wedding.maleintroduce}`
+
                 .bride-wrap.col-md-6
                   .bride
-                    img.img-responsive(src=`/img/wedding/${weddings.fephoto}` alt='groom')
+                    img.img-responsive(src=`/img/wedding/${wedding.fephoto}` alt='groom')
                   .desc-bride
-                    h3=`${weddings.fename}`
+                    h3=`${wedding.fename}`
                     // <h4>10/02/1993</h4>
-                    p=`${weddings.feintroduce}`
-          section.countdown.bg.section.text-center(style='background-image:url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/0100b802c6f9a39db35cc65e2171dd5c.jpg);')
-            .overlay
+                    p=`${wedding.feintroduce}`
+          section.wedding-date.section-padding.bg-section.section-bg-img(style='background:url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/0100b802c6f9a39db35cc65e2171dd5c.jpg) center center/cover no-repeat local !important;')
             .container
               .row
-                .heading.col-sm-12
-                  h2=`The big day`
-                  h2=`${weddings.date}`
-                  p
-                    | We are so excited to celebrate our special day with our family and friends. Thank you so much for visiting our wedding website!
+                .col.col-xs-12
+                  .section-title-top
+                    h2.text-puple Save The Date
+              .row
+                .col.col-xs-12
+                  h3.text-puple=`${wedding.date}`
+                  .clock-grids
+                    #clock(data-date=`${wedding.date}` data-text-day='Ngày' data-text-hour='Giờ' data-text-minute='Phút' data-text-second='Giây')
+                      .box-time
+                        div
+                          #day.time
+                          span.size Ng&agrave;y
+                      .box-time
+                        div
+                          #hour.time 
+                          span.size Gi&#x1EDD;
+                      .box-time
+                        div
+                          #minutes.time 
+                          span.size Ph&uacute;t
+                      .box-time
+                        div
+                          #seconds.time 
+                          span.size Gi&acirc;y
+
           section#events.events-accordion.section
             .container
               .row
                 .col-md-12.text-center.heading
                   // <span>We Love Each Other</span>
-                  h2 S&#x1EF1; Ki&#x1EC7;n C&#x1B0;&#x1EDB;i
+                  h2 S&#x1EF1; Ki&#x1EC7;n C&#x1B0;&#x1EDB;i 
                   p
                     | T&igrave;nh y&ecirc;u kh&ocirc;ng l&agrave;m cho th&#x1EBF; gi&#x1EDB;i quay tr&ograve;n. T&igrave;nh y&ecirc;u l&agrave; nh&#x1EEF;ng g&igrave; l&agrave;m cho chuy&#x1EBF;n &dstrok;i &dstrok;&aacute;ng gi&aacute;.
               .row.event-list
-                .event-item.col-lg-3.col-md-6.col-xs-12
-                  .event-item-box
-                    img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/45dfd859dd184042e2a6adaa320ac64b.jpeg' alt='LỄ CƯỚI NHÀ NỮ')
-                    .event-item_details
-                      h3(style='margin-top: 10px;') L&#x1EC4; C&#x1AF;&#x1EDA;I NH&Agrave; N&#x1EEE;
-                      h4
-                        strong 07:30 AM 10/02/2023
-                      h4 370 &Dstrok;&#x1B0;&#x1EDD;ng 02 th&aacute;ng 9, Qu&#x1EAD;n H&#x1EA3;i Ch&acirc;u, &Dstrok;&agrave; N&#x1EB5;ng
-                      a.btn.btn-danger.btn-sm(href='https://www.google.com/maps/place/370%20%C4%90%C6%B0%E1%BB%9Dng%2002%20th%C3%A1ng%209%2C%20Qu%E1%BA%ADn%20H%E1%BA%A3i%20Ch%C3%A2u%2C%20%C4%90%C3%A0%20N%E1%BA%B5ng' target='_blank') Xem b&#x1EA3;n &dstrok;&#x1ED3;
-                .event-item.col-lg-3.col-md-6.col-xs-12
-                  .event-item-box
-                    img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/8f7155409bf9ebdb9dffd7a38991aaa8.jpeg' alt='TIỆC CƯỚI NHÀ NỮ')
-                    .event-item_details
-                      h3(style='margin-top: 10px;') TI&#x1EC6;C C&#x1AF;&#x1EDA;I NH&Agrave; N&#x1EEE;
-                      h4
-                        strong 11:30 AM 10/02/2023
-                      h4 187 H&agrave; Huy T&#x1EAD;p, P. Ho&agrave; Kh&ecirc;, Qu&#x1EAD;n Thanh Kh&ecirc;, &Dstrok;&agrave; N&#x1EB5;ng
-                      a.btn.btn-danger.btn-sm(href='https://www.google.com/maps/place/187%20H%C3%A0%20Huy%20T%E1%BA%ADp%2C%20P.%20Ho%C3%A0%20Kh%C3%AA%2C%20Qu%E1%BA%ADn%20Thanh%20Kh%C3%AA%2C%20%C4%90%C3%A0%20N%E1%BA%B5ng' target='_blank') Xem b&#x1EA3;n &dstrok;&#x1ED3;
-                .event-item.col-lg-3.col-md-6.col-xs-12
-                  .event-item-box
-                    img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/83d8a5c840b51447ab080ecb9a7de6df.jpeg' alt='LỄ CƯỚI NHÀ NAM')
-                    .event-item_details
-                      h3(style='margin-top: 10px;') L&#x1EC4; C&#x1AF;&#x1EDA;I NH&Agrave; NAM
-                      h4
-                        strong 09:00 AM 12/09/2023
-                      h4 120A Nguy&#x1EC5;n V&abreve;n Tho&#x1EA1;i, Qu&#x1EAD;n Ng&utilde; H&agrave;nh S&#x1A1;n, &Dstrok;&agrave; N&#x1EB5;ng
-                      a.btn.btn-danger.btn-sm(href='https://www.google.com/maps/place/120A%20Nguy%E1%BB%85n%20V%C4%83n%20Tho%E1%BA%A1i%2C%20Qu%E1%BA%ADn%20Ng%C5%A9%20H%C3%A0nh%20S%C6%A1n%2C%20%C4%90%C3%A0%20N%E1%BA%B5ng' target='_blank') Xem b&#x1EA3;n &dstrok;&#x1ED3;
-                .event-item.col-lg-3.col-md-6.col-xs-12
-                  .event-item-box
-                    img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/194d4b3c58f61adb4931a8a00a4fa019.jpeg' alt='TIỆC CƯỚI NHÀ NAM')
-                    .event-item_details
-                      h3(style='margin-top: 10px;') TI&#x1EC6;C C&#x1AF;&#x1EDA;I NH&Agrave; NAM
-                      h4
-                        strong 12:00 AM 12/09/2023
-                      h4 A30 Tr&#x1EA7;n H&#x1B0;ng &Dstrok;&#x1EA1;o, P. An H&#x1EA3;i T&acirc;y, Qu&#x1EAD;n S&#x1A1;n Tr&agrave;, &Dstrok;&agrave; N&#x1EB5;ng
-                      a.btn.btn-danger.btn-sm(href='https://www.google.com/maps/place/A30%20Tr%E1%BA%A7n%20H%C6%B0ng%20%C4%90%E1%BA%A1o%2C%20P.%20An%20H%E1%BA%A3i%20T%C3%A2y%2C%20Qu%E1%BA%ADn%20S%C6%A1n%20Tr%C3%A0%2C%20%C4%90%C3%A0%20N%E1%BA%B5ng' target='_blank') Xem b&#x1EA3;n &dstrok;&#x1ED3;
+                each event in wedding.event
+                  .event-item.col-lg-3.col-md-6.col-xs-12
+                    .event-item-box
+                      img(src=`/img/wedding/${event.eventPhoto}` alt=`${event.name}`)
+                      .event-item_details
+                        h3(style='margin-top: 10px;')=event.name
+                        h4
+                          strong=`${event.time}  ${event.date}`
+                        h4=event.address
+                        a.btn.btn-danger.btn-sm(href=`${event.map}` target='_blank') Xem b&#x1EA3;n &dstrok;&#x1ED3;
           section#couple-story.section.couple-story.section-gray
             .container
               .row
@@ -194,48 +187,18 @@ if(weddings)
                   p
                     | T&igrave;nh y&ecirc;u kh&ocirc;ng ch&#x1EC9; l&agrave; m&#x1ED9;t danh t&#x1EEB; - n&oacute; l&agrave; m&#x1ED9;t &dstrok;&#x1ED9;ng t&#x1EEB;; n&oacute; c&ograve;n h&#x1A1;n c&#x1EA3; m&#x1ED9;t c&#x1EA3;m gi&aacute;c - &dstrok;&oacute; l&agrave; s&#x1EF1; quan t&acirc;m, chia s&#x1EBB;, gi&uacute;p &dstrok;&#x1EE1;, hy sinh.
               .row
-                .col-md-12.col-md-offset-0
+                 .col-md-12.col-md-offset-0
                   ul.timeline.animate-box
-                    li.timeline-item.animate-box
-                      .timeline-badge
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/0f99c255f7aa7714d366ebde51c86d53.jpeg' alt='')
-                      .timeline-panel
-                        .timeline-heading
-                          h3.timeline-title B&#x1EA1;n c&oacute; tin v&agrave;o t&igrave;nh y&ecirc;u online kh&ocirc;ng?
-                          span.date December 12 2015
-                        .timeline-body
-                          p
-                            | T&ocirc;i &dstrok;&atilde; t&#x1EEB;ng kh&ocirc;ng tin v&agrave;o t&igrave;nh y&ecirc;u online. &Dstrok;&atilde; t&#x1EEB;ng ngh&itilde; l&agrave;m sao c&oacute; th&#x1EC3; th&iacute;ch m&#x1ED9;t ng&#x1B0;&#x1EDD;i ch&#x1B0;a t&#x1EEB;ng g&#x1EB7;p m&#x1EB7;t? V&#x1EAD;y m&agrave; gi&#x1EDD; &dstrok;&acirc;y t&ocirc;i l&#x1EA1;i &dstrok;ang nh&#x1B0; v&#x1EAD;y, b&acirc;y gi&#x1EDD; t&ocirc;i &dstrok;&atilde; hi&#x1EC3;u: th&#x1EBF; gi&#x1EDB;i &#x1EA3;o t&igrave;nh y&ecirc;u th&#x1EAD;t &dstrok;&#x1EA5;y!!! Ng&agrave;y &#x1EA5;y vu v&#x1A1; &dstrok;&abreve;ng m&#x1ED9;t d&ograve;ng status tr&ecirc;n facebook than th&#x1EDF;, vu v&#x1A1; &dstrok;&ugrave;a gi&#x1EE1;n n&oacute;i chuy&#x1EC7;n v&#x1EDB;i m&#x1ED9;t ng&#x1B0;&#x1EDD;i xa l&#x1EA1; ch&#x1B0;a t&#x1EEB;ng quen. M&agrave; n&agrave;o hay bi&#x1EBF;t, 4 n&abreve;m sau ng&#x1B0;&#x1EDD;i &#x1EA5;y l&#x1EA1;i l&agrave; ch&#x1ED3;ng m&igrave;nh.
-                    li.timeline-item.animate-box
-                      .timeline-badge
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/be48dcf2522cd4ecfa7dab2dd4ebd3f9.jpeg' alt='')
-                      .timeline-panel
-                        .timeline-heading
-                          h3.timeline-title L&#x1EDD;i t&#x1ECF; t&igrave;nh d&#x1EC5; th&#x1B0;&#x1A1;ng^^
-                          span.date August 04 2016
-                        .timeline-body
-                          p
-                            | Ng&agrave;y &#x1EA5;y, t&ocirc;i 21! M&#x1ED9;t m&igrave;nh gi&#x1EEF;a ph&#x1ED1; th&#x1ECB; n&#x1EA5;p t&#x1EAD;p. M&#x1ED7;i chi&#x1EC1;u cu&#x1ED1;i tu&#x1EA7;n th&#x1B0;&#x1EDD;ng ch&#x1EA1;y xe v&ograve;ng quanh qua nh&#x1EEF;ng con ph&#x1ED1;, len l&#x1ECF;i trong t&#x1EEB;ng d&ograve;ng ng&#x1B0;&#x1EDD;i t&#x1EA5;p n&#x1EAD;p. Hay th&#x1EAD;m ch&iacute; l&agrave; gh&eacute; v&agrave;o m&#x1ED9;t qu&aacute;n c&agrave; ph&ecirc; ven &dstrok;&#x1B0;&#x1EDD;ng &dstrok;&#x1EC3; ng&#x1ED3;i &dstrok;&oacute; v&agrave; c&#x1EA3;m nh&#x1EAD;n v&#x1EC1; cu&#x1ED9;c s&#x1ED1;ng c&#x1EE7;a ri&ecirc;ng m&igrave;nh. &Dstrok;&ocirc;i khi l&#x1EA1;c l&otilde;ng v&agrave; h&#x1A1;i c&ocirc; &dstrok;&#x1A1;n. Nh&#x1B0;ng r&#x1ED3;i m&#x1ED9;t ng&agrave;y &dstrok;&#x1EB9;p tr&#x1EDD;i, ng&#x1B0;&#x1EDD;i con trai &#x1EA5;y xu&#x1EA5;t hi&#x1EC7;n, n&#x1EAF;m tay r&#x1ED3;i th&#x1EE7; th&#x1EC9; v&agrave;o tai: &ldquo;Hy v&#x1ECD;ng sau n&agrave;y anh &dstrok;&#x1B0;&#x1EE3;c l&agrave;m nh&#x1EEF;ng &dstrok;i&#x1EC1;u &#x1EA5;y c&ugrave;ng em&rdquo;.
-                    li.timeline-item.animate-box
-                      .timeline-badge
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/d2d08234dd0ece24828f396fa243a1ec.jpeg' alt='')
-                      .timeline-panel
-                        .timeline-heading
-                          h3.timeline-title Ph&uacute;t gi&acirc;y c&#x1EA7;u h&ocirc;n
-                          span.date May 10 2018
-                        .timeline-body
-                          p
-                            | 5 n&abreve;m b&ecirc;n nhau kh&ocirc;ng ph&#x1EA3;i l&agrave; qu&atilde;ng th&#x1EDD;i gian qu&aacute; d&agrave;i, nh&#x1B0;ng &dstrok;&#x1EE7; cho ch&uacute;ng ta nh&#x1EAD;n ra &dstrok;&#x1B0;&#x1EE3;c r&#x1EA5;t nhi&#x1EC1;u &dstrok;i&#x1EC1;u. Y&ecirc;u nhau, vun v&eacute;n h&#x1EA1;nh ph&uacute;c v&agrave; c&ugrave;ng n&#x1ED7; l&#x1EF1;c v&#x1B0;&#x1EE3;t qua nh&#x1EEF;ng kh&oacute; kh&abreve;n trong cu&#x1ED9;c s&#x1ED1;ng. Ch&uacute;ng ta t&#x1EEB; 2 con ng&#x1B0;&#x1EDD;i xa l&#x1EA1; m&agrave; b&#x1B0;&#x1EDB;c v&agrave;o cu&#x1ED9;c &dstrok;&#x1EDD;i nhau. V&agrave; gi&#x1EDD; &dstrok;&acirc;y ch&uacute;ng ta ti&#x1EBF;p t&#x1EE5;c c&ugrave;ng nhau sang trang m&#x1EDB;i. Gi&acirc;y ph&uacute;t anh ng&#x1ECF; l&#x1EDD;i &ldquo;L&agrave;m v&#x1EE3; anh nh&eacute;!&rdquo;, em &dstrok;&atilde; nguy&#x1EC7;n &yacute; &dstrok;&#x1EDD;i n&agrave;y, &dstrok;i &dstrok;&acirc;u c&utilde;ng &dstrok;&#x1B0;&#x1EE3;c, mi&#x1EC5;n l&agrave; c&ugrave;ng anh.
-                    li.timeline-item.animate-box
-                      .timeline-badge
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/d37c077f9ad6b076bc531b2d6ba44498.jpeg' alt='')
-                      .timeline-panel
-                        .timeline-heading
-                          h3.timeline-title Ng&agrave;y l&#x1EC5; &dstrok;&iacute;nh h&ocirc;n
-                          span.date July 28 2018
-                        .timeline-body
-                          p
-                            | &ldquo;Ti&#x1EBF;ng tr&aacute;i tim &dstrok;&ocirc;i ta &dstrok;&#x1EAD;p th&#x1EAD;t nhanh. Th&igrave; th&#x1EA7;m l&#x1EDD;i y&ecirc;u th&#x1B0;&#x1A1;ng. Ng&agrave;y t&igrave;nh v&#x1EC1; chung &dstrok;&ocirc;i...&rdquo; Sau bao nhi&ecirc;u ch&#x1EDD; &dstrok;&#x1EE3;i, cu&#x1ED1;i c&ugrave;ng ng&agrave;y vui c&#x1EE7;a ch&uacute;ng ta c&utilde;ng t&#x1EDB;i r&#x1ED3;i. C&#x1EA3;m &#x1A1;n v&igrave; m&igrave;nh &dstrok;&atilde; lu&ocirc;n l&agrave; m&#x1ED9;t ph&#x1EA7;n trong cu&#x1ED9;c s&#x1ED1;ng c&#x1EE7;a nhau. Em v&agrave; anh kh&ocirc;ng ch&#x1EC9; l&agrave; ng&#x1B0;&#x1EDD;i y&ecirc;u m&agrave; ch&uacute;ng ta c&ograve;n l&agrave; tri k&#x1EF7;. Ng&agrave;y h&ocirc;m nay, em s&#x1EBD; l&agrave; c&ocirc; d&acirc;u c&#x1EE7;a anh v&agrave; sau n&agrave;y s&#x1EBD; l&agrave; m&#x1EB9; c&#x1EE7;a c&aacute;c con anh.
+                    each story in wedding.storyLove
+                      li.timeline-item.animate-box
+                        .timeline-badge
+                          img(src=`/img/wedding/${story.storyPhoto}` alt=`${story.title}`)
+                        .timeline-panel
+                          .timeline-heading
+                            h3.timeline-title=story.title
+                            span.date=story.time
+                          .timeline-body
+                            p=story.content      
           section#counter.section.bg.counter(style='background-image:url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/e691ff7296ec7d4ba6a839856a873ca1.jpg);')
             .overlay
             .container
@@ -245,214 +208,34 @@ if(weddings)
                     span.counter-value --Forever one love--
                     span.counter-label
                       | ...t&igrave;nh y&ecirc;u kh&ocirc;ng ph&#x1EA3;i l&agrave; nh&igrave;n ch&#x1EB1;m ch&#x1EB1;m v&agrave;o nhau, m&agrave; l&agrave; nh&igrave;n ch&#x1EB1;m ch&#x1EB1;m v&#x1EC1; c&ugrave;ng m&#x1ED9;t h&#x1B0;&#x1EDB;ng...
-          section#people.groomsmen-bridesmaid.section-padding
+          section#people.blog-section.section-padding.section-bg-color
             .container
               .row
-                .col.col-xs-12.heading
+                .col.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
                   .section-title
                     h2 Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
                     p
                       | T&igrave;nh y&ecirc;u kh&ocirc;ng c&oacute; r&agrave;o c&#x1EA3;n. N&oacute; nh&#x1EA3;y r&agrave;o, nh&#x1EA3;y r&agrave;o, xuy&ecirc;n t&#x1B0;&#x1EDD;ng &dstrok;&#x1EC3; &dstrok;&#x1EBF;n &dstrok;&iacute;ch v&#x1EDB;i &dstrok;&#x1EA7;y hy v&#x1ECD;ng.
               .row
-                .groomsmen-bridesmaid-grids.clearfix
-                  .groomsmaid.col-md-6.col-xs-12
-                    .grid.man-friend(style='position: relative; height: 0px;')
-                      .img-holder
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/e1263ffa78a8657fac07ca93df885fa1.jpeg' alt='')
-                      .details
-                        h4 Tr&#x1EA7;n H&#x1ED3;ng Di&#x1EC5;m
-                        // <p>Phù dâu</p>
-                        // <p>13/04/1997</p>
-                        p
-                          | C&ocirc; sinh vi&ecirc;n n&abreve;m cu&#x1ED1;i tr&#x1B0;&#x1EDD;ng &Dstrok;&#x1EA1;i h&#x1ECD;c Ngo&#x1EA1;i Th&#x1B0;&#x1A1;ng. Th&iacute;ch &dstrok;i du l&#x1ECB;ch, kh&aacute;m ph&aacute; nh&#x1EEF;ng v&ugrave;ng &dstrok;&#x1EA5;t m&#x1EDB;i, xem phim, nghe nh&#x1EA1;c v&agrave; t&#x1EE5; t&#x1EAD;p &abreve;n u&#x1ED1;ng c&ugrave;ng b&#x1EA1;n b&egrave;.
-                        .social
-                          ul
-                            li
-                              a(href='' target='_blank')
-                                i.ti-facebook
-                            li
-                              a(href='' target='_blank')
-                                i.ti-twitter-alt
-                            li
-                              a(href='' target='_blank')
-                                i.ti-instagram
-                    .grid.man-friend(style='position: relative; height: 0px;')
-                      .img-holder
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/1063371e2a63c043bc5a49cae7213d25.jpeg' alt='')
-                      .details
-                        h4 Nguy&#x1EC5;n B&iacute;ch Th&#x1EA3;o
-                        // <p>Phù dâu</p>
-                        // <p>12/02/1998</p>
-                        p
-                          | B&iacute;ch Th&#x1EA3;o l&agrave; m&#x1ED9;t c&ocirc; g&aacute;i trai h&#x1B0;&#x1EDB;ng n&#x1ED9;i, &iacute;t n&oacute;i v&agrave; th&iacute;ch &dstrok;&#x1ECD;c s&aacute;ch. C&ocirc; c&utilde;ng l&agrave; tu&yacute;p ng&#x1B0;&#x1EDD;i s&#x1ED1;ng t&igrave;nh c&#x1EA3;m, th&acirc;n thi&#x1EC7;n v&agrave; c&oacute; t&acirc;m h&#x1ED3;n &abreve;n u&#x1ED1;ng r&#x1EA5;t cao.
-                        .social
-                          ul
-                            li
-                              a(href='' target='_blank')
-                                i.ti-facebook
-                            li
-                              a(href='' target='_blank')
-                                i.ti-twitter-alt
-                            li
-                              a(href='' target='_blank')
-                                i.ti-instagram
-                    .grid.man-friend(style='position: relative; height: 0px;')
-                      .img-holder
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/fa1780c6fe429eff4f2d564d6fbaff98.jpeg' alt='')
-                      .details
-                        h4 L&yacute; M&#x1EA1;c S&#x1EA7;u
-                        // <p>Phù dâu</p>
-                        // <p>13/09/1999</p>
-                        p
-                          | L&agrave; c&ocirc; g&aacute;i &dstrok;&#x1EBF;n t&#x1EEB; v&ugrave;ng &dstrok;&#x1EA5;t C&#x1ED1; &Dstrok;&ocirc; &ldquo;Hu&#x1EBF; m&#x1ED9;ng Hu&#x1EBF; m&#x1A1;&rdquo; d&#x1ECB;u d&agrave;ng, n&#x1EBF;t na v&agrave; th&ugrave;y m&#x1ECB;. V&#x1EDB;i nhi&#x1EC1;u t&agrave;i l&#x1EBB; nh&#x1B0; bi&#x1EBF;t n&#x1EA5;u &abreve;n, c&#x1EAF;m hoa, th&ecirc;u th&ugrave;a may v&aacute;.
-                        .social
-                          ul
-                            li
-                              a(href='' target='_blank')
-                                i.ti-facebook
-                            li
-                              a(href='' target='_blank')
-                                i.ti-twitter-alt
-                            li
-                              a(href='' target='_blank')
-                                i.ti-instagram
-                    .grid.man-friend(style='position: relative; height: 0px;')
-                      .img-holder
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/35db8fc856d43608ee7484dce6e03d33.jpeg' alt='')
-                      .details
-                        h4 Ng&ocirc; Th&#x1ECB; B&iacute;ch Th&#x1EE7;y
-                        // <p>Phù dâu</p>
-                        // <p>02/08/1998</p>
-                        p
-                          | B&iacute;ch Th&#x1EE7;y s&#x1EDF; h&#x1EEF;u ngo&#x1EA1;i h&igrave;nh d&#x1EC5; th&#x1B0;&#x1A1;ng, xinh x&#x1EAF;n v&agrave; n&#x1EA5;u &abreve;n r&#x1EA5;t ngon. L&agrave; c&ocirc; g&aacute;i th&#x1EAD;t th&agrave;, hi&#x1EC1;n l&agrave;nh, h&#x1A1;i &iacute;t n&oacute;i b&#x1EDF;i v&igrave; nhi&#x1EC1;u l&uacute;c kh&ocirc;ng bi&#x1EBF;t n&ecirc;n n&oacute;i g&igrave;...
-                        .social
-                          ul
-                            li
-                              a(href='' target='_blank')
-                                i.ti-facebook
-                            li
-                              a(href='' target='_blank')
-                                i.ti-twitter-alt
-                            li
-                              a(href='' target='_blank')
-                                i.ti-instagram
-                    .grid.man-friend(style='position: relative; height: 0px;')
-                      .img-holder
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/84729db4c190b37df0a2cdcedba3f9b2.jpeg' alt='')
-                      .details
-                        h4 Ph&#x1EA1;m &ETH;oan Trang
-                        // <p>Phù dâu</p>
-                        // <p>20/03/1997</p>
-                        p
-                          | L&agrave; c&ocirc; g&aacute;i g&aacute;i Hu&#x1EBF; th&acirc;n thi&#x1EC7;n, hay c&#x1B0;&#x1EDD;i, d&#x1EC5; giao ti&#x1EBF;p nh&#x1B0;ng th&iacute;ch y&ecirc;n t&itilde;nh m&#x1ED9;t m&igrave;nh. Th&#x1B0;&#x1EDD;ng h&#x1B0;&#x1EDB;ng v&#x1EC1; nh&#x1EEF;ng th&oacute;i quen, s&#x1EDF; th&iacute;ch mang t&iacute;nh truy&#x1EC1;n th&#x1ED1;ng.
-                        .social
-                          ul
-                            li
-                              a(href='' target='_blank')
-                                i.ti-facebook
-                            li
-                              a(href='' target='_blank')
-                                i.ti-twitter-alt
-                            li
-                              a(href='' target='_blank')
-                                i.ti-instagram
-                  .bridesmaid.col-md-6.col-xs-12
-                    .grid.woman-friend(style='position: relative; height: 0px;')
-                      .img-holder
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/c8fa4c07335f9fe51684778695bc33aa.jpeg' alt='')
-                      .details
-                        h4 Nguy&#x1EC5;n Quang Minh
-                        // <p>Phù rể</p>
-                        // <p>13/04/1997</p>
-                        p
-                          | Ch&agrave;ng trai S&agrave;i G&ograve;n &dstrok;&#x1ED9;c th&acirc;n vui t&iacute;nh. Mang trong m&igrave;nh tu&#x1ED5;i tr&#x1EBB; nhi&#x1EC7;t huy&#x1EBF;t v&agrave; &dstrok;am m&ecirc; &ldquo;x&ecirc; d&#x1ECB;ch&rdquo;. Tuy nhi&ecirc;n, 25 tu&#x1ED5;i v&#x1EAB;n ch&#x1B0;a &ldquo;m&#x1ED9;t m&#x1EA3;nh t&igrave;nh v&#x1EAF;t vai&rdquo;.
-                        .social
-                          ul
-                            li
-                              a(href='' target='_blank')
-                                i.ti-facebook
-                            li
-                              a(href='' target='_blank')
-                                i.ti-twitter-alt
-                            li
-                              a(href='' target='_blank')
-                                i.ti-instagram
-                    .grid.woman-friend(style='position: relative; height: 0px;')
-                      .img-holder
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/0a6cfab9e637b586cec8724825f99d9e.jpeg' alt='')
-                      .details
-                        h4 Tr&#x1EA7;n &Dstrok;&#x1EE9;c Minh
-                        // <p>Phù rể</p>
-                        // <p>12/02/1998</p>
-                        p
-                          | Ch&agrave;ng trai sinh n&abreve;m 1996 t&#x1EA1;i B&igrave;nh D&#x1B0;&#x1A1;ng, t&#x1EEB;ng l&agrave; sinh vi&ecirc;n &Dstrok;&#x1EA1;i h&#x1ECD;c Kinh t&#x1EBF; TP. H&#x1ED3; Ch&iacute; Minh. Hi&#x1EC7;n t&#x1EA1;i, &dstrok;ang l&agrave;m nh&acirc;n vi&ecirc;n t&iacute;n d&#x1EE5;ng ng&acirc;n h&agrave;ng.
-                        .social
-                          ul
-                            li
-                              a(href='' target='_blank')
-                                i.ti-facebook
-                            li
-                              a(href='' target='_blank')
-                                i.ti-twitter-alt
-                            li
-                              a(href='' target='_blank')
-                                i.ti-instagram
-                    .grid.woman-friend(style='position: relative; height: 0px;')
-                      .img-holder
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/cb933f73557a053f18bb48a0e492250e.jpeg' alt='')
-                      .details
-                        h4 Ng&ocirc; Ho&agrave;ng B&aacute;ch
-                        p
-                          | N&#x1ED5;i b&#x1EAD;t v&#x1EDB;i chi&#x1EC1;u cao 1m83 v&agrave; &dstrok;&#x1B0;&#x1EE3;c m&#x1ECD;i ng&#x1B0;&#x1EDD;i y&ecirc;u qu&yacute; b&#x1EDF;i t&iacute;nh c&aacute;ch th&acirc;n thi&#x1EC7;n. Hi&#x1EC7;n t&#x1EA1;i Phong V&utilde; &dstrok;ang l&agrave; hu&#x1EA5;n luy&#x1EC7;n vi&ecirc;n th&#x1EC3; h&igrave;nh t&#x1EA1;i S&agrave;i G&ograve;n.
-                        .social
-                          ul
-                            li
-                              a(href='' target='_blank')
-                                i.ti-facebook
-                            li
-                              a(href='' target='_blank')
-                                i.ti-twitter-alt
-                            li
-                              a(href='' target='_blank')
-                                i.ti-instagram
-                    .grid.woman-friend(style='position: relative; height: 0px;')
-                      .img-holder
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/76f909d2cf5cfdc9613d3eab4c2e9289.jpeg' alt='')
-                      .details
-                        h4 Tr&#x1EA7;n Ho&agrave;ng Qu&acirc;n
-                        // <p>Phù rể</p>
-                        // <p>02/08/1998</p>
-                        p
-                          | L&agrave; ch&agrave;ng trai c&oacute; m&#x1ED9;t ch&uacute;t k&#x1EF9; t&iacute;nh, th&#x1EC9;nh tho&#x1EA3;ng h&#x1A1;i &ldquo;ch&#x1EAD;m ti&ecirc;u&rdquo; ho&#x1EB7;c l&#x1EA1;c qu&#x1EBB; khi tr&ograve; chuy&#x1EC7;n nh&#x1B0;ng r&#x1EA5;t bi&#x1EBF;t c&aacute;ch l&#x1EAF;ng nghe v&agrave; chia s&#x1EBB;.
-                        .social
-                          ul
-                            li
-                              a(href='' target='_blank')
-                                i.ti-facebook
-                            li
-                              a(href='' target='_blank')
-                                i.ti-twitter-alt
-                            li
-                              a(href='' target='_blank')
-                                i.ti-instagram
-                    .grid.woman-friend(style='position: relative; height: 0px;')
-                      .img-holder
-                        img(src='https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/7411475c6f639d4457ef1ea26ce09ee2.jpeg' alt='')
-                      .details
-                        h4 Ho&agrave;ng Gia B&#x1EA3;o
-                        p
-                          | H&ograve;a &dstrok;&#x1ED3;ng, x&ocirc;ng x&aacute;o, nhi&#x1EC7;t t&igrave;nh v&agrave; c&oacute; tr&aacute;ch nhi&#x1EC7;m trong c&ocirc;ng vi&#x1EC7;c. L&agrave; ch&agrave;ng trai y&ecirc;u &dstrok;&#x1ED9;ng v&#x1EAD;t, th&iacute;ch ch&#x1A1;i game, th&iacute;ch &abreve;n c&#x1A1;m nh&agrave; v&agrave; n&#x1B0;&#x1EDB;c u&#x1ED1;ng c&oacute; ga&mldr;
-                        .social
-                          ul
-                            li
-                              a(href='' target='_blank')
-                                i.ti-facebook
-                            li
-                              a(href='' target='_blank')
-                                i.ti-twitter-alt
-                            li
-                              a(href='' target='_blank')
-                                i.ti-instagram
+                each bridemaid in wedding.bridesmaids
+                  .col-lg-6.col-xs-12
+                    .blog-grids.bridesmaid.clearfix
+                      .grid
+                        .entry-media
+                          img(src=`/img/wedding/${bridemaid.feavatar}` alt='')
+                        .inner
+                          h2=bridemaid.fename
+                          h4 Ph&ugrave; d&acirc;u
+                          p=bridemaid.introduce
+                  .col-lg-6.col-xs-12
+                    .blog-grids.groomsmen.clearfix
+                      .grid
+                        .entry-media
+                          img(src=`/img/wedding/${bridemaid.avatar}` alt='')
+                        .inner
+                          h2=bridemaid.name
+                          h4 Ph&ugrave; rể
+                          p=bridemaid.introduce
           section#wishes.section.bg.invitation.section-gray(style='background-image:url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/8c4fbada6a1fe4704b725c345c88d695.jpg);')
             .overlay
             .container
@@ -463,35 +246,39 @@ if(weddings)
                     | T&igrave;nh y&ecirc;u &dstrok;&iacute;ch th&#x1EF1;c &dstrok;&#x1EE9;ng v&#x1EC1; ph&iacute;a nhau trong nh&#x1EEF;ng ng&agrave;y t&#x1ED1;t &dstrok;&#x1EB9;p v&agrave; s&aacute;t c&aacute;nh h&#x1A1;n trong nh&#x1EEF;ng ng&agrave;y t&#x1ED3;i t&#x1EC7;.
               .row.h-flex-md
                 .col.col-lg-6.col-md-7
-                  form#wish-form.form.validate-rsvp-form.wish-box-form(method='post' novalidate='novalidate')
+                  form#contact.validate-rsvp-form.wish-box-form.form-contact
                     h3.invitation_heading
                       | C&#x1EA3;m &#x1A1;n b&#x1EA1;n r&#x1EA5;t nhi&#x1EC1;u v&igrave; &dstrok;&atilde; g&#x1EED;i nh&#x1EEF;ng l&#x1EDD;i ch&uacute;c m&#x1EEB;ng t&#x1ED1;t &dstrok;&#x1EB9;p nh&#x1EA5;t &dstrok;&#x1EBF;n &dstrok;&aacute;m c&#x1B0;&#x1EDB;i c&#x1EE7;a ch&uacute;ng t&ocirc;i!
-                    .row
-                      #name-field.form-field.col.col-sm-6
-                        input.form-control(type='text' name='name' placeholder='Nhập họ tên*')
-                      #email-field.form-field.col.col-sm-6
-                        input.form-control(type='email' name='email' placeholder='Nhập email')
-                    .row
-                      #guest-name-field.form-field.col.col-sm-12
-                        textarea.form-control(rows='5' name='content' placeholder='Nhập lời chúc của bạn*')
+                    .form-field.col.col-sm-6
+                      input#name.form-control(style='font-size:2rem' type='text' name='name' placeholder='Nhập tên lót và tên*')
+                      //- input#weddingId(type="hidden")	
+                    .form-field.col.col-sm-6
+                      input#email.form-control(style='font-size:2rem' type='email' name='email' placeholder='Nhập email')   
+                    .form-field.col.col-sm-12
+                      textarea#content.form-control(style='font-size:2rem' rows='5' name='content' placeholder='Nhập lời chúc của bạn*')
                     .row
                       .guest-list.form-field.col-sm-12
                     .row
                       .col-sm-12.text-center
-                        button.btn.btn-danger.btn-lg.send-button(type='submit') G&#x1EED;i l&#x1EDD;i ch&uacute;c
+                        button.btn.btn-danger.btn-lg.send-button(data-wedding=`${wedding.id}`) G&#x1EED;i l&#x1EDD;i ch&uacute;c
                 .col.col-lg-6.col-md-5
                   .wish-box
-                    .wish-box-item
-                      strong Thanh Hai
-                      p
-                        | &quot;M&#x1ED9;t cu&#x1ED9;c h&ocirc;n nh&acirc;n th&agrave;nh c&ocirc;ng &dstrok;&ograve;i h&#x1ECF;i ph&#x1EA3;i y&ecirc;u nhi&#x1EC1;u l&#x1EA7;n, v&agrave; lu&ocirc;n &#x1EDF; c&ugrave;ng m&#x1ED9;t ng&#x1B0;&#x1EDD;i&quot; - Ch&uacute;c cho hai b&#x1EA1;n s&#x1EBD; c&oacute; &dstrok;&#x1B0;&#x1EE3;c m&#x1ED9;t cu&#x1ED9;c h&ocirc;n nh&acirc;n vi&ecirc;n m&atilde;n, tr&abreve;m n&abreve;m h&#x1EA1;nh ph&uacute;c!
-                    .wish-box-item.bg
-                      strong CEO c&#x1EE7;a Biihappy (Biiboss)
-                      p
-                        | &quot;M&#x1ED9;t cu&#x1ED9;c h&ocirc;n nh&acirc;n th&agrave;nh c&ocirc;ng &dstrok;&ograve;i h&#x1ECF;i ph&#x1EA3;i y&ecirc;u nhi&#x1EC1;u l&#x1EA7;n, v&agrave; lu&ocirc;n &#x1EDF; c&ugrave;ng m&#x1ED9;t ng&#x1B0;&#x1EDD;i&quot; - Ch&uacute;c cho hai b&#x1EA1;n s&#x1EBD; c&oacute; &dstrok;&#x1B0;&#x1EE3;c m&#x1ED9;t cu&#x1ED9;c h&ocirc;n nh&acirc;n vi&ecirc;n m&atilde;n, tr&abreve;m n&abreve;m h&#x1EA1;nh ph&uacute;c!
-      script(src='/js/scripts.js')
-      script(src='/js/preview.js')
-      script(src='/libs/jquery.min3c8e.js?v=20210925')
-      script(src='/js/vendor.bundlef9f5.js?v=202111121')
-      script(src='/js/theme.bundlef9f5.js?v=202111121')
-      script(src='/js/themee030.js?v=20211225')
+                    each contact,i in wedding.contact
+                      if(i%2==0)
+                        .wish-box-item
+                          strong=contact.name
+                          p=contact.content
+                      else
+                        .wish-box-item.bg
+                          strong=contact.name
+                          p=contact.content
+script(src='/js/scripts.js')
+script(src='/js/preview.js')
+script(src='/js/getTime.js')
+script(src='/js/bundle.js')
+script(type="module" dist='/js/index.js')
+script(src='/js/getFirstLetter.js')
+script(src='/libs/jquery.min3c8e.js?v=20210925')
+script(src='/js/vendor.bundlef9f5.js?v=202111121')
+script(src='/js/theme.bundlef9f5.js?v=202111121')
+script(src='/js/themee030.js?v=20211225')

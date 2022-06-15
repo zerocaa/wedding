@@ -22,14 +22,12 @@ exports.uploadEventPhoto = upload.single('eventPhoto');
 
 exports.resizeEventPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
-  console.log(req.file);
   req.body.eventPhoto = `event-${req.user.id}-${Date.now()}.jpeg`;
   sharp(req.file.buffer)
     .resize(500, 500)
     .toFormat('jpeg')
     .jpeg({ quality: 90 })
     .toFile(`public/img/wedding/${req.body.eventPhoto}`);
-  console.log(req.body.eventPhoto);
   next();
   // req.body.storyPhoto = req.file.filename
 });

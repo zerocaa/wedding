@@ -2,111 +2,134 @@ extend editwedsite
 
 block content 
     if(bridesmaids)
-        - var n =1
-        each bridesmaid in bridesmaids
-            while n < 2
-                ul.nav.nav-pills.nav-fill.nav-list-website-menu
-                    li.nav-item
-                        a.nav-link.bg-gray-200(aria-current='page' href=`/wedding/edit/${bridesmaid.wedding}/bridegroom` ) C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
-                    li.nav-item
-                        a.nav-link.active(href=`/wedding/edit/${bridesmaid.wedding}/bridesmaids` ) Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
-                    li.nav-item
-                        a.nav-link.bg-gray-200(href=`/wedding/edit/${bridesmaid.wedding}/event`) S&#x1EF1; ki&#x1EC7;n
-                    li.nav-item
-                        a.nav-link.bg-gray-200(href=`/wedding/edit/${bridesmaid.wedding}/storylove`) Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
-                    li(style='color:white')=n++
-    .row.mt-6   
-        if(bridesmaids)
-            form#groomsmans-bridesmaids-form.form-bridesmaid-user
-                input(type='hidden' name='_csrf-biihappy')
-                each bridesmaid,i in bridesmaids   
-                    .row.mt-6.form-user-test
-                        .col-sm-6
-                            .groomsmansContainer.formInforContainer
-                                .card.card-border.border-dark.shadow-lg.card-border-radius-none.mb-7
-                                    .card-body
-                                        .d-block.text-center
-                                            a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
-                                                .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
-                                                    button.btn.btn-primary.btn-xs.position-relative(type='button')
-                                                        | Thay &dstrok;&#x1ED5;i
-                                                    input.upload_image_event.file-field-absolute(type='file' accept='image/*' id =`avatar${i+1}` name=`avatar${i+1}`)
-                                                    input.form-control(type='hidden' id=`avatarstore${i+1}` name=`avatarstore${i+1}` value=`${bridesmaid.avatar}`)
-                                                img#show_image_groomsman_.w-100.img-avatar.img-thumbnail.rounded-0(src=`/img/wedding/${bridesmaid.avatar}`)
-                                        h4.fw-bold.text-center.mb-5.text-uppercase
-                                            | Th&ocirc;ng tin ph&ugrave; r&#x1EC3;
-                                        .field-groomsmans_name_.required
-                                            .field-bridesmaids-id.required
-                                                input.form-control(type='hidden' name='id' id=`id${i+1}` value=`${i+1}`)
-                                                .help-block
-                                            .form-floating.mb-2.form-group
-                                                input.form-control(type='text' name=`name${i+1}` id=`name${i+1}` value=`${bridesmaid.name}` placeholder='Tên')
-                                                label.control-label(for=`name${i+1}`) T&ecirc;n
-                                                .help-block
-                                        .field-groomsmans_birthday_.required
-                                            .form-floating.mb-2
-                                                input.form-control(type='date' name=`birthday${i+1}` id=`birthday${i+1}` value=`${bridesmaid.birthday}` placeholder='Ngày sinh')
-                                                label.control-label(for=`birthday${i+1}`) Ng&agrave;y sinh
-                                                .help-block
-                                        .field-groomsmans_intro_.required
-                                            .form-floating.mb-2
-                                                textarea.form-control(name=`introduce${i+1}` id=`introduce${i+1}` style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')=`${bridesmaid.introduce}`
-                                                label.form-label(for=`introduce${i+1}`) Gi&#x1EDB;i thi&#x1EC7;u
-                                                .help-block
-                                        .field-groomsmans_facebook_index_1
-                                            .form-floating.mb-2
-                                                input.form-control(type='text' name=`fb${i+1}` id=`fb${i+1}` value=`${bridesmaid.fb}`  placeholder='Facebook')
-                                                label.control-label(for=`fb${i+1}`) Facebook
-                                                .help-block
-                                            .form-floating.mb-2
-                                                input.form-control(type='hidden' id=`bridesmaidId${i+1}` name=`bridesmaidId${i+1}` value=`${bridesmaid.id}`)
-                        .col-sm-6
-                            .groomsmansContainer.formInforContainer
-                                .card.card-border.border-dark.shadow-lg.card-border-radius-none.mb-7
-                                    .card-body
-                                        .d-block.text-center
-                                            a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
-                                                .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
-                                                    button.btn.btn-primary.btn-xs.position-relative(type='button')
-                                                        | Thay &dstrok;&#x1ED5;i
-                                                    input.upload_image_event.file-field-absolute(type='file' accept='image/*' id =`feavatar${i+1}` name=`feavatar${i+1}`)
-                                                    input.form-control(type='hidden' id=`feavatarstore${i+1}` name=`feavatarstore${i+1}` value=`${bridesmaid.feavatar}`)
-                                                img#show_image_groomsman_.w-100.img-avatar.img-thumbnail.rounded-0(src=`/img/wedding/${bridesmaid.feavatar}`)
-                                        h4.fw-bold.text-center.mb-5.text-uppercase
-                                            | Th&ocirc;ng tin phù dâu
-                                        .field-groomsmans_name_.required
-                                            .form-floating.mb-2.form-group
-                                                input.form-control(type='text' name=`fename${i+1}` id=`fename${i+1}` value=`${bridesmaid.fename}` placeholder='Tên')
-                                                label.control-label(for=`fename${i+1}`) T&ecirc;n
-                                                .help-block
-                                        .field-groomsmans_birthday_.required
-                                            .form-floating.mb-2
-                                                input.form-control(type='date' name=`febirthday${i+1}` id=`febirthday${i+1}` value=`${bridesmaid.febirthday}` placeholder='Ngày sinh')
-                                                label.control-label(for=`febirthday${i+1}`) Ng&agrave;y sinh                                                    
-                                                .help-block
-                                        .field-groomsmans_intro_.required
-                                            .form-floating.mb-2
-                                                textarea.form-control(name=`feintroduce${i+1}` id=`feintroduce${i+1}` style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')=`${bridesmaid.feintroduce}`
-                                                label.form-label(for=`feintroduce${i+1}`) Gi&#x1EDB;i thi&#x1EC7;u
-                                                .help-block
-                                        .field-groomsmans_facebook_index_1
-                                            .form-floating.mb-2
-                                                input.form-control(type='text' name=`fefb${i+1}` id=`fefb${i+1}` value=`${bridesmaid.fefb}`  placeholder='Facebook')
-                                                label.control-label(for=`fefb${i+1}`) Facebook
-                                                .help-block
-                        .p-5.text-center.bg-gray-200.mt-7
-                            button#groomsmen-ID.btn.btn-danger.me-7.btn--save(type='submit' data-groomsmen-id=`${bridesmaid.id}` style='margin-right:25px,height:55px' )
-                                | Lưu
-                            button.btn.btn-danger-soft.btn-sm.btn-remove-bridesmaids(data-id=`${bridesmaid.id}`) Xo&aacute;
+        .container.account-websites-edit-page
+            .row
+                .col-12
+                    .row.mb-6.mb-md-8.align-items-center
+                        .col-12.col-lg-auto.mb-4.mb-lg-0.box-header
+                            .icon-circle.bg-danger.text-white
+                                svg.bi.bi-globe(xmlns='http://www.w3.org/2000/svg' width='35' height='35' fill='currentColor' viewbox='0 0 16 16')
+                                    path(d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z')
+                        each bridesmaid,i in bridesmaids
+                            if(i<1)
+                                .col.ms-lg-n4.mb-4.mb-lg-0.box-header
+                                    h2.fw-bold.mb-0 Wedding site!
+                                    p.fs-5.text-gray-700.mb-0.limit-1-line
+                                        svg.bi.bi-link-45deg(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                                            path(d='M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z')
+                                            path(d='M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z')
+                                        span.d-inline.d-lg-none
+                                            a(href=`/wedding/preview/${bridesmaid.wedding}` target='_blank') Link website
+                                        span.d-none.d-lg-inline
+                                            a.text-gray-700(href=`/wedding/preview/${bridesmaid.wedding}` target='_blank') Nhấp Vào Đây Để Xem Website Của Bạn!
+                                .col-12.col-lg-auto.box-header
+                                    button.btn.btn-sm.btn-danger-soft.btn-remove-website(data-id=`${bridesmaid.wedding}` type='submit' )
+                                        span.fe.fe-trash-2
+                                        |  X&oacute;a website    
+            if(bridesmaids)
                 each bridesmaid,i in bridesmaids
                     if(i<1)
-                        .p-5.text-center.bg-gray-200.mt-7
-                            //- button.btn.btn-danger(type='submit')
-                            //-     svg.bi.bi-save(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                            //-         path(d='M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z')
-                            //-     | &#x9;&#x9;L&#x1B0;u th&ocirc;ng tin
-                            button.btn.btn-dark-soft.btn-sm.w-100.mb-7#add-more-bridesmaids(data-groomens=`${bridesmaid.wedding}`)
-                                svg.bi.bi-plus(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                                    path(d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z')
-                                | &#x9;&#x9;&#x9;Th&ecirc;m ph&ugrave; r&#x1EC3; và phù dâu           
-                    
+                        ul.nav.nav-pills.nav-fill.nav-list-website-menu
+                            li.nav-item
+                                a.nav-link.bg-gray-200(aria-current='page' href=`/wedding/edit/${bridesmaid.wedding}/bridegroom` ) C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
+                            li.nav-item
+                                a.nav-link.active(href=`/wedding/edit/${bridesmaid.wedding}/bridesmaids` ) Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
+                            li.nav-item
+                                a.nav-link.bg-gray-200(href=`/wedding/edit/${bridesmaid.wedding}/event`) S&#x1EF1; ki&#x1EC7;n
+                            li.nav-item
+                                a.nav-link.bg-gray-200(href=`/wedding/edit/${bridesmaid.wedding}/storylove`) Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
+                .row.mt-6   
+                    if(bridesmaids)
+                        form#groomsmans-bridesmaids-form.form-bridesmaid-user
+                            input(type='hidden' name='_csrf-biihappy')
+                            each bridesmaid,i in bridesmaids   
+                                .row.mt-6.form-user-test
+                                    .col-sm-6
+                                        .groomsmansContainer.formInforContainer
+                                            .card.card-border.border-dark.shadow-lg.card-border-radius-none.mb-7
+                                                .card-body
+                                                    .d-block.text-center
+                                                        a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
+                                                            .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                                                                button.btn.btn-primary.btn-xs.position-relative(type='button')
+                                                                    | Thay &dstrok;&#x1ED5;i
+                                                                input.upload_image_event.file-field-absolute(type='file' accept='image/*' id =`avatar${i+1}` name=`avatar${i+1}`)
+                                                                input.form-control(type='hidden' id=`avatarstore${i+1}` name=`avatarstore${i+1}` value=`${bridesmaid.avatar}`)
+                                                            img#show_image_groomsman_.w-100.img-avatar.img-thumbnail.rounded-0(src=`/img/wedding/${bridesmaid.avatar}`)
+                                                    h4.fw-bold.text-center.mb-5.text-uppercase
+                                                        | Th&ocirc;ng tin ph&ugrave; r&#x1EC3;
+                                                    .field-groomsmans_name_.required
+                                                        .field-bridesmaids-id.required
+                                                            input.form-control(type='hidden' name='id' id=`id${i+1}` value=`${i+1}`)
+                                                            .help-block
+                                                        .form-floating.mb-2.form-group
+                                                            input.form-control(type='text' name=`name${i+1}` id=`name${i+1}` value=`${bridesmaid.name}` placeholder='Tên')
+                                                            label.control-label(for=`name${i+1}`) T&ecirc;n
+                                                            .help-block
+                                                    .field-groomsmans_birthday_.required
+                                                        .form-floating.mb-2
+                                                            input.form-control(type='date' name=`birthday${i+1}` id=`birthday${i+1}` value=`${bridesmaid.birthday}` placeholder='Ngày sinh')
+                                                            label.control-label(for=`birthday${i+1}`) Ng&agrave;y sinh
+                                                            .help-block
+                                                    .field-groomsmans_intro_.required
+                                                        .form-floating.mb-2
+                                                            textarea.form-control(name=`introduce${i+1}` id=`introduce${i+1}` style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')=`${bridesmaid.introduce}`
+                                                            label.form-label(for=`introduce${i+1}`) Gi&#x1EDB;i thi&#x1EC7;u
+                                                            .help-block
+                                                    .field-groomsmans_facebook_index_1
+                                                        .form-floating.mb-2
+                                                            input.form-control(type='text' name=`fb${i+1}` id=`fb${i+1}` value=`${bridesmaid.fb}`  placeholder='Facebook')
+                                                            label.control-label(for=`fb${i+1}`) Facebook
+                                                            .help-block
+                                                        .form-floating.mb-2
+                                                            input.form-control(type='hidden' id=`bridesmaidId${i+1}` name=`bridesmaidId${i+1}` value=`${bridesmaid.id}`)
+                                    .col-sm-6
+                                        .groomsmansContainer.formInforContainer
+                                            .card.card-border.border-dark.shadow-lg.card-border-radius-none.mb-7
+                                                .card-body
+                                                    .d-block.text-center
+                                                        a.icon-circle.icon-avatar.thumbnail.d-block.mb-3.choose-image-parent.position-relative.m-auto(href='javascript:void(0)')
+                                                            .choose-image-overlay.d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100
+                                                                button.btn.btn-primary.btn-xs.position-relative(type='button')
+                                                                    | Thay &dstrok;&#x1ED5;i
+                                                                input.upload_image_event.file-field-absolute(type='file' accept='image/*' id =`feavatar${i+1}` name=`feavatar${i+1}`)
+                                                                input.form-control(type='hidden' id=`feavatarstore${i+1}` name=`feavatarstore${i+1}` value=`${bridesmaid.feavatar}`)
+                                                            img#show_image_groomsman_.w-100.img-avatar.img-thumbnail.rounded-0(src=`/img/wedding/${bridesmaid.feavatar}`)
+                                                    h4.fw-bold.text-center.mb-5.text-uppercase
+                                                        | Th&ocirc;ng tin phù dâu
+                                                    .field-groomsmans_name_.required
+                                                        .form-floating.mb-2.form-group
+                                                            input.form-control(type='text' name=`fename${i+1}` id=`fename${i+1}` value=`${bridesmaid.fename}` placeholder='Tên')
+                                                            label.control-label(for=`fename${i+1}`) T&ecirc;n
+                                                            .help-block
+                                                    .field-groomsmans_birthday_.required
+                                                        .form-floating.mb-2
+                                                            input.form-control(type='date' name=`febirthday${i+1}` id=`febirthday${i+1}` value=`${bridesmaid.febirthday}` placeholder='Ngày sinh')
+                                                            label.control-label(for=`febirthday${i+1}`) Ng&agrave;y sinh                                                    
+                                                            .help-block
+                                                    .field-groomsmans_intro_.required
+                                                        .form-floating.mb-2
+                                                            textarea.form-control(name=`feintroduce${i+1}` id=`feintroduce${i+1}` style='height:100px;resize: none;' placeholder='Giới thiệu ngắn về chú rể...')=`${bridesmaid.feintroduce}`
+                                                            label.form-label(for=`feintroduce${i+1}`) Gi&#x1EDB;i thi&#x1EC7;u
+                                                            .help-block
+                                                    .field-groomsmans_facebook_index_1
+                                                        .form-floating.mb-2
+                                                            input.form-control(type='text' name=`fefb${i+1}` id=`fefb${i+1}` value=`${bridesmaid.fefb}`  placeholder='Facebook')
+                                                            label.control-label(for=`fefb${i+1}`) Facebook
+                                                            .help-block
+                                    .p-5.text-center.bg-gray-200.mt-7
+                                        button#groomsmen-ID.btn.btn-danger.me-7.btn--save(type='submit' data-groomsmen-id=`${bridesmaid.id}` style='margin-right:25px,height:55px' )
+                                            | Lưu
+                                        button.btn.btn-danger-soft.btn-sm.btn-remove-bridesmaids(data-id=`${bridesmaid.id}`) Xo&aacute;
+                            each bridesmaid,i in bridesmaids
+                                if(i<1)
+                                    .p-5.text-center.bg-gray-200.mt-7
+                                        //- button.btn.btn-danger(type='submit')
+                                        //-     svg.bi.bi-save(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                                        //-         path(d='M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z')
+                                        //-     | &#x9;&#x9;L&#x1B0;u th&ocirc;ng tin
+                                        button.btn.btn-dark-soft.btn-sm.w-100.mb-7#add-more-bridesmaids(data-groomens=`${bridesmaid.wedding}`)
+                                            svg.bi.bi-plus(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                                                path(d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z')
+                                            | &#x9;&#x9;&#x9;Th&ecirc;m ph&ugrave; r&#x1EC3; và phù dâu           
+                                

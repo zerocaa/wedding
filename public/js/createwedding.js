@@ -18,3 +18,20 @@ export const createwedding = async (data) => {
      showAlert('error', err.response.data.message);
    }
 };
+
+export const deleteWedding = async (id) => {
+  try {
+    const res = await axios({
+      method: 'DELETE',
+      url: `http://localhost:3000/api/v1/weddings/${id}`
+    });
+    if (res) {
+      showAlert('success', 'Delete success');
+      window.setTimeout(() => {
+        location.assign('/');
+      }, 1500);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+}
