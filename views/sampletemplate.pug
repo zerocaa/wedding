@@ -1,0 +1,35 @@
+extend base
+block content
+    section.py-10.py-md-14.overlay.overlay-black.overlay-60.bg-cover.jarallax(data-jarallax='' data-speed='.8' style='background-image: url(https://biihappy.com/static/img/wedding/sites-bg.jpeg);')
+        .container
+            .row.justify-content-center
+                .col-12.col-md-10.col-lg-8.text-center
+                    h1.display-2.text-white Danh s&aacute;ch websites
+                    p.lead.text-white-80.mb-6
+                        | &Dstrok;&atilde; c&oacute; 
+                        - var membernumb = weddings.length
+                        strong=membernumb
+                        |  website &dstrok;&aacute;m c&#x1B0;&#x1EDB;i được tạo t&#x1EEB; Biihappy. C&ograve;n ch&#x1EA7;n ch&#x1EEB; g&igrave; n&#x1EEF;a? H&atilde;y t&#x1EB7;ng cho ng&agrave;y c&#x1B0;&#x1EDB;i c&#x1EE7;a b&#x1EA1;n m&#x1ED9;t website tuy&#x1EC7;t v&#x1EDD;i ngay b&acirc;y gi&#x1EDD;!
+                    a.btn.btn-danger.lift(href='/vi/wedding/templates')
+                        | T&#x1EA1;o website &dstrok;&aacute;m c&#x1B0;&#x1EDB;i
+                        i.fe.fe-arrow-right.ms-3
+    section.pt-7.pt-md-10.pb-7
+        .container
+            #sectionSites.row
+                each wedding in weddings
+                    .col-12.col-md-6.col-lg-4.d-flex.mb-7.site-item(data-id='62a9fc293f8e7c04680e792c')
+                        .card.pt-14.overlay.overlay-black.overlay-40.bg-cover.shadow-light-lg(style='background-image: url(https://biihappy.com/static/img/wedding/website-nothumb.jpeg);')
+                            .card-meta.mt-auto.mb-0.pb-0(style='justify-content: center;')
+                                .d-block.w-100.text-center
+                                a.btn.btn-sm.btn-outline-light.mt-2(href=`/wedding/preview/${wedding.id}` target='_blank') Xem trang
+                            a.card-body.mt-0.py-7.mt-0(href=`/wedding/preview/${wedding.id}` target='_blank')
+                                p.mb-0.text-white=`${wedding.malename} & ${wedding.fename} - Our wedding date: ${wedding.date}.     `
+                                    | T&igrave;nh y&ecirc;u l&agrave; &dstrok;i&#x1EC1;u ki&#x1EC7;n trong &dstrok;&oacute; h&#x1EA1;nh ph&uacute;c c&#x1EE7;a ng&#x1B0;&#x1EDD;i kh&aacute;c l&agrave; &dstrok;i&#x1EC1;u c&#x1EA7;n thi&#x1EBF;t cho ch&iacute;nh b&#x1EA1;n
+                            a.card-meta.text-center(href='http://thanhnganwedding.iwedding.info' target='_blank')
+                                hr.card-meta-divider.bg-white-20
+                                .avatar.avatar-sm.me-2
+                                    svg.bi.bi-heart-fill.text-danger.w-100.h-100(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                                        path(fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z')
+                                h5.text-uppercase.text-white.me-2.mb-0.text-center=`${wedding.malename} & ${wedding.fename}`
+                
+

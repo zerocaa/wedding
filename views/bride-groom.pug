@@ -84,8 +84,8 @@ block content
                       .help-block
                   .field-websiteinformationgroominfoform-facebook
                     .form-floating.mb-2
-                      input#malefb.form-control(type='text' name='malefb' value=`${weddings.malefb}` placeholder='Facebook')
-                      label.control-label(for='malefb') Facebook
+                      input#malefb.form-control(type='hidden' name='malefb' value=`${weddings.malefb}` placeholder='Facebook')
+                      //- label.control-label(for='malefb') Facebook
                       .help-block
             .col-sm-6
               .card.card-border.border-danger.shadow-lg.card-border-radius-none
@@ -120,8 +120,8 @@ block content
                       .help-block
                   .field-websiteinformationbrideinfoform-facebook
                     .form-floating.mb-2
-                      input#fefb.form-control(type='text' name='fefb' value=`${weddings.fefb}`  placeholder='Facebook')
-                      label.control-label(for='fefb') Facebook
+                      input#fefb.form-control(type='hidden' name='fefb' value=`${weddings.fefb}`  placeholder='Facebook')
+                      //- label.control-label(for='fefb') Facebook
                       .help-block
           .p-5.text-center.bg-gray-200.mt-7
             button.btn.btn-danger(type='submit')

@@ -2,17 +2,18 @@
 import '@babel/polyfill';
 import { showAlert } from './alert';
 import { displayMap } from './mapbox';
-import { login, logout, signup, forgotPassword } from './login';
+import { login, logout, signup, forgotPassword , resetPassword } from './login';
 import { updateSettings } from './updateSetting';
 import { eventUser, createEvent, deleteEvent } from './eventUpdate';
 import { storyUser, createStory, deleteStory,updateStory } from './storyUpdate';
 import { createwedding , deleteWedding } from './createwedding';
 import { createBridesMaids, deleteBridesMaids, updateBridesMaids } from './bridesMaidsUpdate'
 import { createContact } from './contact';
-import { doc } from 'prettier';
+// import { doc } from 'prettier';
 //dom element
 const loginForm = document.querySelector('.form--login');
 const forgotPasswordForm = document.querySelector('.forgot-password-form');
+const resetPasswordForm = document.querySelector('.reset-password-form');
 const signupForm = document.querySelector('.form--signup');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
@@ -27,6 +28,21 @@ const createEventForm = document.getElementById('add-more-event');
 const createStoryForm = document.getElementById('add-more-story');
 const createBridesMaidForm = document.getElementById('add-more-bridesmaids');
 const test = document.querySelectorAll('.form-user-test');
+
+if (resetPasswordForm) {
+  resetPasswordForm.addEventListener('submit',async (e) => {
+    e.preventDefault();
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
+    const token = document.getElementById('token').value;
+     if (passwordConfirm !== password) {
+      showAlert('error', 'Password is not same');
+      return;
+     } else {
+        await resetPassword(password,passwordConfirm,token);
+    }
+  });
+}
 
 if (forgotPasswordForm) {
   forgotPasswordForm.addEventListener('submit', e => {

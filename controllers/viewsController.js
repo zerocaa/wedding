@@ -211,3 +211,11 @@ exports.getForgotPassword = catchAsync(async (req, res, next) => {
   });
 }
 )
+
+exports.getSampleTemplate = catchAsync(async (req, res, next) => {
+  const weddings = await Wedding.find();
+  res.status(200).render('sampletemplate', {
+    title: 'Sample Template',
+    weddings
+  });
+});

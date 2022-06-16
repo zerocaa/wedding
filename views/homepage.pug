@@ -15,12 +15,18 @@ block content
               p.lead.text-center.text-md-start.text-muted.mb-6.mb-lg-8
                 | H&atilde;y t&#x1EB7;ng cho ng&agrave;y c&#x1B0;&#x1EDB;i c&#x1EE7;a b&#x1EA1;n m&#x1ED9;t wedding website tuy&#x1EC7;t v&#x1EDD;i v&agrave;
                 | ho&agrave;n to&agrave;n mi&#x1EC5;n ph&iacute;.
-              .text-center.text-md-start
-                a.btn.btn-danger.shadow.lift.me-1.mb-3(href='/wedding/templates/createwedding' target='_blank')
+              if(user)
+                .text-center.text-md-start
+                  a.btn.btn-danger.shadow.lift.me-1.mb-3(href='/wedding/templates' target='_blank')
+                    | B&#x1EAF;t &dstrok;&#x1EA7;u mi&#x1EC5;n ph&iacute;
+                    i.fe.fe-arrow-right.d-none.d-md-inline.ms-3
+                  a.btn.btn-danger-soft.lift.mb-3(href='/wedding/templates'  target='_blank')
+                    | Th&#x1B0; vi&#x1EC7;n giao di&#x1EC7;n
+                    i.fe.fe-arrow-right.d-none.d-md-inline.ms-3
+              else
+                .text-center.text-md-start
+                a.btn.btn-danger.shadow.lift.me-1.mb-3(href='/user/signin' target='_blank')
                   | B&#x1EAF;t &dstrok;&#x1EA7;u mi&#x1EC5;n ph&iacute;
-                  i.fe.fe-arrow-right.d-none.d-md-inline.ms-3
-                a.btn.btn-danger-soft.lift.mb-3(href='/wedding/templates'  target='_blank')
-                  | Th&#x1B0; vi&#x1EC7;n giao di&#x1EC7;n
                   i.fe.fe-arrow-right.d-none.d-md-inline.ms-3
       section.py-8.pb-1.border-bottom.bg-light
         .container
@@ -33,59 +39,43 @@ block content
                 | Xem, c&#x1EA3;m nh&#x1EAD;n v&agrave; &dstrok;&#x1EEB;ng qu&ecirc;n &dstrok;&#x1EC3; l&#x1EA1;i nh&#x1EEF;ng l&#x1EDD;i ch&uacute;c t&#x1ED1;t &dstrok;&#x1EB9;p cho h&#x1ECD;
                 | nh&eacute;!
           .row
-            .col-12.col-md-6.col-lg-4.d-flex.mb-7.site-item(data-id='62793abbf277951fc0119a7b')
+            .col-12.col-md-6.col-lg-6.d-flex.mb-7.site-item(data-id='62793abbf277951fc0119a7b')
               .card.pt-14.overlay.overlay-black.overlay-40.bg-cover.shadow-light-lg(style='background-image: url(/img/wedding/banner_top.png);')
                 .card-meta.mt-auto.mb-0.pb-0
                   .d-block.w-100.text-center
-                    a.btn.btn-sm.btn-outline-light.mt-2(href='/wedding/preview/62793abbf277951fc0119a7b' target='_blank') Xem trang
-                a.card-body.mt-0.py-7.mt-0(href='http://ngocduy1505.iwedding.info/' target='_blank')
+                    a.btn.btn-sm.btn-outline-light.mt-2(href='/wedding/preview/62aadf5bd179c5190c7e936c' target='_blank') Xem trang
+                a.card-body.mt-0.py-7.mt-0(href='/wedding/preview/62aadf5bd179c5190c7e936c' target='_blank')
                   p.mb-0.text-white
-                    | D&#x1B0;&#x1A1;ng Th&aacute;i Duy &amp; Tr&#x1EA7;n Ng&#x1ECD;c Hi&#x1EC1;n - Our wedding date:
-                    | 2022-05-15 | T&ocirc;i y&ecirc;u b&#x1EA1;n v&igrave; t&#x1EA5;t c&#x1EA3; nh&#x1EEF;ng g&igrave; b&#x1EA1;n &dstrok;ang c&oacute;, t&#x1EA5;t
+                    | Lưu Phương &amp; Triệu Thúy - Our wedding date:
+                    | 2022-06-30 | T&ocirc;i y&ecirc;u b&#x1EA1;n v&igrave; t&#x1EA5;t c&#x1EA3; nh&#x1EEF;ng g&igrave; b&#x1EA1;n &dstrok;ang c&oacute;, t&#x1EA5;t
                     | c&#x1EA3; nh&#x1EEF;ng g&igrave; b&#x1EA1;n &dstrok;&atilde;&mldr;
-                a.card-meta.text-center(href='http://ngocduy1505.iwedding.info/' target='_blank')
+                a.card-meta.text-center(href='/wedding/preview/62aadf5bd179c5190c7e936c' target='_blank')
                   hr.card-meta-divider.bg-white-20
                   .avatar.avatar-sm.me-2
                     svg.bi.bi-heart-fill.text-danger.w-100.h-100(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
                       path(fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z')
                   h5.text-uppercase.text-white.me-2.mb-0.text-center
-                    | Th&aacute;i Duy &amp; Ng&#x1ECD;c Hi&#x1EC1;n
-            .col-12.col-md-6.col-lg-4.d-flex.mb-7.site-item(data-id='62199f39e4767b38ec72ea82')
+                    | Lưu Phương &amp; Triệu Thúy 
+            .col-12.col-md-6.col-lg-6.d-flex.mb-7.site-item(data-id='62aadf5bd179c5190c7e936c')
               .card.pt-14.overlay.overlay-black.overlay-40.bg-cover.shadow-light-lg(style='background-image: url(/img/wedding/banner_middle.png);')
                 .card-meta.mt-auto.mb-0.pb-0
                   .d-block.w-100.text-center
-                    a.btn.btn-sm.btn-outline-light.mt-2(href='http://hotho.iwedding.info/' target='_blank') Xem trang
-                    a.btn.btn-sm.btn-outline-light.mt-2(href='http://hotho.iwedding.info/photo-album' target='_blank') Xem album
-                a.card-body.mt-0.py-7.mt-0(href='http://hotho.iwedding.info/' target='_blank')
+                    a.btn.btn-sm.btn-outline-light.mt-2(href='/wedding/preview/62793abbf277951fc0119a7b' target='_blank') Xem trang
+                a.card-body.mt-0.py-7.mt-0(href='/wedding/preview/62793abbf277951fc0119a7b' target='_blank')
                   p.mb-0.text-white
-                    | H&#x1ED3; Th&#x1ECD; &amp; Thanh Nh&agrave;n - Our wedding date: 2022-02-27 | T&ocirc;i
+                    | Minh Đức &amp; Thanh Quyên - Our wedding date: 2022-07-12 | T&ocirc;i
                     | c&oacute; th&#x1EC3; chinh ph&#x1EE5;c th&#x1EBF; gi&#x1EDB;i b&#x1EB1;ng m&#x1ED9;t tay mi&#x1EC5;n l&agrave; b&#x1EA1;n &dstrok;ang n&#x1EAF;m
                     | tay kia
-                a.card-meta.text-center(href='http://hotho.iwedding.info/' target='_blank')
+                a.card-meta.text-center(href='/wedding/preview/62793abbf277951fc0119a7b' target='_blank')
                   hr.card-meta-divider.bg-white-20
                   .avatar.avatar-sm.me-2
                     svg.bi.bi-heart-fill.text-danger.w-100.h-100(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
                       path(fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z')
                   h5.text-uppercase.text-white.me-2.mb-0.text-center
-                    | H&#x1ED3; Th&#x1ECD; &amp; Thanh Nh&agrave;n
-            .col-12.col-md-6.col-lg-4.d-flex.mb-7.site-item(data-id='62189b41dd85826dbf2ede72')
-              .card.pt-14.overlay.overlay-black.overlay-40.bg-cover.shadow-light-lg(style='background-image: url(/img/wedding/banner_bottom.png);')
-                .card-meta.mt-auto.mb-0.pb-0
-                  .d-block.w-100.text-center
-                    a.btn.btn-sm.btn-outline-light.mt-2(href='http://faduong.iwedding.info/' target='_blank') Xem trang
-                    a.btn.btn-sm.btn-outline-light.mt-2(href='http://faduong.iwedding.info/photo-album' target='_blank') Xem album
-                a.card-body.mt-0.py-7.mt-0(href='http://faduong.iwedding.info/' target='_blank')
-                  p.mb-0.text-white
-                    | Tr&#x1EA7;n Vi&#x1EC7;t D&#x1B0;&#x1A1;ng &amp; Nguy&#x1EC5;n Thi&#x1EC1;u IFa - Our wedding date:
-                    | 2022-03-20 | Y&ecirc;u v&agrave; &dstrok;&#x1B0;&#x1EE3;c y&ecirc;u l&agrave; c&#x1EA3;m nh&#x1EAD;n &dstrok;&#x1B0;&#x1EE3;c &aacute;nh n&#x1EAF;ng t&#x1EEB; c&#x1EA3;
-                    | hai ph&iacute;a
-                a.card-meta.text-center(href='http://faduong.iwedding.info/' target='_blank')
-                  hr.card-meta-divider.bg-white-20
-                  .avatar.avatar-sm.me-2
-                    svg.bi.bi-heart-fill.text-danger.w-100.h-100(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                      path(fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z')
-                  h5.text-uppercase.text-white.me-2.mb-0.text-center
-                    | D&#x1B0;&#x1A1;ng &amp; Fa Fa
+                    | Minh Đức &amp; Thanh Quyên
+          .text-center.text-md-start
+            a.btn.btn-danger.shadow.lift.me-1.mb-3(href='/wedding/templates' target='_blank' style='display:flex;justify-content: center;')
+              | Xem Thêm Các Mẫu Của Những Bạn Đã Tạo
       section#sectionFeatures.py-8.py-md-11.border-bottom
         .container
           .row.justify-content-center
@@ -172,10 +162,6 @@ block content
                       strong 4
                     p.text-muted.mb-0
                       | Chia s&#x1EBB; website &dstrok;&aacute;m c&#x1B0;&#x1EDB;i c&#x1EE7;a b&#x1EA1;n v&#x1EDB;i m&#x1ECD;i ng&#x1B0;&#x1EDD;i.
-              .mt-6
-                a.btn.btn-danger-soft.lift.mb-3(target='_blank' href='https://blog.#/post/huong-dan-tao-website-dam-cuoi-tren-nen-tang-Behappy')
-                  | Xem h&#x1B0;&#x1EDB;ng d&#x1EAB;n
-                  i.fe.fe-arrow-right.d-none.d-md-inline.ms-3
             .col-12.col-md-6.col-lg-5.order-md-1
               img.card-img-top(src='/img/wedding/banner_middle.png' alt='Nền tảng tạo website đám cưới miễn phí')
           .row.align-items-center
@@ -304,7 +290,7 @@ block content
               p.fs-lg.text-muted.mb-6.mb-md-8
                 | C&ograve;n ch&#x1EA7;n ch&#x1EEB; g&igrave; n&#x1EEF;a? H&atilde;y t&#x1EB7;ng cho ng&agrave;y c&#x1B0;&#x1EDB;i c&#x1EE7;a b&#x1EA1;n m&#x1ED9;t website
                 | tuy&#x1EC7;t v&#x1EDD;i ngay b&acirc;y gi&#x1EDD; ch&#x1EC9; v&#x1EDB;i v&agrave;i thao t&aacute;c nh&#x1ECF;!
-              a.btn.btn-danger.lift(href='/wedding/templates/createwedding' target='_blank')
+              a.btn.btn-danger.lift(href='/wedding/templates' target='_blank')
                 | B&#x1EAF;t &dstrok;&#x1EA7;u mi&#x1EC5;n ph&iacute; 
                 i.fe.fe-arrow-right
       .position-relative

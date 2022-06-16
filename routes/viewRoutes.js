@@ -11,6 +11,10 @@ const upload = multer({dest: 'public/img/wedding'});
 
 const router = express.Router();
 
+router
+  .route('/wedding/sites')
+  .get(authController.protect, viewsController.getSampleTemplate)
+
 
 router
   .route('/wedding/complete')

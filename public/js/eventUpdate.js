@@ -32,7 +32,7 @@ export const createEvent = async wedding => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://localhost:3000//api/v1/events',
+      url: 'http://localhost:3000/api/v1/events',
       // url: 'https://wedding-production-09d7.up.railway.app/api/v1/events',
       data: {
         wedding
@@ -40,7 +40,7 @@ export const createEvent = async wedding => {
     });
     if (res.data.status === 'success') {
       showAlert('success', 'Create success');
-      // location.reload(true);
+      location.reload(true);
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
