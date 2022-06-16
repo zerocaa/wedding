@@ -30,9 +30,14 @@ export const logout = async () => {
           method: 'GET',
           url: 'http://localhost:3000/api/v1/users/logout'
         });
-       if((res.data.status = "success")) location.reload(true) 
-       showAlert('success', 'logout success');
-    }
+      if ((res.data.status = 'success')) {
+        showAlert('success', 'logout success');
+      
+        window.setTimeout(() => {
+          location.assign('/');
+        }, 1500);
+      }
+       } 
     catch(err) {
         showAlert('error', 'login failed, please try again');
      }
@@ -52,6 +57,29 @@ export const signup = async (name,email,password,passwordConfirm) => {
         });
         if (res.data.status === 'success') {
             showAlert('success', 'Signup success');
+            window.setTimeout(() => {
+              location.assign('/');
+            }, 1500);
+        } else {
+            showAlert('error', res.data.message);
+        }
+    }
+    catch(err) {
+        showAlert('error', err.response.data.message);
+     }
+}
+
+export const forgotPassword = async (email) => {
+    try{
+        const res = await axios({
+          method: 'POST',
+          url: 'http://localhost:3000/api/v1/users/forgotPassword',
+          data: {
+            email
+          }
+        });
+        if (res.data.status === 'success') {
+            showAlert('success', 'Email Sent!!Please check your Email!');
             window.setTimeout(() => {
               location.assign('/');
             }, 1500);

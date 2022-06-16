@@ -112,6 +112,18 @@ exports.getUserStore = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getReset = catchAsync(async (req, res, next) => {
+  const users = req.params.token;
+  // console.log('123')
+  // console.log(req.params.token);
+  // res.status(200).json({
+  //   users
+  // });
+  res.status(200).render('resetPassword', {
+    title: 'Reset your password',
+    users   
+  });
+});
 
 exports.getCreateWedding = catchAsync(async (req, res, next) => {
   res.status(200).render('createwedding', {
@@ -192,3 +204,10 @@ exports.getAboutUs = catchAsync(async (req, res, next) => {
     title: 'About-Us'
   });
 })
+
+exports.getForgotPassword = catchAsync(async (req, res, next) => {
+  res.status(200).render('forgotPassword', {
+    title: 'Forgot Password'
+  });
+}
+)

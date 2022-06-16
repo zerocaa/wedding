@@ -37,6 +37,15 @@ router
   .get(authController.protect, weddingController.getBridesMaids);
 
 router
+  .route('/user/resetPassword/:token')
+  .patch(authController.resetPassword)
+  .get(viewsController.getReset);
+      
+router
+  .route('/user/forgotPassword')
+  .get(viewsController.getForgotPassword)
+
+router
   .route('/wedding/edit/:weddingId/bridegroom')
   .put(
     authController.protect,
