@@ -1,7 +1,7 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
-const baseUrl = "https:localhost:3000"
+const baseUrl = "http://localhost:3000"
 
 export const eventUser = async (eventId,data) => {
   // const test = await axios(`http://localhost:3000/api/v1/events/${eventId}`);

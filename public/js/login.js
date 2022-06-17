@@ -3,7 +3,7 @@ import { showAlert } from './alert';
 import axios from 'axios';
 import { base } from 'mongoose/lib/query';
 
-const baseUrl = "https:localhost:3000";
+const baseUrl = "http://localhost:3000";
 
 export const login = async (email,password) => {
     console.log(email,password);
