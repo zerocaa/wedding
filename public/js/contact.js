@@ -1,11 +1,14 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
+// const baseUrl = 'http://localhost:3000'
+const baseUrl = "https://wedding-production-09d7.up.railway.app"
+
 export const createContact = async (name, email, content, wedding) => {
          try {
            const res = await axios({
              method: 'POST',
-             url: 'http://localhost:3000/api/v1/contact',
+             url: `${baseUrl}/api/v1/contact`,
              data: {
                name,
                email,
@@ -21,3 +24,18 @@ export const createContact = async (name, email, content, wedding) => {
            showAlert('error', err.response.data.message);
          }
        };
+
+export const deleteContact = async (id) => {
+  try {
+    const res = await axios({
+      method: 'DELETE',
+      url: `${baseUrl}/api/v1/contact/${id}`
+    });
+    if (res) {
+      showAlert('success', 'Delete success');
+      location.reload(true);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+}

@@ -13,6 +13,7 @@ head
   link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i&display=swap' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css?family=Playball&display=swap' rel='stylesheet')
+  link(href="https://vulinhwedding100722.iwedding.info/templates/template15/css/style.css?v=20220523" rel="stylesheet")
   link(href='https://lecuoiducquyen.iwedding.info/templates/template5/css/style.css?v=20220523' rel='stylesheet')
   link(rel='shortcut icon' type='image/x-icon' href='https://lecuoiducquyen.iwedding.info/templates/template5/favicon.ico')
   style.
@@ -141,15 +142,12 @@ if(wedding)
             li.nav-item.mr-4
               a(href='#story') Chuy&#x1EC7;n t&igrave;nh y&ecirc;u
             li.nav-item.mr-4
-              a(href='#gallery') Album c&#x1B0;&#x1EDB;i
+              a(href='#events') S&#x1EF1; ki&#x1EC7;n
             li.nav-item.mr-4
               a(href='#rsvp') L&#x1EDD;i ch&uacute;c
     nav.mobile_menu.hidden.d-none(style='display: block;')
       a.text-logo(href='#home')
-        h1.mobile-logo
-          | D
-          i.fa.fa-heart
-          | Q
+        h1#demo
       ul.nav.navbar-nav.navbar-right.menu
         li.nav-item.active
           a(href='#couple') C&#x1EB7;p &dstrok;&ocirc;i
@@ -161,13 +159,13 @@ if(wedding)
           a(href='#rsvp') L&#x1EDD;i ch&uacute;c
   header#home.home-banner-area
     section.hero-area.zoom-burns.position-relative
-      .hero-content-wrap.zoom-burns-background(style='background-image: url(/img/templates/wedding1.jpg);')
+      .hero-content-wrap.zoom-burns-background(style=`background-image: url(/img/templates/${wedding.templates.mainPhoto});`)
       .container
         .header-caption.text-left.position-relative
           .header-content
             img.header-content-float-img.position-absolute(src='https://lecuoiducquyen.iwedding.info/templates/template5/img/header-love-bg.png' alt='Love Img')
             .header-inner-text
-              h3.text-capitalize.font-playball.color-dark We&rsquo;re Getting Married
+              h3.text-capitalize.font-playball.color-dark=wedding.templates.mainWord
               h1.header-caption-heading.font-playball.color-pink.text-capitalize=`${wedding.malename}  &  ${wedding.fename}`
               p.text-capitalize.font-playball.color-dark=`${wedding.date}`
           #clock(data-date='2022-07-06' data-text-day='Ngày' data-text-hour='Giờ' data-text-minute='Phút' data-text-second='Giây')
@@ -193,14 +191,13 @@ if(wedding)
         .col-sm-12.text-center
           h2.section-heading C&ocirc; d&acirc;u &amp; Ch&uacute; r&#x1EC3;
           img.heading-divider(src='https://lecuoiducquyen.iwedding.info/templates/template5/img/divider.png' alt='divider')
-          h3.section-subheading
-            | T&igrave;nh y&ecirc;u l&agrave; &dstrok;i&#x1EC1;u ki&#x1EC7;n trong &dstrok;&oacute; h&#x1EA1;nh ph&uacute;c c&#x1EE7;a ng&#x1B0;&#x1EDD;i kh&aacute;c l&agrave; &dstrok;i&#x1EC1;u c&#x1EA7;n thi&#x1EBF;t cho ch&iacute;nh b&#x1EA1;n.
+          h3.section-subheading=wedding.templates.bridegroomWord
       .row
         .col-12.col-sm-6.col-md-6.col-lg-5
           .bride-groom-box
             .bride-groom-photo.position-relative
               .bride-photo-box.position-relative
-                img(src='https://cdn.biihappy.com/ziiweb/website/62985ee9d751b778a27e4e59/d730a8ce203ba9e625d153873e37f8ae.jpeg' alt='Bride')
+                img(src=`/img/wedding/${wedding.malephoto}` alt='Bride')
               .bride-border-box
                 span.bride-groom-border
                 span.bride-groom-border
@@ -230,7 +227,7 @@ if(wedding)
           .bride-groom-box
             .bride-groom-photo.position-relative
               .bride-photo-box.position-relative
-                img(src='https://cdn.biihappy.com/ziiweb/website/62985ee9d751b778a27e4e59/d7f3b692a3d3cb2cc37fbb81395bd4a5.jpeg' alt='Groom')
+                img(src=`/img/wedding/${wedding.fephoto}` alt='Groom')
               .bride-border-box
                 span.bride-groom-border
                 span.bride-groom-border
@@ -252,54 +249,80 @@ if(wedding)
               //-     li
               //-       a(href='' target='_blank')
               //-         i.fab.fa-linkedin-in
-  section.section-bg(style='background:url(https://cdn.biihappy.com/ziiweb/website/62985ee9d751b778a27e4e59/templates/6174ee5134c46827c45a50e5/b2947023540fa2dcb36747d621440a79.jpg) no-repeat;padding: 120px 0;')
+  section.section-bg(style=`background:url(/img/templates/${wedding.templates.middlePhoto}) no-repeat;padding: 120px 0;`)
     .container
       .row
         .col.col-xs-12
           h4.text-center
-            span
-              | ...T&igrave;nh y&ecirc;u kh&ocirc;ng ph&#x1EA3;i l&agrave; nh&igrave;n ch&#x1EB1;m ch&#x1EB1;m v&agrave;o nhau, m&agrave; l&agrave; nh&igrave;n ch&#x1EB1;m ch&#x1EB1;m v&#x1EC1; c&ugrave;ng m&#x1ED9;t h&#x1B0;&#x1EDB;ng...
-          h2.text-center.mt-3 --Forever one love--            
-  section#story.love-story-area
+            span=wedding.templates.middleWord1
+          h2.text-center.mt-3=wedding.templates.middleWord2            
+  //- section#story.love-story-area
+  //-   .container
+  //-     .row
+  //-       .col-sm-12.text-center
+  //-         h2.section-heading Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
+  //-         img.heading-divider(src='https://lecuoiducquyen.iwedding.info/templates/template5/img/divider.png' alt='divider')
+  //-         h3.section-subheading
+  //-           | T&igrave;nh y&ecirc;u kh&ocirc;ng l&agrave;m cho th&#x1EBF; gi&#x1EDB;i quay tr&ograve;n. T&igrave;nh y&ecirc;u l&agrave; nh&#x1EEF;ng g&igrave; l&agrave;m cho chuy&#x1EBF;n &dstrok;i &dstrok;&aacute;ng gi&aacute;.
+  //-     .row
+  //-       each story,i in wedding.storyLove
+  //-         if(i%2==0)
+  //-           .col-12.col-sm-6.col-md-6.col-lg-6
+  //-             .story-box.story-left
+  //-               .story-content-wrap
+  //-                 figure.story-photo-box.position-relative
+  //-                   img(src=`/img/wedding/${story.storyPhoto}` alt=`${story.title}`)
+  //-                 .story-text.text-right
+  //-                   h4=story.title
+  //-                   h5=story.time
+  //-                   p=story.content  
+  //-         else
+  //-           .col-12.col-sm-6.col-md-6.col-lg-6
+  //-             .story-box.story-right
+  //-               .story-content-wrap
+  //-                 figure.story-photo-box.position-relative.show-mobile-device
+  //-                   img(src=`/img/wedding/${story.storyPhoto}` alt=`${story.title}`)
+  //-                 .story-text.text-left
+  //-                   h4=story.title
+  //-                   h5=story.time
+  //-                   p=story.content  
+  //-                 figure.story-photo-box.position-relative.show-large-device
+  //-                   img(src=`/img/wedding/${story.storyPhoto}` alt=`${story.title}`)
+  section#story.story-section.section-padding
     .container
       .row
-        .col-sm-12.text-center
-          h2.section-heading Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
-          img.heading-divider(src='https://lecuoiducquyen.iwedding.info/templates/template5/img/divider.png' alt='divider')
-          h3.section-subheading
-            | T&igrave;nh y&ecirc;u kh&ocirc;ng l&agrave;m cho th&#x1EBF; gi&#x1EDB;i quay tr&ograve;n. T&igrave;nh y&ecirc;u l&agrave; nh&#x1EEF;ng g&igrave; l&agrave;m cho chuy&#x1EBF;n &dstrok;i &dstrok;&aacute;ng gi&aacute;.
+        .col.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1(style='margin-left: 16.66666667%;')
+          .section-title
+            h2 Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
+            p=wedding.templates.storyWord
       .row
-        each story,i in wedding.storyLove
-          if(i%2==0)
-            .col-12.col-sm-6.col-md-6.col-lg-6
-              .story-box.story-left
-                .story-content-wrap
-                  figure.story-photo-box.position-relative
-                    img(src=`/img/wedding/${story.storyPhoto}` alt=`${story.title}`)
-                  .story-text.text-right
-                    h4=story.title
-                    h5=story.time
-                    p=story.content  
-          else
-            .col-12.col-sm-6.col-md-6.col-lg-6
-              .story-box.story-right
-                .story-content-wrap
-                  figure.story-photo-box.position-relative.show-mobile-device
-                    img(src=`/img/wedding/${story.storyPhoto}` alt=`${story.title}`)
-                  .story-text.text-left
-                    h4=story.title
-                    h5=story.time
-                    p=story.content  
-                  figure.story-photo-box.position-relative.show-large-device
-                    img(src=`/img/wedding/${story.storyPhoto}` alt=`${story.title}`)
+        .col
+          .story-block
+            ul
+              each story,i in wedding.storyLove
+                if(i%2==0)
+                  li
+                    .details
+                      h3=story.title
+                      span.date=story.time
+                      p=story.content
+                    .img-holder
+                      img(src=`/img/wedding/${story.storyPhoto}` alt=`${story.title}`)
+                else
+                  li
+                    .img-holder
+                      img(src=`/img/wedding/${story.storyPhoto}` alt=`${story.title}`)
+                    .details
+                      h3=story.title
+                      span.date=story.time
+                      p=story.content
   section#events
     .container
       .row
         .col-sm-12.text-center
           h2.section-heading S&#x1EF1; Ki&#x1EC7;n C&#x1B0;&#x1EDB;i
           img.heading-divider(src='https://lecuoiducquyen.iwedding.info/templates/template5/img/divider.png' alt='divider')
-          h3.section-subheading
-            | &Dstrok;&#x1B0;&#x1EE3;c ai &dstrok;&oacute; y&ecirc;u s&acirc;u s&#x1EAF;c s&#x1EBD; mang l&#x1EA1;i cho b&#x1EA1;n s&#x1EE9;c m&#x1EA1;nh, trong khi y&ecirc;u ai &dstrok;&oacute; s&acirc;u s&#x1EAF;c s&#x1EBD; cho b&#x1EA1;n d&utilde;ng kh&iacute;.
+          h3.section-subheading=wedding.templates.eventWord
       .row.justify-content-center.location-grids.clearfix
         each event in wedding.event
           .grid.col-md-6.col-xs-12.col-lg-3
@@ -316,14 +339,40 @@ if(wedding)
                 a.see-location-btn.popup-gmaps(target='_blank' href=`${event.map}`)
                   | Xem b&#x1EA3;n &dstrok;&#x1ED3; 
                   i.fa.fa-angle-right
-  section#rsvp.rsvp-area.section-bg(style='background:url(https://cdn.biihappy.com/ziiweb/website/62985ee9d751b778a27e4e59/templates/6174ee5134c46827c45a50e5/308b48eb862f373a3ba3ab2dc021a6a3.jpg) no-repeat;')
+  section#people.blog-section.section-padding.section-bg-color
+    .container
+      .row
+       .col.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
+        .section-title
+          h2 Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
+          p=wedding.templates.bridemaidWord
+      .row
+        each bridemaid in wedding.bridesmaids
+          .col-lg-6.col-xs-12
+            .blog-grids.bridesmaid.clearfix
+              .grid
+                .entry-media
+                  img(src=`/img/wedding/${bridemaid.feavatar}` alt='')
+                .inner
+                  h2=bridemaid.fename
+                  h4 Ph&ugrave; d&acirc;u
+                  p=bridemaid.introduce
+          .col-lg-6.col-xs-12
+            .blog-grids.groomsmen.clearfix
+              .grid
+                .entry-media
+                  img(src=`/img/wedding/${bridemaid.avatar}` alt='')
+                .inner
+                  h2=bridemaid.name
+                  h4 Ph&ugrave; rể
+                  p=bridemaid.introduce
+  section#rsvp.rsvp-area.section-bg(style=`background:url(/img/templates/${wedding.templates.bottomPhoto}) no-repeat;`)
     .container
       .row
         .col-sm-12.text-center
           h2.section-heading S&#x1ED5; L&#x1B0;u B&uacute;t
           img.heading-divider(src='https://lecuoiducquyen.iwedding.info/templates/template5/img/divider.png' alt='divider')
-          h3.section-subheading
-            | T&ocirc;i y&ecirc;u b&#x1EA1;n v&igrave; t&#x1EA5;t c&#x1EA3; nh&#x1EEF;ng g&igrave; b&#x1EA1;n &dstrok;ang c&oacute;, t&#x1EA5;t c&#x1EA3; nh&#x1EEF;ng g&igrave; b&#x1EA1;n &dstrok;&atilde; c&oacute;, v&agrave; t&#x1EA5;t c&#x1EA3; nh&#x1EEF;ng g&igrave; b&#x1EA1;n ch&#x1B0;a hi&#x1EC7;n h&#x1EEF;u.
+          h3.section-subheading=wedding.templates.guestbookWord
       .row
         .col-12.col-lg-6.col-md-7
           .wish-box-form

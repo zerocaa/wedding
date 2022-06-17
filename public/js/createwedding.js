@@ -1,11 +1,13 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
+const baseUrl = "https://wedding-production-09d7.up.railway.app"
+
 export const createwedding = async (data) => {
    try {
      const res = await axios({
        method: 'POST',
-       url: 'http://localhost:3000/api/v1/weddings',
+       url: `${baseUrl}/api/v1/weddings`,
        data
      });
      if (res.data.status === 'success') {
@@ -23,7 +25,7 @@ export const deleteWedding = async (id) => {
   try {
     const res = await axios({
       method: 'DELETE',
-      url: `http://localhost:3000/api/v1/weddings/${id}`
+      url: `${baseUrl}/api/v1/weddings/${id}`
     });
     if (res) {
       showAlert('success', 'Delete success');
