@@ -1,8 +1,6 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
-const baseUrl = "https://wedding-production-09d7.up.railway.app"
-
 export const templatesEdit = async (
          templatesId,
         data
@@ -10,7 +8,7 @@ export const templatesEdit = async (
          try {
            const res = await axios({
              method: 'PUT',
-             url: `${baseUrl}/api/v1/templates/${templatesId}`,
+             url: `http://localhost:3000/api/v1/templates/${templatesId}`,
              data
            });
            if (res.data.status === 'success') {
