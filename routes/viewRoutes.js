@@ -41,6 +41,15 @@ router
   .get(authController.protect, weddingController.getBridesMaids);
 
 router
+  .route('/wedding/edit/:weddingId/templatesEdit')
+  .get(authController.protect, weddingController.getTemplatesEdit)
+
+router
+  .route('/wedding/edit/:weddingId/contact')
+  .get(authController.protect, weddingController.getContact);
+
+
+router
   .route('/user/resetPassword/:token')
   .patch(authController.resetPassword)
   .get(viewsController.getReset);

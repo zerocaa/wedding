@@ -40,6 +40,11 @@ const weddingSchema = new mongoose.Schema(
         ref: 'Contact'
       }
     ],
+    templates: 
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Templates'
+      },
     date: {
       type: String,
       required: [true, 'Cần Phải Nhập Ngày Cưới']
@@ -132,6 +137,8 @@ weddingSchema.pre(/^find/, function(next) {
     })
     .populate({
       path: 'contact'
+    }).populate({
+      path: 'templates'
     });
   next();
 });

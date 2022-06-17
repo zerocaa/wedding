@@ -1,0 +1,63 @@
+extend editwedsite 
+block content
+    if(contacts)
+        section.pt-6.pt-md-8.pb-8
+            .container.account-websites-edit-page
+                .row
+                    .col-12
+                        .row.mb-6.mb-md-8.align-items-center
+                            .col-12.col-lg-auto.mb-4.mb-lg-0.box-header
+                                .icon-circle.bg-danger.text-white
+                                    svg.bi.bi-globe(xmlns='http://www.w3.org/2000/svg' width='35' height='35' fill='currentColor' viewbox='0 0 16 16')
+                                        path(d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z')
+                            each contact,i in contacts
+                                if(i<1)                         
+                                    .col.ms-lg-n4.mb-4.mb-lg-0.box-header
+                                        h2.fw-bold.mb-0 Wedding site!
+                                        p.fs-5.text-gray-700.mb-0.limit-1-line
+                                        svg.bi.bi-link-45deg(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                                            path(d='M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z')
+                                            path(d='M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z')
+                                        span.d-inline.d-lg-none
+                                            a(href=`/wedding/preview/${contact.wedding}` target='_blank') Link website
+                                        span.d-none.d-lg-inline
+                                            | Link website: 
+                                            a.text-gray-700(href=`/wedding/preview/${contact.wedding}` target='_blank') Nhấp Vào Đây Để Xem Website Của Bạn
+                                    .col-12.col-lg-auto.box-header
+                                        form#deleteWebsiteForm
+                                            input(type='hidden' name='_csrf-biihappy' value='5laCoiGngMPD0dGfN9yb4VgvBv1g9d5PgPtQq4xjB7yJNdeSddfZsfbniNFiveisb39KlC2bmAfCrSLmuw40-A==')
+                                            input(type='hidden' name='id' value='629efa1f1ecbbf0d1171c729')
+                                            button.btn.btn-sm.btn-danger-soft.btn-remove-website(type='submit' data-id=`${contact.wedding}` data-confirm='Khi thao tác này được thực hiện, bạn sẽ không thể lấy lại dữ liệu. Bạn có thực sự muốn xóa website này không?')
+                                                span.fe.fe-trash-2
+                                                |  X&oacute;a website
+                        each contact,i in contacts
+                            if(i<1)
+                                ul.nav.nav-pills.nav-fill.nav-list-website-menu
+                                    li.nav-item
+                                        a.nav-link.bg-gray-200(aria-current='page' href=`/wedding/edit/${contact.wedding}/bridegroom`) C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
+                                    li.nav-item
+                                        a.nav-link.bg-gray-200(href=`/wedding/edit/${contact.wedding}/bridesmaids`) Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
+                                    li.nav-item
+                                        a.nav-link.bg-gray-200(href=`/wedding/edit/${contact.wedding}/event`) S&#x1EF1; ki&#x1EC7;n
+                                    li.nav-item
+                                        a.nav-link.bg-gray-200(href=`/wedding/edit/${contact.wedding}/storylove`) Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
+                                    li.nav-item
+                                        a.nav-link.active(href=`/wedding/edit/${contact.wedding}/contact`) L&#x1EDD;i ch&uacute;c
+                                    li.nav-item
+                                        a.nav-link.bg-gray-200(href=`/wedding/edit/${contact.wedding}/templatesEdit`) Giao di&#x1EC7;n
+                        .card.card-border.border-secondary.shadow-lg.card-border-radius-none.mb-7.mt-6
+                            .card-body
+                                .messageContainer
+                                .row.wishesContainer(style='position: relative; height: 340.458px;')
+                                    each contact in contacts    
+                                        .col.col-sm-6.col-md-4.col-xl-3.mb-6.wish-item
+                                            .card.border.border-danger
+                                                .card-body
+                                                    span.text-danger.delete-wish(title='' data-bs-toggle='tooltip' data-id=`${contact.id}` style='cursor: pointer;position: absolute;right: 8px;top: 2px;' data-bs-original-title='Xóa')
+                                                        svg(aria-hidden='true' style='display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em;width:.875em;' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 448 512')
+                                                            path(fill='currentColor' d='M32 464a48 48 0 0048 48h288a48 48 0 0048-48V128H32zm272-256a16 16 0 0132 0v224a16 16 0 01-32 0zm-96 0a16 16 0 0132 0v224a16 16 0 01-32 0zm-96 0a16 16 0 0132 0v224a16 16 0 01-32 0zM432 32H312l-9-19a24 24 0 00-22-13H167a24 24 0 00-22 13l-9 19H16A16 16 0 000 48v32a16 16 0 0016 16h416a16 16 0 0016-16V48a16 16 0 00-16-16z')
+                                                    h5.card-title.mb-3
+                                                        strong=contact.name
+                                                    h6.card-subtitle.mb-2.text-muted=contact.email
+                                                    p.card-text=contact.content
+                                                            

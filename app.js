@@ -19,6 +19,7 @@ const bridesmaidRouter = require('./routes/bridesmaidsRoutes');
 const eventRouter = require('./routes/eventRoutes');
 const storyRouter = require('./routes/storyRoutes');
 const contactRouter = require('./routes/contactRoutes');
+const templatesRouter = require('./routes/templatesRoutes');
 
 const app = express();
 app.set('view engine', 'pug');
@@ -122,6 +123,7 @@ app.use('/api/v1/bridesmaids', bridesmaidRouter);
 app.use('/api/v1/events', eventRouter);
 app.use('/api/v1/storyloves', storyRouter);
 app.use('/api/v1/contact', contactRouter);
+app.use('/api/v1/templates', templatesRouter);
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
