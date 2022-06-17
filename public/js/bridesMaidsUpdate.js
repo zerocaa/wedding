@@ -1,11 +1,13 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
+const baseUrl = "https://wedding-production-09d7.up.railway.app"
+
 export const createBridesMaids = async wedding => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://localhost:3000/api/v1/bridesmaids',
+      url: `${baseUrl}/api/v1/bridesmaids`,
       data: {
         wedding
       }
@@ -23,7 +25,7 @@ export const updateBridesMaids = async (bridesmaidId,data) => {
   try {
     const res = await axios({
       method: 'PUT',
-      url: `http://localhost:3000/api/v1/bridesmaids/${bridesmaidId}`,
+      url: `${baseUrl}/api/v1/bridesmaids/${bridesmaidId}`,
       data
     });
     if (res.data.status === 'success') {
@@ -39,7 +41,7 @@ export const deleteBridesMaids = async bridesmaidId => {
   try {
     const res = await axios({
       method: 'DELETE',
-      url: `http://localhost:3000/api/v1/bridesmaids/${bridesmaidId}`
+      url: `${baseUrl}/api/v1/bridesmaids/${bridesmaidId}`
     });
     if (res) {
       showAlert('success', 'Delete success');
