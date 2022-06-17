@@ -27,8 +27,9 @@ block content
                                         |  X&oacute;a website
             if(events)
                 ul.nav.nav-pills.nav-fill.nav-list-website-menu
-                    each event,i in events
-                        if(i < 1)
+                    - var n =1
+                    each event in events
+                        while n < 2
                             li.nav-item
                                 a.nav-link.bg-gray-200(aria-current='page' href=`/wedding/edit/${event.wedding}/bridegroom`) C&ocirc; D&acirc;u &amp; Ch&uacute; R&#x1EC3;
                             li.nav-item
@@ -37,10 +38,7 @@ block content
                                 a.nav-link.active(href=`/wedding/edit/${event.wedding}/event`) S&#x1EF1; ki&#x1EC7;n
                             li.nav-item
                                 a.nav-link.bg-gray-200(href=`/wedding/edit/${event.wedding}/storylove`) Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
-                            li.nav-item
-                                a.nav-link.bg-gray-200(href=`/wedding/edit/${event.id}/contact`) Lời Chúc
-                            li.nav-item
-                                a.nav-link.bg-gray-200(href=`/wedding/edit/${event  .id}/templatesEdit`) Giao Diện
+                            li(style='color:white')=n++
             if(events)
                     input(type='hidden' name='_csrf-biihappy' value='Bnut6XhAaAad9tgIprrNXYOqO9FYEOrwhrdd--ZvnE0rGOm_EQcrPqjD71Dj970Q6e5hhw100par-hizqSrXNw==')
                     .eventsContainer.row.mt-6

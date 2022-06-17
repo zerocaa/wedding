@@ -33,10 +33,6 @@ block content
           a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/event`) S&#x1EF1; ki&#x1EC7;n
         li.nav-item
           a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/storylove`) Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
-        li.nav-item
-          a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/contact`) Lời Chúc
-        li.nav-item
-          a.nav-link.bg-gray-200(href=`/wedding/edit/${weddings.id}/templatesEdit`) Giao Diện
       if(weddings)
         form#groom-bride-form(action=`/wedding/edit/${weddings.id}/bridegroom?_method=PUT` method='post' enctype='multipart/form-data')
           input(type='hidden' name='_csrf-biihappy' value='')

@@ -219,9 +219,3 @@ exports.getSampleTemplate = catchAsync(async (req, res, next) => {
     weddings
   });
 });
-
-exports.getTemplatesEdit = catchAsync(async (req, res, next) => {
-  res.status(200).render('templatesEdit', {
-    title: 'Templates Edit'
-  });
-})

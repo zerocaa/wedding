@@ -10,8 +10,8 @@ const router = express.Router();
 // router.use('/:weddingId/bride-groom', brideGroom);
 
 router
-  .route('/:weddingId')
-  .get(authController.protect, weddingController.getWeddingTest)
+  .route('/:id')
+  .get(weddingController.getWedding)
   .patch(
     authController.protect,
     authController.restrictTo('user', 'admin'),

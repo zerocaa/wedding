@@ -1,13 +1,12 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
-const baseUrl = "https://wedding-production-09d7.up.railway.app"
 
 export const updateStory = async (storyId, title, time, content) => {
   try {
     const res = await axios({
       method: 'PUT',
-      url: `${baseUrl}/api/v1/storyloves/${storyId}`,
+      url: `http://localhost:3000/api/v1/storyloves/${storyId}`,
       data: {
         title,
         time,
@@ -31,7 +30,7 @@ export const storyUser = async (
          try {
            const res = await axios({
              method: 'PUT',
-             url: `${baseUrl}/api/v1/storyloves/${storyId}`,
+             url: `http://localhost:3000/api/v1/storyloves/${storyId}`,
              data
            });
            if (res.data.status === 'success') {
@@ -48,7 +47,7 @@ export const createStory = async wedding => {
   try {
     const res = await axios({
       method: 'POST',
-      url: `${baseUrl}/api/v1/storyloves`,
+      url: 'http://localhost:3000/api/v1/storyloves',
       data: {
         wedding
       }
@@ -66,7 +65,7 @@ export const deleteStory = async storyId => {
          try {
            const res = await axios({
              method: 'DELETE',
-             url: `${baseUrl}/api/v1/storyloves/${storyId}`
+             url: `http://localhost:3000/api/v1/storyloves/${storyId}`
            });
            console.log(res);
            if (res) {

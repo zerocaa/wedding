@@ -1,8 +1,6 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
-const baseUrl = "https://wedding-production-09d7.up.railway.app"
-
 export const eventUser = async (eventId,data) => {
   // const test = await axios(`http://localhost:3000/api/v1/events/${eventId}`);
   // console.log(test);
@@ -15,7 +13,7 @@ export const eventUser = async (eventId,data) => {
   try {
     const res = await axios({
       method: 'PUT',
-      url: `${baseUrl}/api/v1/events/${eventId}`,
+      url: `http://localhost:3000/api/v1/events/${eventId}`,
       // url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${eventId}`,
       data
     });
@@ -34,7 +32,7 @@ export const createEvent = async wedding => {
   try {
     const res = await axios({
       method: 'POST',
-      url: `${baseUrl}/api/v1/events`,
+      url: 'http://localhost:3000/api/v1/events',
       // url: 'https://wedding-production-09d7.up.railway.app/api/v1/events',
       data: {
         wedding
@@ -53,7 +51,7 @@ export const deleteEvent = async courseId => {
   try {
       const res = await axios({
         method: 'DELETE',
-        url: `${baseUrl}/api/v1/events/${courseId}`
+        url: `http://localhost:3000/api/v1/events/${courseId}`
         // url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${courseId}`
       });
            if (res) {

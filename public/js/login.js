@@ -1,16 +1,12 @@
 /* eslint-disable */
 import { showAlert } from './alert';
 import axios from 'axios';
-import { base } from 'mongoose/lib/query';
-
-const baseUrl = "https://wedding-production-09d7.up.railway.app"
-
 export const login = async (email,password) => {
     console.log(email,password);
     try{
         const res = await axios({
           method: 'POST',
-          url: `${baseUrl}/api/v1/users/login`,
+          url: 'http://localhost:3000/api/v1/users/login',
           data: {
             email,
             password
@@ -32,7 +28,7 @@ export const logout = async () => {
     try{
         const res = await axios({
           method: 'GET',
-          url: `${baseUrl}/api/v1/users/logout`
+          url: 'http://localhost:3000/api/v1/users/logout'
         });
       if ((res.data.status = 'success')) {
         showAlert('success', 'logout success');
@@ -51,7 +47,7 @@ export const signup = async (name,email,password,passwordConfirm) => {
     try{
         const res = await axios({
           method: 'POST',
-          url: `${baseUrl}/api/v1/users/signup`,
+          url: 'http://localhost:3000/api/v1/users/signup',
           data: {
             name,
             email,
@@ -77,7 +73,7 @@ export const forgotPassword = async (email) => {
     try{
         const res = await axios({
           method: 'POST',
-          url: `${baseUrl}/api/v1/users/forgotPassword`,
+          url: 'http://localhost:3000/api/v1/users/forgotPassword',
           data: {
             email
           }
@@ -100,7 +96,7 @@ export const resetPassword = async (password, passwordConfirm, token) => {
     try{
         const res = await axios({
           method: 'PATCH',
-          url: `${baseUrl}/api/v1/users/resetPassword/${token}`,
+          url: `http://localhost:3000/api/v1/users/resetPassword/${token}`,
           data: {
             password,
             passwordConfirm,

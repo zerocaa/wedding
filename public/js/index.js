@@ -8,8 +8,7 @@ import { eventUser, createEvent, deleteEvent } from './eventUpdate';
 import { storyUser, createStory, deleteStory,updateStory } from './storyUpdate';
 import { createwedding , deleteWedding } from './createwedding';
 import { createBridesMaids, deleteBridesMaids, updateBridesMaids } from './bridesMaidsUpdate'
-import { createContact,deleteContact } from './contact';
-import { templatesEdit} from './templatesEdit';
+import { createContact } from './contact';
 // import { doc } from 'prettier';
 //dom element
 const loginForm = document.querySelector('.form--login');
@@ -21,7 +20,6 @@ const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const createweddingForm = document.querySelector('.form-create-wedding');
 const createContactForm = document.querySelector('.form-contact');
-const tempaltesForm = document.querySelector('.form-templates');
 const eventForm = document.querySelectorAll('.form-event-user');
 const storyForm = document.querySelectorAll('.form-story-user');
 const contact = document.querySelector('.send-button');
@@ -30,48 +28,6 @@ const createEventForm = document.getElementById('add-more-event');
 const createStoryForm = document.getElementById('add-more-story');
 const createBridesMaidForm = document.getElementById('add-more-bridesmaids');
 const test = document.querySelectorAll('.form-user-test');
-
-if (tempaltesForm) {
-  tempaltesForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const templatesId = document.getElementById('templatesId').value;
-    const mainPhoto = document.getElementById('mainPhoto').files[0];
-    const middlePhoto = document.getElementById('middlePhoto').files[0];
-    const titlePhoto = document.getElementById('titlePhoto').files[0];
-    const bottomPhoto = document.getElementById('bottomPhoto').files[0];
-    if (mainPhoto!=undefined) 
-      var mainFormPhoto = document.getElementById('mainPhoto').files[0];
-    else 
-      var mainFormPhoto = document.getElementById('mainPhotolock').value;
-    if (middlePhoto != undefined)
-      var middleFormPhoto = document.getElementById('middlePhoto').files[0];
-    else
-      var middleFormPhoto = document.getElementById('middlePhotolock').value;
-    if (bottomPhoto != undefined)
-      var bottomFormPhoto = document.getElementById('bottomPhoto').files[0];
-    else
-      var bottomFormPhoto = document.getElementById('bottomPhotolock').value;
-    if (titlePhoto != undefined)
-      var titleFormPhoto = document.getElementById('titlePhoto').files[0];
-    else
-      var titleFormPhoto = document.getElementById('titlePhotolock').value;
-    const form = new FormData();
-    form.append('mainPhoto', mainFormPhoto);
-    form.append('titlePhoto', titleFormPhoto);
-    form.append('middlePhoto', middleFormPhoto);
-    form.append('bottomPhoto', bottomFormPhoto);
-    form.append('bridegroomWord', document.getElementById('bridegroomWord').value);
-    form.append('mainWord', document.getElementById('mainWord').value);
-    form.append('middleWord1', document.getElementById('middleWord1').value);
-    form.append('middleWord2', document.getElementById('middleWord2').value);
-    form.append('storyWord', document.getElementById('storyWord').value);
-    form.append('bridemaidWord', document.getElementById('bridemaidWord').value);
-    form.append('guestbookWord', document.getElementById('guestbookWord').value);
-    form.append('eventWord', document.getElementById('eventWord').value);
-    await templatesEdit(templatesId, form);
-  })
-}
-
 
 if (resetPasswordForm) {
   resetPasswordForm.addEventListener('submit',async (e) => {
@@ -179,22 +135,12 @@ if (createBridesMaidForm) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const deleteBtn = $('.delete-wish')
-  deleteBtn.click(function(e)  {
-    e.preventDefault();
-  var contactId = $(this).data('id');
-    deleteContact(contactId)
-  })
-},true)
-
 document.addEventListener('DOMContentLoaded', function() {
   var weddingId;
   var deleteBtn = $('.btn-remove-website');
   deleteBtn.click(function(e) {
     e.preventDefault();
     var weddingId = $(this).data('id');
-    console.log(weddingId)
     deleteWedding(weddingId);
   });
 },true);

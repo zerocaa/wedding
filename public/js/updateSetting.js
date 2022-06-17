@@ -2,13 +2,11 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
-const baseUrl = "https://wedding-production-09d7.up.railway.app";
-
 //export const update DataUser
 export const updateSettings = async (data, type) => {
   try {
-    const url = type === "password" ? `${baseUrl}/api/v1/users/updateMyPassword`
-    : `${baseUrl}/api/v1/users/updateMe`;
+    const url = type === "password" ? "http://localhost:3000/api/v1/users/updateMyPassword" 
+    : "http://localhost:3000/api/v1/users/updateMe";
     const res = await axios({
       method: 'PATCH',
       url,

@@ -42,9 +42,9 @@ if(wedding)
                       li.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-has-children.menu-item-355
                         a(href='#wishes') L&#x1EDD;i ch&uacute;c
     .zn-container
-      #znid-584505610725.zn-element-wrapper( data-type='banner' data-effect='none' data-border-enable='false' data-shadow-enable='false' )
+      #znid-584505610725.zn-element-wrapper(style='background:url(/img/wedding/wedding.jpg)' data-type='banner' data-effect='none' data-border-enable='false' data-shadow-enable='false' )
         .zn-element.zn-lg
-          .zn-banner(style=`background-image: url(/img/templates/${wedding.templates.mainPhoto})`)
+          .zn-banner(id='' data-element-animation='' data-scroll-animation='')
             .zn-children-container
               .zn-children
                 .zn-child
@@ -52,7 +52,6 @@ if(wedding)
                     #znid-093705202550.zn-element-wrapper(data-type='heading' data-background-type='none' data-border-enable='false' data-shadow-enable='false' data-text-shadow-enable='false')
                       .zn-element.zn-lg
                         h2.zn-heading(id='' data-element-animation='' data-scroll-animation='')
-                          h3(style='color:	#EE82EE')=`${wedding.templates.mainWord}`	
                           h1(style='color:	#EE82EE')=`${wedding.malename} & ${wedding.fename}`
                           h2(style='color:	#EE82EE')=`${wedding.date}`
                 .zn-child
@@ -137,7 +136,7 @@ if(wedding)
               .row
                 .col.col-xs-12
                   .section-title-top
-                    h2.text-puple Save The Date 
+                    h2.text-puple Save The Date
               .row
                 .col.col-xs-12
                   h3.text-puple=`${wedding.date}`
@@ -166,7 +165,8 @@ if(wedding)
                 .col-md-12.text-center.heading
                   // <span>We Love Each Other</span>
                   h2 S&#x1EF1; Ki&#x1EC7;n C&#x1B0;&#x1EDB;i 
-                  p=wedding.templates.eventWord
+                  p
+                    | T&igrave;nh y&ecirc;u kh&ocirc;ng l&agrave;m cho th&#x1EBF; gi&#x1EDB;i quay tr&ograve;n. T&igrave;nh y&ecirc;u l&agrave; nh&#x1EEF;ng g&igrave; l&agrave;m cho chuy&#x1EBF;n &dstrok;i &dstrok;&aacute;ng gi&aacute;.
               .row.event-list
                 each event in wedding.event
                   .event-item.col-lg-3.col-md-6.col-xs-12
@@ -184,7 +184,8 @@ if(wedding)
                 .col-md-12.text-center.heading
                   // <span>We Love Each Other</span>
                   h2 Chuy&#x1EC7;n T&igrave;nh Y&ecirc;u
-                  p=wedding.templates.storyWord
+                  p
+                    | T&igrave;nh y&ecirc;u kh&ocirc;ng ch&#x1EC9; l&agrave; m&#x1ED9;t danh t&#x1EEB; - n&oacute; l&agrave; m&#x1ED9;t &dstrok;&#x1ED9;ng t&#x1EEB;; n&oacute; c&ograve;n h&#x1A1;n c&#x1EA3; m&#x1ED9;t c&#x1EA3;m gi&aacute;c - &dstrok;&oacute; l&agrave; s&#x1EF1; quan t&acirc;m, chia s&#x1EBB;, gi&uacute;p &dstrok;&#x1EE1;, hy sinh.
               .row
                  .col-md-12.col-md-offset-0
                   ul.timeline.animate-box
@@ -198,14 +199,15 @@ if(wedding)
                             span.date=story.time
                           .timeline-body
                             p=story.content      
-          section#counter.section.bg.counter(style=`background-image:url(/img/templates/${wedding.templates.middlePhoto});`)
+          section#counter.section.bg.counter(style='background-image:url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/e691ff7296ec7d4ba6a839856a873ca1.jpg);')
             .overlay
             .container
               .row
                 .col-12.animate-box.fadeInUp.animated-fast
                   .feature-center
-                    span.counter-value=wedding.templates.middleWord2
-                    span.counter-label=wedding.templates.middleWord1
+                    span.counter-value --Forever one love--
+                    span.counter-label
+                      | ...t&igrave;nh y&ecirc;u kh&ocirc;ng ph&#x1EA3;i l&agrave; nh&igrave;n ch&#x1EB1;m ch&#x1EB1;m v&agrave;o nhau, m&agrave; l&agrave; nh&igrave;n ch&#x1EB1;m ch&#x1EB1;m v&#x1EC1; c&ugrave;ng m&#x1ED9;t h&#x1B0;&#x1EDB;ng...
           section#people.blog-section.section-padding.section-bg-color
             .container
               .row
@@ -234,13 +236,14 @@ if(wedding)
                           h2=bridemaid.name
                           h4 Ph&ugrave; rể
                           p=bridemaid.introduce
-          section#wishes.section.bg.invitation.section-gray(style=`background-image:url(/img/templates/${wedding.templates.bottomPhoto});`)
+          section#wishes.section.bg.invitation.section-gray(style='background-image:url(https://cdn.biihappy.com/ziiweb/default/template/6174ee7a7a1c7661fb0a671c/8c4fbada6a1fe4704b725c345c88d695.jpg);')
             .overlay
             .container
               .row
                 .col-md-12.text-center.heading
                   h2 S&#x1ED5; L&#x1B0;u B&uacute;t
-                  p=wedding.templates.guestbookWord
+                  p
+                    | T&igrave;nh y&ecirc;u &dstrok;&iacute;ch th&#x1EF1;c &dstrok;&#x1EE9;ng v&#x1EC1; ph&iacute;a nhau trong nh&#x1EEF;ng ng&agrave;y t&#x1ED1;t &dstrok;&#x1EB9;p v&agrave; s&aacute;t c&aacute;nh h&#x1A1;n trong nh&#x1EEF;ng ng&agrave;y t&#x1ED3;i t&#x1EC7;.
               .row.h-flex-md
                 .col.col-lg-6.col-md-7
                   form#contact.validate-rsvp-form.wish-box-form.form-contact
