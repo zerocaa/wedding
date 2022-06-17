@@ -10,7 +10,7 @@ export const login = async (email,password) => {
     try{
         const res = await axios({
           method: 'POST',
-          url: `${baseUrl}/api/v1/users/login`,
+          url: `https://wedding-production-09d7.up.railway.app/api/v1/users/login`,
           data: {
             email,
             password

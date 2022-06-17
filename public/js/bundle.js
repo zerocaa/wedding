@@ -59574,7 +59574,7 @@ var login = /*#__PURE__*/function () {
             _context.next = 4;
             return (0, _axios.default)({
               method: 'POST',
-              url: "".concat(baseUrl, "/api/v1/users/login"),
+              url: "https://wedding-production-09d7.up.railway.app/api/v1/users/login",
               data: {
                 email: email,
                 password: password
