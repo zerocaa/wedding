@@ -2,7 +2,7 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
-const baseUrl = "https://wedding-production-09d7.up.railway.app";
+const baseUrl = "https:localhost:3000";
 
 //export const update DataUser
 export const updateSettings = async (data, type) => {
