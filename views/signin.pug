@@ -1,36 +1,42 @@
 extends base
 block content
-    section.section-border.border-danger.login-page
-        .container.d-flex.flex-column
-            .row.align-items-center.justify-content-center.gx-0.min-vh-100
-                .col-8.col-md-6.col-lg-7.offset-md-1.order-md-2.mt-auto.mt-md-0.pt-8.pb-4.py-md-11
-                    img.img-fluid(src='/img/banner-common.png' alt='Behappy')
-                .col-12.col-md-5.col-lg-4.order-md-1.mb-auto.mb-md-0.pb-8.py-md-11
-                    h1.mb-0.fw-bold.text-center Đăng nhập
-                    p.mb-6.text-center.text-muted
-                        | Cùng Behappy kết nối và chia sẻ những điều hạnh phúc đến mọi
-                        | người trong cuộc sống của bạn.
-                    forms#login-form.mb-5
-                        form.form--login
-                            .form-group.field-userloginform-username.required
-                                .form-group
-                                    .input-field
-                                        input#email.form-control(type='text', placeholder='Enter your email', required='')
-                                        i.uil.uil-envelope.icon
-                            .form-group.field-userloginform-username.required
-                                .form-group            
-                                    .input-field
-                                        input#password.password.form-control(type='password', placeholder='Enter your password', required='')
-                                        i.uil.uil-lock.icon
-                                        i.uil.uil-eye-slash.showHidePw
-                                .input-field.button
-                                    button.btn.btn-danger.w-100 Login
-                        .login-signup
-                            span.text
-                                | Not a member?
-                                br
-                                a.text.signup-link(href='signup' style='justify-content: space-between;display: flex') Signup now
-                                span.text.text-right
-                                a.text.forgotpassword(href='/user/forgotPassword') Quên Mật Khẩu?
-                        mt-4.text-left
-                                a(href='/wedding.html') Trở về trang chủ
+    if(user==null)
+        section.section-border.border-danger.login-page
+            .container.d-flex.flex-column
+                .row.align-items-center.justify-content-center.gx-0.min-vh-100
+                    .col-8.col-md-6.col-lg-7.offset-md-1.order-md-2.mt-auto.mt-md-0.pt-8.pb-4.py-md-11
+                        img.img-fluid(src='/img/banner-common.png' alt='Behappy')
+                    .col-12.col-md-5.col-lg-4.order-md-1.mb-auto.mb-md-0.pb-8.py-md-11
+                        h1.mb-0.fw-bold.text-center Đăng nhập
+                        p.mb-6.text-center.text-muted
+                            | Cùng Behappy kết nối và chia sẻ những điều hạnh phúc đến mọi
+                            | người trong cuộc sống của bạn.
+                        forms#login-form.mb-5
+                            form.form--login
+                                .form-group.field-userloginform-username.required
+                                    .form-group
+                                        .input-field
+                                            input#email.form-control(type='text', placeholder='Enter your email', required='')
+                                            i.uil.uil-envelope.icon
+                                .form-group.field-userloginform-username.required
+                                    .form-group            
+                                        .input-field
+                                            input#password.password.form-control(type='password', placeholder='Enter your password', required='')
+                                            i.uil.uil-lock.icon
+                                            i.uil.uil-eye-slash.showHidePw
+                                    .input-field.button
+                                        button.btn.btn-danger.w-100 Login
+                            .login-signup
+                                span.text
+                                    | Not a member?
+                                    br
+                                    a.text.signup-link(href='signup' style='justify-content: space-between;display: flex') Signup now
+                                    span.text.text-right
+                                    a.text.forgotpassword(href='/user/forgotPassword') Quên Mật Khẩu?
+                            mt-4.text-left
+                                    a(href='/wedding.html') Trở về trang chủ
+    else
+        .main(style='height:366px')
+            h2(style='text-align:center;margin-top:208px') Bạn Đã Đăng Nhập Rồi 
+            h1(style='text-align:center;') Hãy Vui Lòng Nhấp Vào Đây Để Trở lại Trang Chủ!!!
+            a(href='/' style='display:flex;justify-content:center;') Trở về trang chủ
