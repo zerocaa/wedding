@@ -22,7 +22,7 @@ const storyLoveSchema = new mongoose.Schema({
   },
   storyPhoto: {
     type: String,
-    default: 'noImg.png'
+    default: 'storyPhoto.jpg'
   }
 });
 

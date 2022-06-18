@@ -10,7 +10,7 @@ const bridesmaidsSchema = new mongoose.Schema(
     },
     name: {
       type: String,
-      default: ''
+      default: "Hoàng Gia Bảo"
     },
     birthday: {
       type: String,
@@ -18,7 +18,7 @@ const bridesmaidsSchema = new mongoose.Schema(
     },
     introduce: {
       type: String,
-      default: ''
+      default: 'Hòa đồng, xông xáo, nhiệt tình và có trách nhiệm trong công việc. Là chàng trai yêu động vật, thích chơi game, thích ăn cơm nhà và nước uống có ga…'
     },
     fb: {
       type: String,
@@ -30,11 +30,11 @@ const bridesmaidsSchema = new mongoose.Schema(
     },
     fename: {
       type: String,
-      default: ''
+      default: 'Ngô Thị Bích Thủy'
     },
     feintroduce: {
       type: String,
-      default: ''
+      default: 'Bích Thủy sở hữu ngoại hình dễ thương, xinh xắn và nấu ăn rất ngon. Là cô gái thật thà, hiền lành, hơi ít nói bởi vì nhiều lúc không biết nên nói gì...'
     },
     febirthday: {
       type: String,

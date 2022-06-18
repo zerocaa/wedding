@@ -5,6 +5,7 @@ const Wedding = require('../models/weddingModel');
 const bridesmaids = require('../models/bridesmaidsModel');
 const path = require('path');
 const catchAsync = require('../utils/catchAsync');
+const Templates = require('../models/templatesModel');
 const Contact = require('../models/contactModel');
 const AppError = require('../utils/appError');
 
@@ -142,6 +143,8 @@ exports.getBrideGroom = catchAsync(async (req, res, next) => {
 
 
 exports.getPreview = catchAsync(async (req, res, next) => {
+   const template = await Templates.findOne({ wedding: req.params.weddingId });
+    req.body.templates = template.id
   req.body.contact = [];
   const contact = await Contact.find({ wedding: req.params.weddingId });
   const contactId = contact.map((data, i) => {

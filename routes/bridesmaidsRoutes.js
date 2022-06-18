@@ -7,7 +7,7 @@ router
   .route('/')
   .post(
     authController.protect,
-    authController.restrictTo('user'),
+    authController.restrictTo('user', 'admin'),
     bridesmaids.createBridesMaids
   )
   .get(bridesmaids.getAllBridesMaids);

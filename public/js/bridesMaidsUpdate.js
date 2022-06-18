@@ -1,13 +1,13 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
-const baseUrl = "https://wedding-production-09d7.up.railway.app"
+const baseUrl = "http://localhost:3000"
 
 export const createBridesMaids = async wedding => {
   try {
     const res = await axios({
       method: 'POST',
-      url: `${baseUrl}/api/v1/bridesmaids`,
+      url: 'http://localhost:3000/api/v1/bridesmaids',
       data: {
         wedding
       }

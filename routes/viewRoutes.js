@@ -62,7 +62,7 @@ router
   .route('/wedding/edit/:weddingId/bridegroom')
   .put(
     authController.protect,
-    authController.restrictTo('user'),
+    authController.restrictTo('user', 'admin'),
     weddingController.uploadWeddingImages,
     weddingController.resizeWeddingImages,
     weddingController.updateWedding

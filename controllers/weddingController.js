@@ -123,9 +123,8 @@ exports.getWeddingsWithin = catchAsync(async (req, res, next) => {
 exports.getAllWedding = factory.getAll(Wedding);
 // render data bridegroom
 exports.getWedding = catchAsync(async (req, res, next) => {
+
   const wedding = await Wedding.findById(req.params.weddingId)
-  console.log(req.user.role == 'admin')
-  console.log(wedding.user.id == req.user.id)
   if (req.user.role == 'admin' || wedding.user.id == req.user.id ) {
     const weddings = await Wedding.findById(req.params.weddingId);
     if (!weddings)

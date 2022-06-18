@@ -6,7 +6,7 @@ const router = express.Router();
 router
   .route('/')
   .post(authController.protect,
-    authController.restrictTo('user'),
+    authController.restrictTo('user', 'admin'),
     story.createStory)
   .get(story.getAllStories);
   

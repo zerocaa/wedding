@@ -1,16 +1,15 @@
 /* eslint-disable */
 import { showAlert } from './alert';
 import axios from 'axios';
-import { base } from 'mongoose/lib/query';
 
-const baseUrl = "https://wedding-production-09d7.up.railway.app"
+const baseUrl = "http://localhost:3000"
 
 export const login = async (email,password) => {
     console.log(email,password);
     try{
         const res = await axios({
           method: 'POST',
-          url: `https://wedding-production-09d7.up.railway.app/api/v1/users/login`,
+          url: `${baseUrl}/api/v1/users/login`,
           data: {
             email,
             password

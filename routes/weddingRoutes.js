@@ -14,7 +14,6 @@ router
   .get(authController.protect, weddingController.getWeddingTest)
   .patch(
     authController.protect,
-    authController.restrictTo('user', 'admin'),
     weddingController.updateWedding
   )
   .delete(

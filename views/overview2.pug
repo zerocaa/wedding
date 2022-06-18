@@ -143,6 +143,8 @@ if(wedding)
               a(href='#story') Chuy&#x1EC7;n t&igrave;nh y&ecirc;u
             li.nav-item.mr-4
               a(href='#events') S&#x1EF1; ki&#x1EC7;n
+            li.nav-item.mr-4 
+              a(href='#people') PHÙ DÂU &amp; PHÙ RỂ
             li.nav-item.mr-4
               a(href='#rsvp') L&#x1EDD;i ch&uacute;c
     nav.mobile_menu.hidden.d-none(style='display: block;')
@@ -156,6 +158,8 @@ if(wedding)
         li.nav-item
           a(href='#events') S&#x1EF1; ki&#x1EC7;n
         li.nav-item
+          a(href="#people") PHÙ DÂU &amp; PHÙ RỂ
+        li.nav-item
           a(href='#rsvp') L&#x1EDD;i ch&uacute;c
   header#home.home-banner-area
     section.hero-area.zoom-burns.position-relative
@@ -168,7 +172,7 @@ if(wedding)
               h3.text-capitalize.font-playball.color-dark=wedding.templates.mainWord
               h1.header-caption-heading.font-playball.color-pink.text-capitalize=`${wedding.malename}  &  ${wedding.fename}`
               p.text-capitalize.font-playball.color-dark=`${wedding.date}`
-          #clock(data-date='2022-07-06' data-text-day='Ngày' data-text-hour='Giờ' data-text-minute='Phút' data-text-second='Giây')
+          #clock(data-date=`${wedding.date}` data-text-day='Ngày' data-text-hour='Giờ' data-text-minute='Phút' data-text-second='Giây')
             .event-count-box
               .dash.days_dash
                 #day.digit 25
@@ -339,33 +343,55 @@ if(wedding)
                 a.see-location-btn.popup-gmaps(target='_blank' href=`${event.map}`)
                   | Xem b&#x1EA3;n &dstrok;&#x1ED3; 
                   i.fa.fa-angle-right
-  section#people.blog-section.section-padding.section-bg-color
+  section#people.our-best-friends-area
     .container
       .row
-       .col.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
-        .section-title
-          h2 Ph&ugrave; D&acirc;u &amp; Ph&ugrave; R&#x1EC3;
-          p=wedding.templates.bridemaidWord
+        .col-sm-12.text-center
+          h2.section-heading Ph&ugrave; d&acirc;u &amp; Ph&ugrave; r&#x1EC3;
+          img.heading-divider(src='https://asdasd3412321.iwedding.info/templates/template5/img/divider.png' alt='divider')
+          h3.section-subheading
+            | T&igrave;nh y&ecirc;u &dstrok;&iacute;ch th&#x1EF1;c &dstrok;&#x1EE9;ng v&#x1EC1; ph&iacute;a nhau trong nh&#x1EEF;ng ng&agrave;y t&#x1ED1;t &dstrok;&#x1EB9;p v&agrave; s&aacute;t c&aacute;nh h&#x1A1;n trong nh&#x1EEF;ng ng&agrave;y t&#x1ED3;i t&#x1EC7;.
       .row
         each bridemaid in wedding.bridesmaids
-          .col-lg-6.col-xs-12
-            .blog-grids.bridesmaid.clearfix
-              .grid
-                .entry-media
-                  img(src=`/img/wedding/${bridemaid.feavatar}` alt='')
-                .inner
-                  h2=bridemaid.fename
-                  h4 Ph&ugrave; d&acirc;u
-                  p=bridemaid.introduce
-          .col-lg-6.col-xs-12
-            .blog-grids.groomsmen.clearfix
-              .grid
-                .entry-media
-                  img(src=`/img/wedding/${bridemaid.avatar}` alt='')
-                .inner
-                  h2=bridemaid.name
-                  h4 Ph&ugrave; rể
-                  p=bridemaid.introduce
+          .groomsmaid.col-xs-12.col-lg-6
+            .single-friend
+              .friend-box(style="width: -webkit-fill-available;")
+                img(src=`/img/wedding/${bridemaid.avatar}` alt='story')
+              .friend-content.pl-3
+                h3.friend-name=bridemaid.name
+                // <p>13/09/1999</p>
+                p=bridemaid.introduce
+                //- .friend-social
+                //-   ul
+                //-     li
+                //-       a(href='' target='_blank')
+                //-         i.fab.fa-facebook-f
+                //-     li
+                //-       a(href='' target='_blank')
+                //-         i.fab.fa-twitter
+                //-     li
+                //-       a(href='' target='_blank')
+                //-         i.fab.fa-linkedin-in
+          .bridesmaid.col-xs-12.col-lg-6
+            .single-friend
+              .friend-box(style="width: -webkit-fill-available;")
+                img(src=`/img/wedding/${bridemaid.feavatar}` alt='story')
+              .friend-content.pl-3
+                h3.friend-name=bridemaid.fename
+                // <p class="friend-identity">Groomman</p>
+                // <p>12/02/1998</p>
+                p=bridemaid.feintroduce
+                .friend-social
+                  //- ul
+                  //-   li
+                  //-     a(href='' target='_blank')
+                  //-       i.fab.fa-facebook-f
+                  //-   li
+                  //-     a(href='' target='_blank')
+                  //-       i.fab.fa-twitter
+                  //-   li
+                  //-     a(href='' target='_blank')
+                  //-       i.fab.fa-linkedin-in
   section#rsvp.rsvp-area.section-bg(style=`background:url(/img/templates/${wedding.templates.bottomPhoto}) no-repeat;`)
     .container
       .row
