@@ -1,7 +1,6 @@
 /* eslint-disable */
 import { showAlert } from './alert';
 import axios from 'axios';
-import { base } from 'mongoose/lib/query';
 
 export const login = async (email,password) => {
     console.log(email,password);
@@ -98,7 +97,7 @@ export const resetPassword = async (password, passwordConfirm, token) => {
     try{
         const res = await axios({
           method: 'PATCH',
-          url: '${baseUrl}/api/v1/users/resetPassword/${token}',
+          url: `http://localhost:3000/api/v1/users/resetPassword/${token}`,
           data: {
             password,
             passwordConfirm,

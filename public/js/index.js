@@ -372,6 +372,8 @@ if (loginForm) {
     const password = document.getElementById('password').value;
     login(email, password);
   });
+} else {
+  console.log('loginForm not found');
 }
 if (logOutBtn) logOutBtn.addEventListener('click', logout, false);
 

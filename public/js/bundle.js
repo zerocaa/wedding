@@ -9141,7 +9141,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//export const update DataUser
+; //export const update DataUser
+
 var updateSettings = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(data, type) {
     var url, res;
@@ -9150,7 +9151,7 @@ var updateSettings = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            url = type === "password" ? "http://localhost:3000/api/v1/users/updateMyPassword" : "http://localhost:3000/api/v1/users/updateMe";
+            url = type === "password" ? 'http://localhost:3000/api/v1/users/updateMyPassword' : 'http://localhost:3000/api/v1/users/updateMe';
             _context.next = 4;
             return (0, _axios.default)({
               method: 'PATCH',
@@ -9162,11 +9163,11 @@ var updateSettings = /*#__PURE__*/function () {
             res = _context.sent;
 
             if (res.data.status === 'success') {
-              (0, _alert.showAlert)('success', "".concat(type.toLowerCase(), " update success"));
+              (0, _alert.showAlert)('success', '${type.toLowerCase()} update success');
               location.reload(true);
             }
 
-            (0, _alert.showAlert)('DATA UPDATE SUCCESS', "".concat(type.toLowerCase(), " update success"));
+            (0, _alert.showAlert)('DATA UPDATE SUCCESS', '${type.toLowerCase()} update success');
             _context.next = 13;
             break;
 
@@ -9220,7 +9221,7 @@ var eventUser = /*#__PURE__*/function () {
             return (0, _axios.default)({
               method: 'PUT',
               url: "http://localhost:3000/api/v1/events/".concat(eventId),
-              // url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${eventId}`,
+              // url: 'https://wedding-production-09d7.up.railway.app/api/v1/events/${eventId}',
               data: data
             });
 
@@ -9316,7 +9317,7 @@ var deleteEvent = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'DELETE',
-              url: "http://localhost:3000/api/v1/events/".concat(courseId) // url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${courseId}`
+              url: "http://localhost:3000/api/v1/events/".concat(courseId) // url: 'https://wedding-production-09d7.up.railway.app/api/v1/events/${courseId}'
 
             });
 
@@ -9844,6 +9845,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+// const baseUrl = 'http://localhost:3000'
 var createContact = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(name, email, content, wedding) {
     var res;
@@ -10853,6 +10855,8 @@ if (loginForm) {
     var password = document.getElementById('password').value;
     (0, _login.login)(email, password);
   });
+} else {
+  console.log('loginForm not found');
 }
 
 if (logOutBtn) logOutBtn.addEventListener('click', _login.logout, false);
@@ -11031,7 +11035,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62040" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56231" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
