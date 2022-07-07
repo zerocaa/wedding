@@ -127,7 +127,8 @@ head
     .double-bounce2
 if(wedding)
   section.menu-section-area
-    nav#mainNav.navbar.navbar-expand-lg.fixed-top.d-none.d-sm-none.d-md-block.d-lg-block.d-xl-block
+    nav#mainNav.navbar.navbar-expand-lg.fixed-top.d-none.d-sm-none.d-md-block.d-lg-block.d-xl-block(style='background-color: rgb(255 194 194) !important; height:50px   ')
+
       .container
         a.navbar-brand.text-logo(href='#home')
           input( id="malename" type="hidden" value=`${wedding.malename}`)
@@ -165,12 +166,12 @@ if(wedding)
     section.hero-area.zoom-burns.position-relative
       .hero-content-wrap.zoom-burns-background(style=`background-image: url(/img/templates/${wedding.templates.mainPhoto});`)
       .container
-        .header-caption.text-left.position-relative
+        .header-caption.text-left.position-relative(style='font-size: 34px !important line-height: 42px !important')
           .header-content
             img.header-content-float-img.position-absolute(src='https://lecuoiducquyen.iwedding.info/templates/template5/img/header-love-bg.png' alt='Love Img')
             .header-inner-text
               h3.text-capitalize.font-playball.color-dark=wedding.templates.mainWord
-              h1.header-caption-heading.font-playball.color-pink.text-capitalize=`${wedding.malename}  &  ${wedding.fename}`
+              h1.font-playball.color-pink.text-capitalize(style='font-size: 34px !important line-height: 42px !important')=`${wedding.malename}  &  ${wedding.fename}`
               p.text-capitalize.font-playball.color-dark=`${wedding.date}`
           #clock(data-date=`${wedding.date}` data-text-day='Ngày' data-text-hour='Giờ' data-text-minute='Phút' data-text-second='Giây')
             .event-count-box
@@ -212,17 +213,7 @@ if(wedding)
                 h3=wedding.malename
               // <h4>10/04/1996</h4>
               p=wedding.maleintroduce
-              //- .bride-groom-social.text-center
-                ul
-                  li
-                    a(href='' target='_blank')
-                      i.fab.fa-facebook-f
-                  li
-                    a(href='' target='_blank')
-                      i.fab.fa-twitter
-                  li
-                    a(href='' target='_blank')
-                      i.fab.fa-linkedin-in
+            
         .col-2.col-sm-2.col-md-2.col-lg-2
           .bride-groom-divider
             .bride-divider-img
@@ -241,7 +232,7 @@ if(wedding)
               a(href='#bride-groom')
                 h3=wedding.fename
               // <h4>15/04/1996</h4>
-              p=wedding.femaleintroduce
+              p=`${wedding.feintroduce}`
               //- .bride-groom-social.text-center
               //-   ul
               //-     li
@@ -257,9 +248,9 @@ if(wedding)
     .container
       .row
         .col.col-xs-12
-          h4.text-center
+          h4.text-center(style= "color: white")
             span=wedding.templates.middleWord1
-          h2.text-center.mt-3=wedding.templates.middleWord2            
+          h2.text-center.mt-3(style="color: white")=wedding.templates.middleWord2            
   //- section#story.love-story-area
   //-   .container
   //-     .row
@@ -398,7 +389,7 @@ if(wedding)
         .col-sm-12.text-center
           h2.section-heading S&#x1ED5; L&#x1B0;u B&uacute;t
           img.heading-divider(src='https://lecuoiducquyen.iwedding.info/templates/template5/img/divider.png' alt='divider')
-          h3.section-subheading=wedding.templates.guestbookWord
+          h3.section-subheading(style='color: white;')=wedding.templates.guestbookWord
       .row
         .col-12.col-lg-6.col-md-7
           .wish-box-form

@@ -9211,6 +9211,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+// const baseUrl = "http://localhost:3000"
 var baseUrl = "http://localhost:3000";
 
 var eventUser = /*#__PURE__*/function () {
@@ -9225,7 +9226,7 @@ var eventUser = /*#__PURE__*/function () {
             return (0, _axios.default)({
               method: 'PUT',
               url: "".concat(baseUrl, "/api/v1/events/").concat(eventId),
-              // url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${eventId}`,
+              // url: `http://localhost:3000/api/v1/events/${eventId}`,
               data: data
             });
 
@@ -9272,8 +9273,8 @@ var createEvent = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:3000/api/v1/events',
-              // url: 'https://wedding-production-09d7.up.railway.app/api/v1/events',
+              url: "http://localhost:3000/api/v1/events",
+              // url: 'http://localhost:3000/api/v1/events',
               data: {
                 wedding: wedding
               }
@@ -9321,7 +9322,7 @@ var deleteEvent = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'DELETE',
-              url: "".concat(baseUrl, "/api/v1/events/").concat(courseId) // url: `https://wedding-production-09d7.up.railway.app/api/v1/events/${courseId}`
+              url: "".concat(baseUrl, "/api/v1/events/").concat(courseId) // url: `http://localhost:3000/api/v1/events/${courseId}`
 
             });
 
@@ -11048,7 +11049,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54065" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55660" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

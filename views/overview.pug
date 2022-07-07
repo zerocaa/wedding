@@ -18,7 +18,7 @@ head
 if(wedding)
   .main
     #nd_options_navigation_2_container.nd_options_section.nd_options_position_relative
-      .nd_options_section(style='background-color: #DDA0DD ; border-bottom: 1px solid #DDA0DD ;')
+      .nd_options_section(style='background-color: #f5a4ac ; border-bottom: 1px solid #f5a4ac ;')
         .nd_options_container.nd_options_clearfix.nd_options_position_relative
           .nd_options_grid_12.nd_options_display_none_all_responsive
             .nd_options_section(style='height: 4px;')
@@ -52,7 +52,9 @@ if(wedding)
                     #znid-093705202550.zn-element-wrapper(data-type='heading' data-background-type='none' data-border-enable='false' data-shadow-enable='false' data-text-shadow-enable='false')
                       .zn-element.zn-lg
                         h2.zn-heading(id='' data-element-animation='' data-scroll-animation='')
-                          h3(style='color:	white')=`${wedding.templates.mainWord}`	
+                          //- take last two letter of name
+                          h1(style='color:	white')=`${wedding.templates.mainWord}`
+
                           h1(style='color:	white')=`${wedding.malename} & ${wedding.fename}`
                           h2(style='color:	white')=`${wedding.date}`
                 .zn-child
