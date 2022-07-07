@@ -1,7 +1,7 @@
 import { showAlert } from './alert';
 import axios from 'axios';
 
-const baseUrl = "http://localhost:3000"
+const baseUrl = "https://wedding-production-052d.up.railway.app"
 
 export const updateStory = async (storyId, title, time, content) => {
   try {

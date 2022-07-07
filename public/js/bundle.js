@@ -8863,7 +8863,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var baseUrl = "http://localhost:3000";
+var baseUrl = "https://wedding-production-052d.up.railway.app";
 
 var login = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(email, password) {
@@ -9143,7 +9143,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var baseUrl = "http://localhost:3000"; //export const update DataUser
+var baseUrl = "https://wedding-production-052d.up.railway.app"; //export const update DataUser
 
 var updateSettings = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(data, type) {
@@ -9211,8 +9211,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-// const baseUrl = "http://localhost:3000"
-var baseUrl = "http://localhost:3000";
+// const baseUrl = "https://wedding-production-052d.up.railway.app"
+var baseUrl = "https://wedding-production-052d.up.railway.app";
 
 var eventUser = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(eventId, data) {
@@ -9226,7 +9226,7 @@ var eventUser = /*#__PURE__*/function () {
             return (0, _axios.default)({
               method: 'PUT',
               url: "".concat(baseUrl, "/api/v1/events/").concat(eventId),
-              // url: `http://localhost:3000/api/v1/events/${eventId}`,
+              // url: `https://wedding-production-052d.up.railway.app/api/v1/events/${eventId}`,
               data: data
             });
 
@@ -9273,8 +9273,8 @@ var createEvent = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: "http://localhost:3000/api/v1/events",
-              // url: 'http://localhost:3000/api/v1/events',
+              url: "https://wedding-production-052d.up.railway.app/api/v1/events",
+              // url: 'https://wedding-production-052d.up.railway.app/api/v1/events',
               data: {
                 wedding: wedding
               }
@@ -9322,7 +9322,7 @@ var deleteEvent = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'DELETE',
-              url: "".concat(baseUrl, "/api/v1/events/").concat(courseId) // url: `http://localhost:3000/api/v1/events/${courseId}`
+              url: "".concat(baseUrl, "/api/v1/events/").concat(courseId) // url: `https://wedding-production-052d.up.railway.app/api/v1/events/${courseId}`
 
             });
 
@@ -9374,7 +9374,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var baseUrl = "http://localhost:3000";
+var baseUrl = "https://wedding-production-052d.up.railway.app";
 
 var updateStory = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(storyId, title, time, content) {
@@ -9585,7 +9585,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var baseUrl = "http://localhost:3000";
+var baseUrl = "https://wedding-production-052d.up.railway.app";
 
 var createwedding = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(data) {
@@ -9699,7 +9699,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var baseUrl = "http://localhost:3000";
+var baseUrl = "https://wedding-production-052d.up.railway.app";
 
 var createBridesMaids = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(wedding) {
@@ -9712,7 +9712,7 @@ var createBridesMaids = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:3000/api/v1/bridesmaids',
+              url: 'https://wedding-production-052d.up.railway.app/api/v1/bridesmaids',
               data: {
                 wedding: wedding
               }
@@ -9857,8 +9857,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = "http://localhost:3000";
+// const baseUrl = 'https://wedding-production-052d.up.railway.app'
+var baseUrl = "https://wedding-production-052d.up.railway.app";
 
 var createContact = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(name, email, content, wedding) {
@@ -9973,7 +9973,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var baseUrl = "http://localhost:3000";
+var baseUrl = "https://wedding-production-052d.up.railway.app";
 
 var templatesEdit = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(templatesId, data) {
