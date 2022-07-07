@@ -7,12 +7,12 @@ const contactSchema = new mongoose.Schema({
     },
     name: {
         type: String,
-        default:'CEO của Biihappy'
+        default:'CEO của Behappy'
     },
     email: {
         type: String,
         lowercase: true,
-        default:'info@biihappy.com'
+        default:'info@Behappy.com'
     },
     content: {
         type: String,

@@ -50,7 +50,7 @@ app.use(
 
 app.use(
   cors({
-    origin: ['https://wedding-production-09d7.up.railway.app'],
+    origin: ['http://localhost:3000'],
     credentials: true
   })
 );
@@ -58,7 +58,7 @@ app.use(
 app.use(function(req, res, next) {
   res.header(
     'Access-Control-Allow-Origin',
-    'https://wedding-production-09d7.up.railway.app'
+    'http://localhost:3000'
   );
   res.header('Access-Control-Allow-Headers', true);
   res.header('Access-Control-Allow-Credentials', true);
