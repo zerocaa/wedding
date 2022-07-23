@@ -1,3 +1,4 @@
+// initCmtioIframe(document.getElementById("cmtio"));
 var a = document.getElementById('clock').getAttribute('data-date');
 var countDownDate = new Date(a).getTime();
 console.log(countDownDate);
